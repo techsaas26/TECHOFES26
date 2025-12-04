@@ -1,0 +1,1 @@
+// create accommodation model
