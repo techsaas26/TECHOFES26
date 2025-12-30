@@ -1,25 +1,75 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  T_ID: { type: String, unique: true, required: true, index: true },
-  username: { type: String, unique: true, required: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true, unique: true, match: /.+\@.+\..+/ },
-  passwordHash: { type: String, required: true },
-  phoneNumber: { type: String, required: true },
-  rollNo: { type: String, required: true },
-  college: { type: String, required: true },
-  failedAttempts: { type: Number, default: 0 },
-}, { timestamps: true });
+import mongoose from "mongoose";
+import UserIdTracker from "./userIdTracker.js";
 
-// Hide sensitive fields in JSON responses
+const userSchema = new mongoose.Schema(
+  {
+    T_ID: {
+      type: String,
+      unique: true,
+      index: true,
+    },
+
+    userType: {
+      type: String,
+      enum: ["CEG", "OUTSIDE"],
+      required: true,
+    },
+
+    username: { type: String, unique: true, required: true },
+
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      match: /.+\@.+\..+/,
+    },
+
+    passwordHash: { type: String, required: true },
+
+    phoneNumber: { type: String, required: true },
+
+    college: {
+      type: String,
+      required: function () {
+        return this.userType === "OUTSIDE";
+      },
+    },
+
+    rollNo: {
+      type: String,
+      required: function () {
+        return this.userType === "CEG";
+      },
+    },
+
+    failedAttempts: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
+
+userSchema.pre("validate", async function (next) {
+  if (!this.T_ID) {
+    if (this.userType === "CEG") {
+      this.T_ID = await UserIdTracker.getNextInsiderId();
+    } else if (this.userType === "OUTSIDE") {
+      this.T_ID = await UserIdTracker.getNextOutsiderId();
+    }
+  }
+  next();
+});
+
 userSchema.set("toJSON", {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-    delete returnedObject.__v;
-    delete returnedObject.passwordHash;
+  transform: (doc, ret) => {
+    ret.id = ret._id.toString();
+    delete ret._id;
+    delete ret.__v;
+    delete ret.passwordHash;
   },
 });
 

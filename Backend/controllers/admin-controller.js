@@ -1,133 +1,163 @@
 import User from "../models/User.js";
 import Registration from "../models/Registration.js";
+import Event from "../models/Event.js";
 import Agenda from "../models/Agenda.js";
 import ProShow from "../models/ProShow.js";
-import Event from "../models/Event.js";
+import Merchandise from "../models/Merchandise.js";
+import Accommodation from "../models/Accommodation.js";
+import razorpay from "../utils/pay.js";
 import logger from "../utils/logger.js";
 
-// ---------------- GET Controllers ----------------
+// -----------------------------
+// 1️⃣ User Management
+// -----------------------------
 export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find({});
-    logger.info(`Fetched all users. Count: ${users.length}`);
+    const users = await User.find();
     res.status(200).json(users);
-  } catch (err) {
-    logger.error("Error fetching users", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
 };
 
 export const getTotalUsers = async (req, res, next) => {
   try {
     const totalUsers = await User.countDocuments();
-    logger.info(`Total user registrations: ${totalUsers}`);
-    res.status(200).json({ totalUserRegistrations: totalUsers });
-  } catch (err) {
-    logger.error("Error counting users", err);
-    next(err);
-  }
+    res.status(200).json({ totalUsers });
+  } catch (err) { next(err); }
 };
 
+// -----------------------------
+// 2️⃣ Registration Management
+// -----------------------------
 export const getAllRegistrations = async (req, res, next) => {
   try {
-    const registrations = await Registration.find({}).populate("user event");
-    logger.info(`Fetched all registrations. Count: ${registrations.length}`);
+    const registrations = await Registration.find().populate("user event");
     res.status(200).json(registrations);
-  } catch (err) {
-    logger.error("Error fetching registrations", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
 };
 
 export const getTotalRegistrations = async (req, res, next) => {
   try {
     const totalRegistrations = await Registration.countDocuments();
-    logger.info(`Total registrations: ${totalRegistrations}`);
     res.status(200).json({ totalRegistrations });
-  } catch (err) {
-    logger.error("Error counting registrations", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
 };
 
-// ---------------- POST Controllers (Uploads) ----------------
+// -----------------------------
+// 3️⃣ Event / Agenda / Proshow Uploads
+// -----------------------------
 export const uploadAgenda = async (req, res, next) => {
   try {
     const { day, imgUrl } = req.body;
+    if (!imgUrl || ![1,2].includes(day)) return res.status(400).json({ error: "Invalid day or missing image" });
 
-    if (!imgUrl) {
-      logger.error("Agenda upload failed: Image URL missing");
-      return res.status(400).json({ error: "Image URL is required" });
-    }
-
-    const allowedDays = [1, 2];
-    if (!allowedDays.includes(day)) {
-      logger.error(`Agenda upload failed: Invalid day ${day}`);
-      return res.status(400).json({ error: `Invalid day. Allowed values: ${allowedDays.join(", ")}` });
-    }
-
-    await Agenda.findOneAndDelete({ day }); // remove existing agenda for the day
+    await Agenda.findOneAndDelete({ day });
     const agenda = await Agenda.create({ day, imgUrl });
-
-    logger.info(`Uploaded agenda for day ${day}`);
     res.status(201).json({ success: true, agenda });
-  } catch (err) {
-    logger.error("Error uploading agenda", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
 };
 
 export const uploadProshow = async (req, res, next) => {
   try {
     const { name, imgUrl, date } = req.body;
-
-    if (!name || !imgUrl) {
-      logger.error("Proshow upload failed: Name or Image missing");
-      return res.status(400).json({ error: "Name and Image URL are required" });
-    }
+    if (!name || !imgUrl) return res.status(400).json({ error: "Name and image required" });
 
     const proShow = await ProShow.create({ name, imgUrl, date });
-    logger.info(`Uploaded proshow: ${name}`);
     res.status(201).json({ success: true, proShow });
-  } catch (err) {
-    logger.error("Error uploading proshow", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
 };
 
 export const uploadEvent = async (req, res, next) => {
   try {
-    const { title, imgUrl, club, description, venue, type, day, time, isPaid } = req.body;
+    const { title, imgUrl, club, description, venue, type, day, time, isPaid, fee } = req.body;
+    if (!title || !imgUrl || !club || !day) return res.status(400).json({ error: "Missing required fields" });
 
-    if (!title || !imgUrl || !club || !day) {
-      logger.error("Event upload failed: Missing required fields");
-      return res.status(400).json({ error: "Title, Image, Club, and Day are required" });
+    const allowedDays = [1,2];
+    const allowedTimes = ["Day","Night"];
+    const allowedTypes = ["Club","Iconic","Signature","Night Events"];
+
+    if (!allowedDays.includes(day) || (time && !allowedTimes.includes(time)) || (type && !allowedTypes.includes(type))) {
+      return res.status(400).json({ error: "Invalid day/time/type" });
     }
 
-    const allowedDays = [1, 2];
-    const allowedTimes = ["Day", "Night"];
-    const allowedTypes = ["Club", "Iconic", "Signature"];
-
-    if (!allowedDays.includes(day)) {
-      logger.error(`Event upload failed: Invalid day ${day}`);
-      return res.status(400).json({ error: `Invalid day. Allowed values: ${allowedDays.join(", ")}` });
-    }
-
-    if (time && !allowedTimes.includes(time)) {
-      logger.error(`Event upload failed: Invalid time ${time}`);
-      return res.status(400).json({ error: `Invalid time. Allowed values: ${allowedTimes.join(", ")}` });
-    }
-
-    if (type && !allowedTypes.includes(type)) {
-      logger.error(`Event upload failed: Invalid type ${type}`);
-      return res.status(400).json({ error: `Invalid type. Allowed values: ${allowedTypes.join(", ")}` });
-    }
-
-    const event = await Event.create({ title, imgUrl, club, description, venue, type, day, time, isPaid });
-    logger.info(`Uploaded event: ${title} for day ${day}`);
+    const event = await Event.create({ title, imgUrl, club, description, venue, type, day, time, isPaid, fee });
     res.status(201).json({ success: true, event });
-  } catch (err) {
-    logger.error("Error uploading event", err);
-    next(err);
-  }
+  } catch (err) { next(err); }
+};
+
+// -----------------------------
+// 4️⃣ Merchandise Management
+// -----------------------------
+export const getAllMerchandise = async (req, res, next) => {
+  try {
+    const merch = await Merchandise.find().populate("user", "T_ID rollNo");
+    res.status(200).json(merch);
+  } catch (err) { next(err); }
+};
+
+export const getMerchByRoll = async (req, res, next) => {
+  try {
+    const { rollNo } = req.params;
+    const user = await User.findOne({ rollNo });
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    const merch = await Merchandise.find({ user: user._id });
+    res.status(200).json(merch);
+  } catch (err) { next(err); }
+};
+
+export const getMerchBySize = async (req, res, next) => {
+  try {
+    const { size } = req.params;
+    const merch = await Merchandise.find({ "sizes.size": size }).populate("user", "T_ID rollNo");
+    res.status(200).json(merch);
+  } catch (err) { next(err); }
+};
+
+export const getMerchByCombo = async (req, res, next) => {
+  try {
+    const { combo_type } = req.params;
+    const merch = await Merchandise.find({ combo_type }).populate("user", "T_ID rollNo");
+    res.status(200).json(merch);
+  } catch (err) { next(err); }
+};
+
+// -----------------------------
+// 5️⃣ Accommodation Management
+// -----------------------------
+export const getAllAccommodations = async (req, res, next) => {
+  try {
+    const accommodations = await Accommodation.find().populate("user", "T_ID rollNo firstName");
+    res.status(200).json(accommodations);
+  } catch (err) { next(err); }
+};
+
+export const getAccommodationByRoll = async (req, res, next) => {
+  try {
+    const { rollNo } = req.params;
+    const user = await User.findOne({ rollNo });
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    const accom = await Accommodation.find({ user: user._id });
+    res.status(200).json(accom);
+  } catch (err) { next(err); }
+};
+
+export const getAccommodationByGender = async (req, res, next) => {
+  try {
+    const { gender } = req.params;
+    const accom = await Accommodation.find({ gender }).populate("user", "T_ID rollNo firstName");
+    res.status(200).json(accom);
+  } catch (err) { next(err); }
+};
+
+export const deleteAccommodationRequest = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const accom = await Accommodation.findById(id);
+    if (!accom) return res.status(404).json({ error: "Request not found" });
+    if (accom.is_paid) return res.status(400).json({ error: "Cannot delete a paid accommodation" });
+
+    await accom.deleteOne();
+    res.status(200).json({ message: "Accommodation request deleted" });
+  } catch (err) { next(err); }
 };

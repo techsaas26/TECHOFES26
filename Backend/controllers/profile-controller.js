@@ -1,64 +1,70 @@
 import User from "../models/User.js";
 import Registration from "../models/Registration.js";
-import Event from "../models/Event.js";
 import logger from "../utils/logger.js";
 
-// ---------------- Get user details ----------------
+/* =========================
+   Get User Details
+========================= */
 export const getUserDetails = async (req, res, next) => {
   try {
-    const T_ID = req.T_ID; // set by userExtractor middleware
+    const { T_ID } = req; // set by userExtractor middleware
 
     logger.info(`Fetching details for user T_ID: ${T_ID}`);
 
-    const user = await User.findOne({ T_ID }).select("-password -__v"); // hide sensitive fields
+    const user = await User.findOne({ T_ID });
     if (!user) {
       logger.warn(`User not found: T_ID ${T_ID}`);
       return res.status(404).json({ error: "User not found" });
     }
 
-    logger.info(`User details retrieved successfully: T_ID ${T_ID}`);
     return res.status(200).json(user);
   } catch (error) {
     logger.error(`Error fetching user details: ${error.stack}`);
-    next(error); // pass error to centralized error handler
+    next(error);
   }
 };
 
-// ---------------- Get user registrations ----------------
+/* =========================
+   Get User Registrations
+========================= */
 export const getUserRegistrations = async (req, res, next) => {
   try {
-    const T_ID = req.T_ID; // set by userExtractor
+    const { T_ID } = req;
 
     logger.info(`Fetching registrations for user T_ID: ${T_ID}`);
 
-    const user = await User.findOne({ T_ID });
+    const user = await User.findOne({ T_ID }).select("_id");
     if (!user) {
-      logger.warn(`User not found for registrations: T_ID ${T_ID}`);
+      logger.warn(`User not found: T_ID ${T_ID}`);
       return res.status(404).json({ error: "User not found" });
     }
 
-    const registrations = await Registration.find({ user });
-
-    const eventDetails = await Promise.all(
-      registrations.map(async (registration) => {
-        const event = await Event.findById(registration.event);
-        if (!event) return null;
-
-        return {
-          title: event.title,
-          category: event.type,
-          day: event.day,
-          time: event.time,
-          venue: event.venue,
-          isPaid: event.isPaid,
-        };
+    const registrations = await Registration.find({ user: user._id })
+      .populate({
+        path: "event",
+        select: "title category day time venue isPaid",
       })
+      .select("event paymentStatus ");
+
+    const response = registrations
+      .filter((r) => r.event) // safety
+      .map((r) => ({
+        title: r.event.title,
+        category: r.event.category,
+        day: r.event.day,
+        time: r.event.time,
+        venue: r.event.venue,
+        isPaid: r.event.isPaid,
+        paymentStatus: r.paymentStatus,
+      }));
+
+    logger.info(
+      `Registrations retrieved for T_ID ${T_ID}, count: ${response.length}`
     );
 
-    logger.info(`Registrations retrieved for user T_ID: ${T_ID}, total: ${eventDetails.filter(Boolean).length}`);
-    return res.status(200).json(eventDetails.filter(Boolean));
+    return res.status(200).json(response);
   } catch (error) {
     logger.error(`Error fetching user registrations: ${error.stack}`);
-    next(error); // pass error to centralized error handler
+    next(error);
   }
 };

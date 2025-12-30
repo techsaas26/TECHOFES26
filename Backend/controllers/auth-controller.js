@@ -11,45 +11,71 @@ const MAX_ATTEMPTS = 3;
 // ---------------- Register ----------------
 export const registerUser = async (req, res, next) => {
   try {
-    const { username, firstName, lastName, email, phn, rollno, password } = req.body;
-    const college = "CEG";
+    const { username, firstName, lastName, email, phn, rollno, password, userType } = req.body;
 
-    logger.info(`Register attempt for username: ${username}, email: ${email}`);
+    if (!["CEG", "OUTSIDE"].includes(userType)) {
+      return res.status(400).json({ error: "Invalid userType. Must be CEG or OUTSIDE" });
+    }
 
-    const existingUser = await User.findOne({ $or: [{ username }, { emailID: email }] });
+    logger.info(`Register attempt | username: ${username} | email: ${email} | type: ${userType}`);
+
+    // Check for duplicates
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) {
       logger.warn(`Registration failed: username/email already in use (${username} / ${email})`);
       return res.status(400).json({ error: "Username or email already in use" });
     }
 
+    // Hash password
     const passwordHash = await bcrypt.hash(password, 10);
-    const T_ID = await UserIdTracker.getNextId(); // generate unique insider ID
 
-    const user = new User({
+    // Generate T_ID based on user type
+    let T_ID;
+    if (userType === "CEG") {
+      T_ID = await UserIdTracker.getNextInsiderId();
+    } else {
+      T_ID = await UserIdTracker.getNextOutsiderId();
+    }
+
+    // Build user object
+    const userData = {
       T_ID,
       username,
       firstName,
       lastName,
       email,
       phoneNumber: phn,
-      rollNo: rollno,
       passwordHash,
-      college,
-    });
+      userType,
+    };
 
+    // Only CEG users have rollNo & college
+    if (userType === "CEG") {
+      userData.rollNo = rollno;
+      userData.college = "CEG";
+    } else {
+      userData.college = req.body.college || "N/A"; // optional for outsiders
+    }
+
+    const user = new User(userData);
     const savedUser = await user.save();
+
     logger.info(`User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`);
 
+    // Send confirmation email (optional)
     const subject = "Registration Confirmation";
     const text = `Dear ${savedUser.firstName},\n\nThank you for registering! Your unique T_ID is: ${savedUser.T_ID} and username is: "${savedUser.username}".\n\nBest regards,\nEvent Team`;
 
-    // sendMail can throw; optionally catch/log inside sendMail itself
-    // await sendMail(savedUser.emailID, subject, text);
+    // await sendMail(savedUser.email, subject, text);
 
-    res.status(201).json({ message: "User registered successfully", user: savedUser });
+    res.status(201).json({
+      message: "User registered successfully",
+      user: savedUser,
+    });
+
   } catch (err) {
     logger.error(`Error during registration: ${err.stack}`);
-    next(err); // use centralized error handler
+    next(err);
   }
 };
 
@@ -61,24 +87,19 @@ export const loginUser = async (req, res, next) => {
     logger.info(`Login attempt for username: ${username}`);
 
     const user = await User.findOne({ username });
-    if (!user) {
-      logger.warn(`Login failed: user not found (${username})`);
-      return res.status(401).json({ error: "Invalid username or password" });
-    }
+    if (!user) return res.status(401).json({ error: "Invalid username or password" });
 
     const passwordCorrect = await bcrypt.compare(password, user.passwordHash);
     if (!passwordCorrect) {
       user.failedAttempts += 1;
-
       if (user.failedAttempts >= MAX_ATTEMPTS && user.username !== "admin") {
         logger.warn(`User ${username} exceeded max login attempts. Sending alert email.`);
         await sendMail(
-          user.emailID,
+          user.email,
           "Frequent Login Attempts Detected",
           `Dear ${username},\n\nWe noticed multiple failed login attempts on your account.\n\nIf you need help resetting your password, please contact support.\n\nBest regards,\nEvent Team`
         );
       }
-
       if (user.username !== "admin") await user.save();
       return res.status(401).json({ error: "Invalid username or password" });
     }
@@ -86,7 +107,7 @@ export const loginUser = async (req, res, next) => {
     user.failedAttempts = 0;
     if (user.username !== "admin") await user.save();
 
-    const tokenPayload = { T_ID: user.T_ID };
+    const tokenPayload = { T_ID: user.T_ID, userType: user.userType };
     const token = jwt.sign(tokenPayload, config.JWT_SECRET, { expiresIn: config.JWT_EXPIRY || "7d" });
 
     logger.info(`User logged in successfully: ${username} (T_ID: ${user.T_ID})`);
@@ -95,10 +116,12 @@ export const loginUser = async (req, res, next) => {
       token,
       username: user.username,
       T_ID: user.T_ID,
+      userType: user.userType,
     });
+
   } catch (err) {
     logger.error(`Error during login: ${err.stack}`);
-    next(err); // forward to centralized error handler
+    next(err);
   }
 };
 

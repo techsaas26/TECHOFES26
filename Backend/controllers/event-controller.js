@@ -67,32 +67,31 @@ export const getParticularEvent = async (req, res, next) => {
 export const registerEvent = async (req, res, next) => {
   try {
     const { eventId } = req.body;
-    const T_ID = req.T_ID; // from userExtractor
-    const user = req.user;
-    logger.info(`Register request by user ${T_ID} for event ${eventId}`);
+    const user = req.user; // populated by userExtractor middleware
+    const T_ID = req.T_ID;
 
     if (!user) {
-      logger.warn("Unauthorized registration attempt");
+      logger.warn(`Unauthorized registration attempt | T_ID=${T_ID}`);
       return res.status(401).json({ error: "Unauthorized" });
     }
 
     const event = await Event.findById(eventId);
     if (!event) {
-      logger.error(`Event not found for registration: ID ${eventId}`);
+      logger.error(`Event not found | ID=${eventId}`);
       return res.status(404).json({ error: "Event not found" });
     }
 
-    // Check if already registered
-    const existing = await Registration.findOne({ T_ID, eventID: eventId });
+    // ---------------- Check if already registered ----------------
+    const existing = await Registration.findOne({ user: user._id, event: event._id });
     if (existing) {
-      logger.warn(`User ${T_ID} already registered for event ${eventId}`);
-      return res.status(400).json({ error: "Already registered" });
+      logger.warn(`Already registered | T_ID=${T_ID} | Event=${eventId}`);
+      return res.status(400).json({ error: "Already registered for this event" });
     }
 
     // ---------------- Free Event ----------------
     if (!event.isPaid) {
-      const registration = await Registration.create({ user, event });
-      logger.info(`User ${T_ID} registered for free event ${eventId}`);
+      const registration = await Registration.create({ user: user._id, event: event._id });
+      logger.info(`Free event registration created | T_ID=${T_ID} | Event=${eventId}`);
       return res.status(201).json({
         message: "Registered successfully (Free Event)",
         registration,
@@ -100,32 +99,27 @@ export const registerEvent = async (req, res, next) => {
     }
 
     // ---------------- Paid Event ----------------
-    // Base registration fee in INR
-    const baseFee = event.fee || 200; // default ₹200
+    const baseFee = event.fee || 200;  // default ₹200
+    const gatewayPercent = 0.02;       // 2%
+    const gstPercent = 0.18;           // 18%
+    const totalCharge = Math.ceil(baseFee / (1 - gatewayPercent * (1 + gstPercent)));
 
-    // Gateway + GST percentages
-    const gatewayPercent = 0.02; // 2%
-    const gstPercent = 0.18;     // 18%
-
-    // Calculate total amount to charge so you receive exact baseFee
-    const totalCharge = Math.ceil(baseFee / (1 - gatewayPercent * (1 + gstPercent))); 
-
-    const options = {
-      amount: totalCharge * 100, // amount in paise
+    // Create Razorpay order
+    const order = await razorpay.orders.create({
+      amount: totalCharge * 100,       // in paise
       currency: "INR",
-      receipt: `event_${eventId}_${T_ID}_${Date.now()}`,
+      receipt: `event_${event._id}_${user._id}`,  // matches webhook
       notes: {
         eventId: event._id.toString(),
-        userId: T_ID,
+        userId: user._id.toString(),
         baseFee: baseFee,
         convenienceFee: totalCharge - baseFee
       }
-    };
+    });
 
-    const order = await razorpay.orders.create(options);
-    logger.info(`Payment order created for user ${T_ID} | Event ${eventId} | Order ${order.id}`);
+    logger.info(`Razorpay order created | T_ID=${T_ID} | Event=${eventId} | Order=${order.id}`);
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Payment required",
       orderId: order.id,
       amount: order.amount,
@@ -135,8 +129,9 @@ export const registerEvent = async (req, res, next) => {
       convenienceFee: totalCharge - baseFee,
       eventId: event._id,
     });
+
   } catch (err) {
-    logger.error("Error registering for event", err);
+    logger.error(`registerEvent error | T_ID=${req.T_ID} | ${err.stack}`);
     next(err);
   }
 };
