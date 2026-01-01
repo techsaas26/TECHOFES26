@@ -1,8 +1,20 @@
-const admin = require("firebase-admin");
-const credentials = JSON.parse(Buffer.from(process.env.FIREBASE_CREDENTIALS, "base64").toString("utf8"));
+import admin from "firebase-admin";
 
-admin.initializeApp({
-  credential: admin.credential.cert(credentials),
-});
+let firebaseAdmin;
 
-module.exports = admin;
+try {
+  const credentials = JSON.parse(
+    Buffer.from(process.env.FIREBASE_CREDENTIALS, "base64").toString("utf8")
+  );
+
+  firebaseAdmin = admin.initializeApp({
+    credential: admin.credential.cert(credentials),
+  });
+
+  console.log("Firebase initialized successfully");
+} catch (err) {
+  console.error("Firebase initialization failed:", err.message);
+  process.exit(1);
+}
+
+export default firebaseAdmin;

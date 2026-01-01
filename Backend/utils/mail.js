@@ -1,17 +1,23 @@
 import nodemailer from "nodemailer";
 import config from "./config.js";
+import logger from "./logger.js";
 
 const transporter = nodemailer.createTransport({
-  service: "Gmail", // Replace with your email service (e.g., Gmail, Outlook)
+  service: "Gmail", // Can be replaced with SendGrid, SES, etc.
   auth: {
-    user: config.SMTP_USER, // Your email address
-    pass: config.SMTP_PASSWORD, // Your email password or app-specific password
+    user: config.SMTP_USER,
+    pass: config.SMTP_PASSWORD,
   },
 });
 
 const sendMail = async (to, subject, text) => {
+  if (!to || !subject || !text) {
+    logger.warn("Missing email fields", { to, subject });
+    return;
+  }
+
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: config.SMTP_USER,
     to,
     subject,
     text,
@@ -19,9 +25,9 @@ const sendMail = async (to, subject, text) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully!");
-  } catch (error) {
-    console.error("Error sending email:", error);
+    logger.info(`Email sent to ${to}`);
+  } catch (err) {
+    logger.error("Error sending email", { to, subject, message: err.message });
   }
 };
 

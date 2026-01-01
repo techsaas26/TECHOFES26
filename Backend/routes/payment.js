@@ -1,8 +1,10 @@
 import express from "express";
 import { verifyPayment } from "../controllers/payment-controller.js";
+import { userExtractor } from "../utils/middleware.js";
 
 const router = express.Router();
 
-router.post("/verify", verifyPayment);
+// Protect endpoint with JWT middleware
+router.post("/verify", userExtractor, verifyPayment);
 
 export default router;

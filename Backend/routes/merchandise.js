@@ -1,27 +1,22 @@
 import express from "express";
+import { userExtractor, adminExtractor } from "../utils/middleware.js";
 import {
   purchaseMerchandise,
   getAllMerchPurchases,
-  getPurchaseByRoll,
-  getPurchaseBySize,
-  getPurchasesByCombo
 } from "../controllers/merch-controller.js";
 
 const router = express.Router();
 
-// 1️⃣ Purchase merchandise (payment included)
-router.post("/purchase", purchaseMerchandise);
+/* ======================
+   User Route (Login Required)
+====================== */
+router.post("/purchase", userExtractor, purchaseMerchandise);
 
-// 2️⃣ Get all merchandise purchases
-router.get("/", getAllMerchPurchases);
-
-// 3️⃣ Get purchase by roll number
-router.get("/roll/:rollNo", getPurchaseByRoll);
-
-// 4️⃣ Get purchase by size
-router.get("/size/:size", getPurchaseBySize);
-
-// 5️⃣ Get all purchases under particular combo
-router.get("/combo/:comboType", getPurchasesByCombo);
+/* ======================
+   Admin Route Only
+   - Supports optional query parameters:
+     rollNo, size, comboType, T_ID, name
+====================== */
+router.get("/", userExtractor, adminExtractor, getAllMerchPurchases);
 
 export default router;

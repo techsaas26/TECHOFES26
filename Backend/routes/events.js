@@ -1,22 +1,24 @@
 import express from "express";
-import {
-  getAllEvents,
-  registerEvent,
-  getAllAgendas,
-  getAllProshows,
-  getParticularEvent,
-} from "../controllers/event-controller.js";
-
 import { userExtractor } from "../utils/middleware.js";
+import {
+  getEvents,
+  registerEvent,
+} from "../controllers/event-controller.js";
 
 const router = express.Router();
 
-// ---------------- GET Routes ----------------
-router.get("/agenda", getAllAgendas);
-router.get("/proshows", getAllProshows);
-router.get("/", getAllEvents);
-router.get("/:id", getParticularEvent); // dynamic route comes last
+/* ======================
+   GET Events (Public)
+   Optional query parameters:
+     - day (1 or 2)
+     - category (Club, Iconic, Signature, Night Events)
+     - paid (true/false)
+====================== */
+router.get("/", getEvents);
 
-// ---------------- POST Routes ----------------
+/* ======================
+   POST Event Registration (Login Required)
+====================== */
+router.post("/register", userExtractor, registerEvent);
 
 export default router;

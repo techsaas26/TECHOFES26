@@ -4,17 +4,6 @@ import {
   getAllRegistrations,
   getTotalUsers,
   getTotalRegistrations,
-  uploadAgenda,
-  uploadEvent,
-  uploadProshow,
-  getAllMerchandise,
-  getMerchByRoll,
-  getMerchBySize,
-  getMerchByCombo,
-  getAllAccommodations,
-  getAccommodationByRoll,
-  getAccommodationByGender,
-  deleteAccommodationRequest,
 } from "../controllers/admin-controller.js";
 
 import { userExtractor } from "../utils/middleware.js";
@@ -41,25 +30,5 @@ router.get("/totalusers", getTotalUsers);
 router.get("/registrations", getAllRegistrations);
 router.get("/totalregistrations", getTotalRegistrations);
 
-// Merchandise
-router.get("/merchandise", getAllMerchandise);
-router.get("/merchandise/roll/:rollNo", getMerchByRoll);
-router.get("/merchandise/size/:size", getMerchBySize);
-router.get("/merchandise/combo/:combo_type", getMerchByCombo);
-
-// Accommodation
-router.get("/accommodations", getAllAccommodations);
-router.get("/accommodations/roll/:rollNo", getAccommodationByRoll);
-router.get("/accommodations/gender/:gender", getAccommodationByGender);
-
-// ---------------- POST Routes (Uploads) ----------------
-// Event-related uploads
-router.post("/upload/agenda", uploadAgenda);
-router.post("/upload/event", uploadEvent);
-router.post("/upload/proshow", uploadProshow);
-
-// ---------------- DELETE Routes ----------------
-// Delete accommodation request
-router.delete("/accommodations/:id", deleteAccommodationRequest);
 
 export default router;

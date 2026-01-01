@@ -2,26 +2,22 @@ import express from "express";
 import {
   requestAccommodation,
   getAllAccommodations,
-  getAccommodationByRoll,
-  getAccommodationByGender,
-  deleteAccommodationRequest
-} from "../controllers/accommodationController.js";
+  deleteAccommodationRequest,
+} from "../controllers/accommodation-controller.js";
+
+import { userExtractor, adminExtractor } from "../utils/middleware.js";
 
 const router = express.Router();
 
-// 1️⃣ Request accommodation (payment included)
-router.post("/request", requestAccommodation);
+/* ======================
+   User Route (Login Required)
+====================== */
+router.post("/request", userExtractor, requestAccommodation); // login required
 
-// 2️⃣ Get all accommodation requests
-router.get("/", getAllAccommodations);
-
-// 3️⃣ Get accommodation request by roll number
-router.get("/roll/:rollNo", getAccommodationByRoll);
-
-// 4️⃣ Get accommodation requests by gender
-router.get("/gender/:gender", getAccommodationByGender);
-
-// 5️⃣ Delete a request (optional)
-router.delete("/:id", deleteAccommodationRequest);
+/* ======================
+   Admin Routes Only
+====================== */
+router.get("/", userExtractor, adminExtractor, getAllAccommodations); // optional query filters
+router.delete("/:id", userExtractor, adminExtractor, deleteAccommodationRequest);
 
 export default router;

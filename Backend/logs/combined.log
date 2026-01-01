@@ -1,0 +1,872 @@
+2026-01-01 14:03:18 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollno":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:03:18 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:03:18 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:03:18 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:03:18 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:03:19 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:03:19 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:03:19 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:03:19 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollno":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:03:19 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:03:19 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:03:19 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:03:19 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:03:19 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:03:19 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"6956314f77c6550821747cd7"}
+2026-01-01 14:03:19 [INFO]: Free event registration created | T_ID=CEG1 | Event=6956314f77c6550821747cd7
+2026-01-01 14:03:21 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:03:21 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:03:21 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:03:21 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:03:21 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:03:21 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:03:21 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:03:21 [INFO]: Login attempt for username: testuser
+2026-01-01 14:03:21 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:03:22 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phn":"9876543213","rollno":"CEG126","password":"***","userType":"CEG"}
+2026-01-01 14:03:22 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:03:22 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:03:22 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:03:22 [INFO]: Login attempt for username: accuser
+2026-01-01 14:03:22 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:03:22 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","no_of_nights":3}
+2026-01-01 14:03:22 [ERROR]: requestAccommodation error: ValidationError: Accommodation validation failed: paymentAmount: Cast to Number failed for value "NaN" (type number) at path "paymentAmount", noOfNights: Path `noOfNights` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at model.$set (F:\Backend\Backend\node_modules\mongoose\lib\document.js:1480:12)
+    at model.$set (F:\Backend\Backend\node_modules\mongoose\lib\document.js:1132:16)
+    at model.Document (F:\Backend\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\Backend\Backend\node_modules\mongoose\lib\model.js:127:12)
+    at new model (F:\Backend\Backend\node_modules\mongoose\lib\model.js:4834:15)
+    at F:\Backend\Backend\node_modules\mongoose\lib\model.js:2775:20
+    at Array.map (<anonymous>)
+    at model.create (F:\Backend\Backend\node_modules\mongoose\lib\model.js:2763:34)
+    at create (F:\Backend\Backend\controllers\accommodation-controller.js:33:47)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:03:22 [ERROR]: ValidationError: Accommodation validation failed: paymentAmount: Cast to Number failed for value "NaN" (type number) at path "paymentAmount", noOfNights: Path `noOfNights` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at model.$set (F:\Backend\Backend\node_modules\mongoose\lib\document.js:1480:12)
+    at model.$set (F:\Backend\Backend\node_modules\mongoose\lib\document.js:1132:16)
+    at model.Document (F:\Backend\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\Backend\Backend\node_modules\mongoose\lib\model.js:127:12)
+    at new model (F:\Backend\Backend\node_modules\mongoose\lib\model.js:4834:15)
+    at F:\Backend\Backend\node_modules\mongoose\lib\model.js:2775:20
+    at Array.map (<anonymous>)
+    at model.create (F:\Backend\Backend\node_modules\mongoose\lib\model.js:2763:34)
+    at create (F:\Backend\Backend\controllers\accommodation-controller.js:33:47)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:03:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phn":"9876543212","rollno":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:03:23 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:03:23 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:03:23 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:03:23 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:03:23 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:03:23 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"sizes":[{"size":"M","quantity":1}],"is_combo":false}
+2026-01-01 14:15:25 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:15:25 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:15:25 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:15:25 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:15:26 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phn":"9876543213","rollNo":"CEG126","password":"***","userType":"CEG"}
+2026-01-01 14:15:26 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:15:26 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:26 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:27 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phn":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:15:27 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:15:27 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:27 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:27 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:15:27 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:15:27 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:15:28 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:15:28 [INFO]: Login attempt for username: admin
+2026-01-01 14:15:28 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:15:28 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:15:28 [INFO]: Login attempt for username: admin
+2026-01-01 14:15:28 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:15:30 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:15:30 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:15:30 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:30 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:30 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:15:30 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:15:30 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:15:30 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:15:30 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:15:30 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:15:30 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:30 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:15:30 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:15:30 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:15:30 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"6956342a5bb48a0f563cc86a"}
+2026-01-01 14:15:31 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:15:31 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:15:31 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:15:31 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:15:31 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:15:31 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:15:31 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:15:31 [INFO]: Login attempt for username: testuser
+2026-01-01 14:15:31 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:18:40 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:18:40 [INFO]: Login attempt for username: admin
+2026-01-01 14:18:41 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:18:41 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:18:41 [INFO]: Login attempt for username: admin
+2026-01-01 14:18:41 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:18:42 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:18:42 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:18:42 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:42 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:42 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:18:42 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:18:42 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:18:42 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:18:42 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:18:42 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:18:42 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:42 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:42 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:18:42 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:18:42 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"695634ea31241feb1fdf66ee"}
+2026-01-01 14:18:43 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phn":"9876543213","rollNo":"CEG126","password":"***","userType":"CEG"}
+2026-01-01 14:18:43 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:18:43 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:43 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:44 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phn":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:18:44 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:18:44 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:44 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:44 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:18:44 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:18:44 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:18:45 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:18:46 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:18:46 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:18:46 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:18:47 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:18:47 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:18:47 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:47 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:47 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:18:47 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:18:47 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:47 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:18:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:18:47 [INFO]: Login attempt for username: testuser
+2026-01-01 14:20:18 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:20:18 [INFO]: Login attempt for username: admin
+2026-01-01 14:20:18 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:20:18 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:20:18 [INFO]: Login attempt for username: admin
+2026-01-01 14:20:18 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:20:19 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:20:19 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:20:19 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:19 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:19 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:20:19 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:20:20 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:20:20 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:20:20 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:20:20 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:20:20 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:20 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:20 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:20:20 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:20:20 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"6956354ccc469cf0ce85f621"}
+2026-01-01 14:20:21 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:20:21 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:20:21 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:21 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:21 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:20:21 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:20:21 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:21 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:21 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:20:21 [INFO]: Login attempt for username: testuser
+2026-01-01 14:20:22 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phn":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:20:22 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:20:22 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:22 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phn":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:20:23 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:20:23 [ERROR]: Error during registration: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:23 [ERROR]: ValidationError: User validation failed: rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:20:23 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:20:23 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:20:23 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:20:24 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:20:24 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:20:24 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:20:24 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:23:18 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:23:18 [INFO]: Login attempt for username: admin
+2026-01-01 14:23:18 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:23:18 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:23:18 [INFO]: Login attempt for username: admin
+2026-01-01 14:23:18 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:23:19 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:23:19 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:23:19 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:19 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:19 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:23:19 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:23:19 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:23:19 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:23:19 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:23:19 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:23:19 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:19 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:19 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:23:19 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:23:19 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"695635ffc45f752891c96cf4"}
+2026-01-01 14:23:20 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:23:20 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:23:21 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:21 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:21 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:23:21 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:23:21 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:21 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:21 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:23:21 [INFO]: Login attempt for username: testuser
+2026-01-01 14:23:22 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:23:22 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:23:22 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:22 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:22 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:23:22 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:23:22 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:23:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:23:23 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:23:23 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:23 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:23:24 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:23:24 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:23:24 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:23:24 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:28:55 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:28:55 [INFO]: Login attempt for username: admin
+2026-01-01 14:28:55 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:28:55 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:28:55 [INFO]: Login attempt for username: admin
+2026-01-01 14:28:55 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:28:56 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:28:56 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:28:56 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:56 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:56 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:28:56 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:28:56 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:28:56 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:28:57 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:28:57 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:28:57 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:57 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:57 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:28:57 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:28:57 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"6956375100ed03ccc216ebe7"}
+2026-01-01 14:28:58 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:28:58 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:28:58 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:58 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:58 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:28:58 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:28:58 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:58 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:58 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:28:58 [INFO]: Login attempt for username: testuser
+2026-01-01 14:28:59 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:28:59 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:28:59 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:59 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:28:59 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:28:59 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:28:59 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:29:00 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:29:00 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:29:00 [ERROR]: Error during registration: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:29:00 [ERROR]: ValidationError: User validation failed: phoneNumber: Path `phoneNumber` is required., rollNo: Path `rollNo` is required.
+    at model.Document.invalidate (F:\Backend\Backend\node_modules\mongoose\lib\document.js:3358:32)
+    at F:\Backend\Backend\node_modules\mongoose\lib\document.js:3119:17
+    at F:\Backend\Backend\node_modules\mongoose\lib\schemaType.js:1416:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-01-01 14:29:01 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:29:01 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:29:01 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:29:01 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:32:44 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollno":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:32:44 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:32:44 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:32:44 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:32:44 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:32:44 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:32:44 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:32:44 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:32:44 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phn":"9876543211","rollno":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:32:44 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:32:44 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:32:44 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:32:44 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:32:44 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:32:44 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563834a2f3f69d818dd414"}
+2026-01-01 14:32:44 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563834a2f3f69d818dd414
+2026-01-01 14:32:45 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:32:45 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:32:45 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:32:45 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phn":"9876543210","rollno":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:32:45 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:32:45 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:32:45 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:32:45 [INFO]: Login attempt for username: testuser
+2026-01-01 14:32:45 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:32:46 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phn":"9876543212","rollno":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:32:46 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:32:47 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:32:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:32:47 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:32:47 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:32:47 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:32:47 [ERROR]: purchaseMerchandise error: ReferenceError: Merchandise is not defined
+    at purchaseMerchandise (F:\Backend\Backend\controllers\merch-controller.js:43:19)
+    at Layer.handle [as handle_request] (F:\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Backend\Backend\node_modules\express\lib\router\route.js:149:13)
+    at next (F:\Backend\Backend\utils\middleware.js:39:5)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:32:47 [ERROR]: ReferenceError: Merchandise is not defined
+    at purchaseMerchandise (F:\Backend\Backend\controllers\merch-controller.js:43:19)
+    at Layer.handle [as handle_request] (F:\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Backend\Backend\node_modules\express\lib\router\route.js:149:13)
+    at next (F:\Backend\Backend\utils\middleware.js:39:5)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:32:48 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phn":"9876543213","rollno":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:32:48 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:32:48 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:32:48 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:32:48 [INFO]: Login attempt for username: accuser
+2026-01-01 14:32:48 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:32:48 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:32:48 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:37:36 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:37:36 [INFO]: Login attempt for username: admin
+2026-01-01 14:37:36 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:37:36 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:37:36 [INFO]: Login attempt for username: admin
+2026-01-01 14:37:36 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:37:38 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:37:38 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:37:38 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:37:38 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:37:38 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:37:38 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:37:38 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:37:38 [ERROR]: purchaseMerchandise error: ReferenceError: Merchandise is not defined
+    at purchaseMerchandise (F:\Backend\Backend\controllers\merch-controller.js:43:19)
+    at Layer.handle [as handle_request] (F:\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Backend\Backend\node_modules\express\lib\router\route.js:149:13)
+    at next (F:\Backend\Backend\utils\middleware.js:39:5)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:37:38 [ERROR]: ReferenceError: Merchandise is not defined
+    at purchaseMerchandise (F:\Backend\Backend\controllers\merch-controller.js:43:19)
+    at Layer.handle [as handle_request] (F:\Backend\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Backend\Backend\node_modules\express\lib\router\route.js:149:13)
+    at next (F:\Backend\Backend\utils\middleware.js:39:5)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-01 14:37:39 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:37:39 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:37:39 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:37:39 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:37:40 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:37:40 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:37:40 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:37:40 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:37:40 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:37:40 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:37:40 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:37:40 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:37:40 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:37:40 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:37:40 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:37:41 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:37:41 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:37:41 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:37:41 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"6956395d9f4808568c6dcc7d"}
+2026-01-01 14:37:41 [INFO]: Free event registration created | T_ID=CEG1 | Event=6956395d9f4808568c6dcc7d
+2026-01-01 14:37:42 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:37:42 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:37:42 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:37:42 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:37:42 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:37:42 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:37:42 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:37:42 [INFO]: Login attempt for username: testuser
+2026-01-01 14:37:42 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:37:43 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:37:43 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:37:43 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:37:43 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:37:43 [INFO]: Login attempt for username: accuser
+2026-01-01 14:37:43 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:37:43 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:37:43 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:43:55 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:43:55 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:43:55 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:43:55 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:43:55 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:43:55 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:43:55 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:43:56 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:43:56 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:43:56 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:43:56 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:43:56 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:43:57 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:43:57 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:43:57 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:43:57 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:43:57 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:43:57 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:43:57 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:43:57 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:43:57 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:43:57 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563ad5885cff0f421d304d"}
+2026-01-01 14:43:57 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563ad5885cff0f421d304d
+2026-01-01 14:43:58 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:43:58 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:43:58 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:43:58 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:43:58 [INFO]: Login attempt for username: accuser
+2026-01-01 14:43:58 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:43:58 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:43:58 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:43:59 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:43:59 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:43:59 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:43:59 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:43:59 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:43:59 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:43:59 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:43:59 [INFO]: Login attempt for username: testuser
+2026-01-01 14:44:00 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:44:01 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:44:01 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:44:01 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:44:01 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:46:42 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:46:42 [INFO]: Login attempt for username: admin
+2026-01-01 14:46:42 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:46:42 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:46:42 [INFO]: Login attempt for username: admin
+2026-01-01 14:46:43 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:46:44 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:46:44 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:46:44 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:46:44 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:46:44 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:46:44 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:46:44 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:46:44 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:46:44 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:46:44 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:46:44 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:46:44 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:46:44 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:46:44 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:46:44 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563b7c1fb8c57c3835d1d8"}
+2026-01-01 14:46:44 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563b7c1fb8c57c3835d1d8
+2026-01-01 14:46:45 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:46:45 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:46:45 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:46:45 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:46:45 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:46:45 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:46:45 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:46:45 [INFO]: Login attempt for username: testuser
+2026-01-01 14:46:46 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:46:47 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:46:47 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:46:47 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:46:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:46:47 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:46:47 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:46:47 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:46:48 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:46:48 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:46:48 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:46:48 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:46:48 [INFO]: Login attempt for username: accuser
+2026-01-01 14:46:48 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:46:48 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:46:48 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:46:49 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:46:49 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:46:49 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:46:49 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:52:47 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:52:47 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:52:47 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:52:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:52:47 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:52:47 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:52:47 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:52:47 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:52:47 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:52:47 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:52:47 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:52:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:52:47 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:52:47 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:52:47 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563ce71251c3d208caba76"}
+2026-01-01 14:52:47 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563ce71251c3d208caba76
+2026-01-01 14:52:48 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:52:48 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:52:48 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:52:48 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:52:48 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:52:48 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:52:48 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:52:48 [INFO]: Login attempt for username: testuser
+2026-01-01 14:52:48 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:52:49 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:52:49 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:52:50 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:52:50 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:52:50 [INFO]: Login attempt for username: accuser
+2026-01-01 14:52:50 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:52:50 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:52:50 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:52:51 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:52:51 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:52:51 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:52:51 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:52:51 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:52:51 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:52:51 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:52:52 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:52:52 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:52:52 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:52:52 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:56:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"admin","firstName":"Admin","lastName":"User","email":"admin@example.com","rollNo":"CEG125","phoneNumber":"9999999999","password":"***","userType":"admin","T_ID":"001ADMIN"}
+2026-01-01 14:56:23 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:56:23 [INFO]: Login attempt for username: admin
+2026-01-01 14:56:23 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:56:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"admin","firstName":"Admin","lastName":"User","email":"admin@example.com","rollNo":"CEG125","phoneNumber":"9999999999","password":"***","userType":"admin","T_ID":"001ADMIN"}
+2026-01-01 14:56:23 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:56:23 [INFO]: Login attempt for username: admin
+2026-01-01 14:56:23 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:56:24 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:56:24 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:56:24 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:56:24 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:56:24 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:56:24 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:56:24 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:56:24 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:56:24 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:56:24 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:56:24 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:56:24 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:56:24 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:56:24 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:56:24 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563dc0cf8bbdd225173ba8"}
+2026-01-01 14:56:24 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563dc0cf8bbdd225173ba8
+2026-01-01 14:56:25 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:56:25 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:56:25 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:56:26 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:56:26 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:56:26 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:56:26 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:56:26 [INFO]: Login attempt for username: testuser
+2026-01-01 14:56:26 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:56:27 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:56:27 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:56:27 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:56:27 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:56:27 [INFO]: Login attempt for username: accuser
+2026-01-01 14:56:27 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:56:27 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:56:27 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:56:28 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:56:28 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:56:28 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:56:28 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:56:28 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:56:28 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:56:28 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:56:29 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:56:29 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:56:29 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:56:29 [WARN]: Invalid Razorpay webhook signature
+2026-01-01 14:58:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:58:47 [INFO]: Login attempt for username: admin
+2026-01-01 14:58:47 [INFO]: User logged in successfully: admin (T_ID: 001ADMIN)
+2026-01-01 14:58:47 [INFO]: Method: GET | Path: /api/admin/users | Body: {}
+2026-01-01 14:58:47 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"admin","password":"***"}
+2026-01-01 14:58:47 [INFO]: Login attempt for username: admin
+2026-01-01 14:58:47 [INFO]: User logged in successfully: admin (T_ID: 001ADMIN)
+2026-01-01 14:58:47 [INFO]: Method: GET | Path: /api/admin/totalregistrations | Body: {}
+2026-01-01 14:58:49 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:58:49 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:58:49 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:58:49 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:58:49 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:58:49 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:58:49 [INFO]: Method: GET | Path: /api/events | Body: {}
+2026-01-01 14:58:49 [INFO]: Fetched 1 events with filter: {}
+2026-01-01 14:58:49 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"eventuser","firstName":"Event","lastName":"User","email":"eventuser@example.com","phoneNumber":"9876543211","rollNo":"CEG124","password":"***","userType":"CEG"}
+2026-01-01 14:58:49 [INFO]: Register attempt | username: eventuser | email: eventuser@example.com | type: CEG
+2026-01-01 14:58:49 [INFO]: User registered successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:58:49 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"eventuser","password":"***"}
+2026-01-01 14:58:49 [INFO]: Login attempt for username: eventuser
+2026-01-01 14:58:49 [INFO]: User logged in successfully: eventuser (T_ID: CEG1)
+2026-01-01 14:58:49 [INFO]: Method: POST | Path: /api/events/register | Body: {"eventId":"69563e512b968e294ac76fa6"}
+2026-01-01 14:58:49 [INFO]: Free event registration created | T_ID=CEG1 | Event=69563e512b968e294ac76fa6
+2026-01-01 14:58:50 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:58:50 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:58:50 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:58:50 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"testuser","firstName":"Test","lastName":"User","email":"test@example.com","phoneNumber":"9876543210","rollNo":"CEG123","password":"***","userType":"CEG"}
+2026-01-01 14:58:50 [INFO]: Register attempt | username: testuser | email: test@example.com | type: CEG
+2026-01-01 14:58:50 [INFO]: User registered successfully: testuser (T_ID: CEG1)
+2026-01-01 14:58:50 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"testuser","password":"***"}
+2026-01-01 14:58:50 [INFO]: Login attempt for username: testuser
+2026-01-01 14:58:50 [INFO]: User logged in successfully: testuser (T_ID: CEG1)
+2026-01-01 14:58:51 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"accuser","firstName":"Acc","lastName":"User","email":"accuser@example.com","phoneNumber":"9876543213","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:58:51 [INFO]: Register attempt | username: accuser | email: accuser@example.com | type: CEG
+2026-01-01 14:58:52 [INFO]: User registered successfully: accuser (T_ID: CEG1)
+2026-01-01 14:58:52 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"accuser","password":"***"}
+2026-01-01 14:58:52 [INFO]: Login attempt for username: accuser
+2026-01-01 14:58:52 [INFO]: User logged in successfully: accuser (T_ID: CEG1)
+2026-01-01 14:58:52 [INFO]: Method: POST | Path: /api/accommodation/request | Body: {"gender":"MALE","noOfNights":3}
+2026-01-01 14:58:52 [INFO]: Accommodation request created | User=CEG1 | Order=order_test_123
+2026-01-01 14:58:53 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"merchuser","firstName":"Merch","lastName":"User","email":"merchuser@example.com","phoneNumber":"9876543212","rollNo":"CEG125","password":"***","userType":"CEG"}
+2026-01-01 14:58:53 [INFO]: Register attempt | username: merchuser | email: merchuser@example.com | type: CEG
+2026-01-01 14:58:53 [INFO]: User registered successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:58:53 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"merchuser","password":"***"}
+2026-01-01 14:58:53 [INFO]: Login attempt for username: merchuser
+2026-01-01 14:58:53 [INFO]: User logged in successfully: merchuser (T_ID: CEG1)
+2026-01-01 14:58:53 [INFO]: Method: POST | Path: /api/merchandise/purchase | Body: {"purchaseType":"SINGLE_SHIRT","sizes":[{"size":"M","quantity":1}]}
+2026-01-01 14:58:54 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":44,"28":34,"29":112,"30":97,"31":121,"32":108,"33":111,"34":97,"35":100,"36":34,"37":58,"38":123,"39":34,"40":112,"41":97,"42":121,"43":109,"44":101,"45":110,"46":116,"47":34,"48":58,"49":123,"50":34,"51":101,"52":110,"53":116,"54":105,"55":116,"56":121,"57":34,"58":58,
+2026-01-01 14:58:54 [INFO]: Payment recorded | T_ID=TID123 | type=event
+2026-01-01 14:58:54 [INFO]: Method: POST | Path: /api/razorpay/webhook | Body: {"0":123,"1":34,"2":101,"3":118,"4":101,"5":110,"6":116,"7":34,"8":58,"9":34,"10":112,"11":97,"12":121,"13":109,"14":101,"15":110,"16":116,"17":46,"18":99,"19":97,"20":112,"21":116,"22":117,"23":114,"24":101,"25":100,"26":34,"27":125}
+2026-01-01 14:58:54 [WARN]: Invalid Razorpay webhook signature

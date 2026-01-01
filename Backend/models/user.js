@@ -1,6 +1,4 @@
 import mongoose from "mongoose";
-
-import mongoose from "mongoose";
 import UserIdTracker from "./userIdTracker.js";
 
 const userSchema = new mongoose.Schema(
@@ -13,7 +11,7 @@ const userSchema = new mongoose.Schema(
 
     userType: {
       type: String,
-      enum: ["CEG", "OUTSIDE"],
+      enum: ["CEG", "OUTSIDE", "admin"], //IMPORTANT: admin is not an option during registration in frontend
       required: true,
     },
 

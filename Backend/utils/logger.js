@@ -1,4 +1,8 @@
 import winston from "winston";
+import path from "path";
+
+// Log directory
+const logDir = path.resolve("logs");
 
 // Define log format
 const logFormat = winston.format.printf(({ level, message, timestamp }) => {
@@ -7,17 +11,15 @@ const logFormat = winston.format.printf(({ level, message, timestamp }) => {
 
 // Create logger
 const logger = winston.createLogger({
-  level: "info", // default log level
+  level: process.env.NODE_ENV === "production" ? "warn" : "info",
   format: winston.format.combine(
     winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     logFormat
   ),
   transports: [
-    // Console output
     new winston.transports.Console(),
-    // File outputs (optional)
-    new winston.transports.File({ filename: "../logs/error.log", level: "error" }),
-    new winston.transports.File({ filename: "../logs/combined.log" }),
+    new winston.transports.File({ filename: path.join(logDir, "error.log"), level: "error" }),
+    new winston.transports.File({ filename: path.join(logDir, "combined.log") }),
   ],
 });
 

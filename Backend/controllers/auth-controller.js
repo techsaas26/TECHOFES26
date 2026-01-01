@@ -11,7 +11,7 @@ const MAX_ATTEMPTS = 3;
 // ---------------- Register ----------------
 export const registerUser = async (req, res, next) => {
   try {
-    const { username, firstName, lastName, email, phn, rollno, password, userType } = req.body;
+    const { username, firstName, lastName, email, phoneNumber, rollNo, password, userType } = req.body;
 
     if (!["CEG", "OUTSIDE"].includes(userType)) {
       return res.status(400).json({ error: "Invalid userType. Must be CEG or OUTSIDE" });
@@ -19,7 +19,7 @@ export const registerUser = async (req, res, next) => {
 
     logger.info(`Register attempt | username: ${username} | email: ${email} | type: ${userType}`);
 
-    // Check for duplicates
+    // Check duplicates
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) {
       logger.warn(`Registration failed: username/email already in use (${username} / ${email})`);
@@ -29,50 +29,36 @@ export const registerUser = async (req, res, next) => {
     // Hash password
     const passwordHash = await bcrypt.hash(password, 10);
 
-    // Generate T_ID based on user type
-    let T_ID;
-    if (userType === "CEG") {
-      T_ID = await UserIdTracker.getNextInsiderId();
-    } else {
-      T_ID = await UserIdTracker.getNextOutsiderId();
-    }
+    // Generate T_ID
+    const T_ID =
+      userType === "CEG"
+        ? await UserIdTracker.getNextInsiderId()
+        : await UserIdTracker.getNextOutsiderId();
 
-    // Build user object
     const userData = {
       T_ID,
       username,
       firstName,
       lastName,
       email,
-      phoneNumber: phn,
+      phoneNumber,
       passwordHash,
       userType,
+      rollNo: userType === "CEG" ? rollNo : undefined,
+      college: userType === "CEG" ? "CEG" : req.body.college || "N/A",
     };
-
-    // Only CEG users have rollNo & college
-    if (userType === "CEG") {
-      userData.rollNo = rollno;
-      userData.college = "CEG";
-    } else {
-      userData.college = req.body.college || "N/A"; // optional for outsiders
-    }
 
     const user = new User(userData);
     const savedUser = await user.save();
 
     logger.info(`User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`);
 
-    // Send confirmation email (optional)
+    // Optional confirmation email
     const subject = "Registration Confirmation";
     const text = `Dear ${savedUser.firstName},\n\nThank you for registering! Your unique T_ID is: ${savedUser.T_ID} and username is: "${savedUser.username}".\n\nBest regards,\nEvent Team`;
-
     // await sendMail(savedUser.email, subject, text);
 
-    res.status(201).json({
-      message: "User registered successfully",
-      user: savedUser,
-    });
-
+    res.status(201).json({ message: "User registered successfully", user: savedUser });
   } catch (err) {
     logger.error(`Error during registration: ${err.stack}`);
     next(err);
@@ -83,7 +69,6 @@ export const registerUser = async (req, res, next) => {
 export const loginUser = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-
     logger.info(`Login attempt for username: ${username}`);
 
     const user = await User.findOne({ username });
@@ -118,7 +103,6 @@ export const loginUser = async (req, res, next) => {
       T_ID: user.T_ID,
       userType: user.userType,
     });
-
   } catch (err) {
     logger.error(`Error during login: ${err.stack}`);
     next(err);

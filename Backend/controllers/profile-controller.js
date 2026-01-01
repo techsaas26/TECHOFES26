@@ -1,70 +1,76 @@
 import User from "../models/User.js";
 import Registration from "../models/Registration.js";
-import logger from "../utils/logger.js";
+import Accommodation from "../models/Accommodation.js";
+import MerchOrder from "../models/MerchOrder.js";
+import Event from "../models/Event.js";
 
-/* =========================
-   Get User Details
-========================= */
+/* ======================
+   Get user profile
+====================== */
 export const getUserDetails = async (req, res, next) => {
   try {
-    const { T_ID } = req; // set by userExtractor middleware
+    if (!req.user) throw { isCustom: true, message: "User not found", status: 404 };
 
-    logger.info(`Fetching details for user T_ID: ${T_ID}`);
+    const { T_ID, username, firstName, lastName, email, phoneNumber, userType, rollNo, college } =
+      req.user;
 
-    const user = await User.findOne({ T_ID });
-    if (!user) {
-      logger.warn(`User not found: T_ID ${T_ID}`);
-      return res.status(404).json({ error: "User not found" });
-    }
-
-    return res.status(200).json(user);
-  } catch (error) {
-    logger.error(`Error fetching user details: ${error.stack}`);
-    next(error);
+    res.json({
+      T_ID,
+      username,
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      userType,
+      rollNo,
+      college,
+    });
+  } catch (err) {
+    next(err);
   }
 };
 
-/* =========================
-   Get User Registrations
-========================= */
+/* ======================
+   Get user registrations
+====================== */
 export const getUserRegistrations = async (req, res, next) => {
   try {
-    const { T_ID } = req;
+    const registrations = await Registration.find({ user: req.user._id })
+      .populate("event", "title club day time category isPaid fee")
+      .lean();
 
-    logger.info(`Fetching registrations for user T_ID: ${T_ID}`);
+    res.json(registrations);
+  } catch (err) {
+    next(err);
+  }
+};
 
-    const user = await User.findOne({ T_ID }).select("_id");
-    if (!user) {
-      logger.warn(`User not found: T_ID ${T_ID}`);
-      return res.status(404).json({ error: "User not found" });
+/* ======================
+   Get user accommodation
+====================== */
+export const getUserAccommodationsDetails = async (req, res, next) => {
+  try {
+    const accommodation = await Accommodation.findOne({ user: req.user._id }).lean();
+
+    if (!accommodation) {
+      return res.status(404).json({ error: "No accommodation booked" });
     }
 
-    const registrations = await Registration.find({ user: user._id })
-      .populate({
-        path: "event",
-        select: "title category day time venue isPaid",
-      })
-      .select("event paymentStatus ");
+    res.json(accommodation);
+  } catch (err) {
+    next(err);
+  }
+};
 
-    const response = registrations
-      .filter((r) => r.event) // safety
-      .map((r) => ({
-        title: r.event.title,
-        category: r.event.category,
-        day: r.event.day,
-        time: r.event.time,
-        venue: r.event.venue,
-        isPaid: r.event.isPaid,
-        paymentStatus: r.paymentStatus,
-      }));
+/* ======================
+   Get user merchandise purchases
+====================== */
+export const getUserMerchDetails = async (req, res, next) => {
+  try {
+    const merchOrders = await MerchOrder.find({ user: req.user._id }).lean();
 
-    logger.info(
-      `Registrations retrieved for T_ID ${T_ID}, count: ${response.length}`
-    );
-
-    return res.status(200).json(response);
-  } catch (error) {
-    logger.error(`Error fetching user registrations: ${error.stack}`);
-    next(error);
+    res.json(merchOrders);
+  } catch (err) {
+    next(err);
   }
 };
