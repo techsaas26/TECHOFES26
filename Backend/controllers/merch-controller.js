@@ -39,6 +39,10 @@ export const purchaseMerchandise = async (req, res, next) => {
         return res.status(400).json({ error: "Invalid purchase type" });
     }
 
+    const gatewayPercent = 0.02;      // 2%
+    const gstPercent = 0.18;          // 18%
+    const totalCharge = Math.ceil(totalAmount / (1 - gatewayPercent * (1 + gstPercent)));
+
     // Create merchandise order (payment not done yet)
     const merch = await MerchOrder.create({
       user: user._id,
@@ -51,7 +55,7 @@ export const purchaseMerchandise = async (req, res, next) => {
 
     // ---------------- Razorpay Order ----------------
     const order = await razorpay.orders.create({
-      amount: totalAmount * 100, // in paise
+      amount: totalCharge * 100, // in paise
       currency: "INR",
       receipt: `merch_${merch._id}_${user._id}`,
     });

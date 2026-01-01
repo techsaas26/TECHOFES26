@@ -46,7 +46,11 @@ export const razorpayWebhook = async (req, res) => {
         const event = await Event.findById(itemId);
         if (!event || !event.isPaid) return res.status(200).send("Invalid event");
 
-        if (payment.amount !== event.fee * 100) {
+        const gatewayPercent = 0.02;      // 2%
+        const gstPercent = 0.18;          // 18%
+        const totalCharge = Math.ceil(event.fee / (1 - gatewayPercent * (1 + gstPercent)));
+
+        if (payment.amount !== totalCharge * 100) {
           logger.error(`Amount mismatch for event | T_ID=${user.T_ID}`);
           return res.status(200).send("Amount mismatch");
         }
@@ -70,7 +74,11 @@ export const razorpayWebhook = async (req, res) => {
         if (!merch) return res.status(200).send("Invalid merch order");
         if (merch.paymentStatus === "SUCCESS") return res.status(200).send("Already paid");
 
-        if (payment.amount !== merch.totalAmount * 100) {
+        const gatewayPercent = 0.02;      // 2%
+        const gstPercent = 0.18;          // 18%
+        const totalCharge = Math.ceil(merch.totalAmount / (1 - gatewayPercent * (1 + gstPercent)));
+
+        if (payment.amount !== totalCharge * 100) {
           logger.error(`Merch amount mismatch | T_ID=${user.T_ID}`);
           return res.status(200).send("Amount mismatch");
         }
@@ -87,7 +95,11 @@ export const razorpayWebhook = async (req, res) => {
         if (!accom) return res.status(200).send("Invalid accommodation");
         if (accom.paymentStatus === "SUCCESS") return res.status(200).send("Already paid");
 
-        if (payment.amount !== accom.paymentAmount * 100) {
+        const gatewayPercent = 0.02;      // 2%
+        const gstPercent = 0.18;          // 18%
+        const totalCharge = Math.ceil(accom.paymentAmount / (1 - gatewayPercent * (1 + gstPercent)));
+
+        if (payment.amount !== totalCharge * 100) {
           logger.error(`Accommodation amount mismatch | T_ID=${user.T_ID}`);
           return res.status(200).send("Amount mismatch");
         }

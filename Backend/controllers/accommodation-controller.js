@@ -20,10 +20,13 @@ export const requestAccommodation = async (req, res, next) => {
 
     // Payment calculation
     const paymentAmount = noOfNights * 300; // ₹300 per night
+    const gatewayPercent = 0.02;      // 2%
+    const gstPercent = 0.18;          // 18%
+    const totalCharge = Math.ceil(paymentAmount / (1 - gatewayPercent * (1 + gstPercent)));
 
     // Razorpay order
     const order = await razorpay.orders.create({
-      amount: paymentAmount * 100, // paise
+      amount: totalCharge * 100, // paise
       currency: "INR",
       receipt: `accom_${user._id}`,
       notes: { userId: user._id.toString(), gender, noOfNights },

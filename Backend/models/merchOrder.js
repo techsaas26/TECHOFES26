@@ -64,6 +64,12 @@ const merchOrderSchema = new mongoose.Schema(
       min: 0,
     },
 
+    amountPaid: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+
     paymentStatus: {
       type: String,
       enum: ["PENDING", "SUCCESS", "FAILED"],
