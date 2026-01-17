@@ -1,0 +1,175 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  z-index: 9999;
+
+  opacity: 1;
+  transition: opacity 0.5s ease-out; 
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none; 
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.logo {
+  position: relative;
+  height: 25rem;
+  width: auto;
+  opacity: 0;
+  transform-style: preserve-3d;
+
+  animation: 
+    swordDrop3D 1.8s ease-out forwards, 
+    lightBurst 0.6s 1.8s forwards,
+    float 4s 2.4s infinite alternate ease-in-out;
+  transform-origin: center top;
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7));
+}
+
+@keyframes swordDrop3D {
+  0% {
+    transform: rotateX(60deg) translateY(-200%) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes lightBurst {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7))
+      drop-shadow(0 0 10px rgba(255, 165, 0, 0.7));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(255, 69, 0, 1))
+      drop-shadow(0 0 45px rgba(255, 69, 0, 1));
+    transform: scale(1.1);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7))
+      drop-shadow(0 0 10px rgba(255, 165, 0, 0.7));
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(-5px);
+  }
+  100% {
+    transform: rotateX(-5deg) rotateY(-5deg) translateY(5px);
+  }
+}
+
+.logo-container::before,
+.logo-container::after {
+  content: "";
+  position: absolute;
+  top: 50%; 
+  width: 10rem;
+  height: 10rem;
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 0.5),
+    transparent 70%
+  );
+  opacity: 0;
+  animation: wingFlap3D 1s 2.4s forwards; 
+  z-index: -1; 
+}
+
+.logo-container::before {
+  left: -11rem;
+  transform-origin: right center;
+}
+
+.logo-container::after {
+  right: -11rem;
+  transform-origin: left center;
+}
+
+@keyframes wingFlap3D {
+  0% {
+    transform: scale(0.5) translateY(-50%) rotateY(-60deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotateY(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(-50%) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.letsGoButton {
+  margin-top: 30px; 
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 2px solid orange;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  
+  opacity: 0;
+  transform: scale(0.8);
+
+  animation: fadeInPop 0.5s ease-out forwards;
+  animation-delay: 3.5s;
+  z-index: 10;
+}
+
+.letsGoButton:hover {
+  background-color: rgba(255, 165, 0, 0.1);
+  transform: scale(1.05);
+}
+
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

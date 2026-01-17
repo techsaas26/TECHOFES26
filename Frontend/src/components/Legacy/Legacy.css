@@ -1,0 +1,255 @@
+/* NEW: Force entire component into a single 100vh area and make halves 50vh */
+.split-screen-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Make each half exactly half the viewport and reduce padding so content fits */
+.legacy-top-section {
+  background-color: #000;
+  padding: 20px 2rem; /* reduced to fit into half viewport */
+  height: 50vh;           /* force half of the viewport */
+  flex: 0 0 50vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  min-height: unset; /* allow real 50vh behavior */
+}
+
+/* Limit inner wrapper height so its content doesn't push beyond 50vh */
+.legacy-wrapper {
+  max-width: 1400px; /* Wider container for high-res monitors */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px; /* reduced gap */
+  max-height: calc(50vh - 32px);
+  overflow: hidden;
+  align-items: center;
+}
+
+/* Smaller, responsive hero typography */
+.legacy-hero-title {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 900;
+  color: #ff2d85;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.legacy-hero-subtitle {
+  font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #efefef;
+}
+
+.legacy-hero-text {
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  line-height: 1.5;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.legacy-hero-list li {
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  margin-bottom: 0.8rem;
+  padding-left: 28px;
+  color: #bbb;
+}
+
+/* Right-side Card Adjustments */
+.legacy-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 25px;
+}
+
+.legacy-card-item {
+  background: linear-gradient(145deg, #1a1a1a, #121212);
+  border: 1px solid rgba(255, 45, 133, 0.15);
+  border-radius: 24px;
+  padding: 16px; /* reduced internal padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Giving the top 2 cards more height */
+.legacy-card-item.tall {
+  min-height: 100px; 
+}
+
+.icon-pink { color: #ff2d85; margin-bottom: 25px; }
+
+.legacy-card-item h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.legacy-card-item p {
+  font-size: 1rem;
+  color: #999;
+  line-height: 1.5;
+}
+
+.wide-stat {
+  grid-column: span 2;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #1a1a1a 0%, #2a0a1a 100%);
+  padding: 18px 24px;
+}
+
+.big-number {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 900;
+  color: #ff2d85;
+  display: block;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets & Small Desktops */
+@media (max-width: 1200px) {
+  .legacy-top-section { padding: 20px 2rem; }
+  .legacy-hero-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+  .legacy-wrapper { gap: 18px; }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .legacy-top-section { padding: 12px 1rem; }
+  .legacy-wrapper {
+    grid-template-columns: 1fr; /* Stack vertically */
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .legacy-hero-title { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  .legacy-hero-subtitle { font-size: clamp(0.9rem, 3.5vw, 1rem); }
+  .legacy-hero-text { font-size: clamp(0.85rem, 2.8vw, 0.95rem); }
+  .wide-stat { padding: 12px; gap: 8px; }
+}
+
+/* --- Bottom Half (Lineup) Layout --- */
+/* Bottom Half Specifics */
+.bottom-half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 1.5rem;
+  height: 50vh;
+  flex: 0 0 50vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.lineup-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Image takes slightly more space */
+  gap: 20px;
+  max-height: calc(50vh - 32px);
+  overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  align-items: center;
+}
+
+/* Image Styling */
+.lineup-image img {
+  width: 100%;
+  max-height: 24vh; /* decreased so image + text fit inside 50vh */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Text & Countdown Styling */
+.white-title {
+  font-size: clamp(1.4rem, 3.2vw, 1.8rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.pink-subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: #ff2d85;
+  font-style: italic;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.lineup-description {
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+/* Countdown Blocks */
+.countdown-container {
+  display: flex;
+  gap: 30px;
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.time-block .number {
+  font-size: clamp(1rem, 2.8vw, 1.8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.time-block .label {
+  font-size: 0.75rem;
+  color: #ff2d85;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+/* RESPONSIVE: Stack on Mobile */
+@media (max-width: 900px) {
+  .bottom-half {
+    padding: 10px 0.8rem;
+    height: 50vh;
+    flex: 0 0 50vh;
+  }
+
+  .lineup-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-height: calc(50vh - 28px);
+    gap: 12px;
+  }
+
+  .lineup-image img { max-height: 20vh; }
+  .white-title { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
+  .time-block .number { font-size: clamp(0.95rem, 3.5vw, 1.6rem); }
+}
+
+/* On very small devices allow vertical scrolling (optional) */
+@media (max-height: 640px) {
+  .split-screen-container {
+    height: auto; /* allow natural scrolling when viewport is too short */
+  }
+  .legacy-top-section, .bottom-half { height: auto; flex: 1 0 auto; }
+}
