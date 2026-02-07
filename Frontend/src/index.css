@@ -1,60 +1,132 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+/* Hide scrollbars */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+@font-face {
+    font-family: 'ThunderBlack';
+    src: url('./Thunder-BlackLC.eot'); /* IE9 Compat Modes */
+    src: url('Thunder-BlackLC.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./fonts/Thunder-BlackLC.woff') format('woff'), /* Modern Browsers */
+         url('./fonts/Thunder-BlackLC.woff2') format('woff2'), /* Modern Browsers */
+         url('./fonts/Thunder-BlackLC.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Thunder-SemiBoldLC */@font-face {
+    font-family: 'ThunderSemBd';
+    src: url('Thunder-SemiBoldLC.eot'); /* IE9 Compat Modes */
+    src: url('Thunder-SemiBoldLC.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./fonts/Thunder-SemiBoldLC.woff') format('woff'), /* Modern Browsers */
+         url('./fonts/Thunder-SemiBoldLC.woff2') format('woff2'), /* Modern Browsers */
+         url('./fonts/Thunder-SemiBoldLC.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@theme {
+  --color-bg: #030806;
+  --color-fg: #d9f2e8 ;
+  --jungle-green: #25c180;
+  --spring-green: #0ce389;
+  --greeni: #28c986;
+  --blue-smoke: #7e8e89;
+  --genoa: #10765b;
+  --mountain-meadow: #1bbca2;
+  --dark-green: #0f4334;
+  --elf-green: #0d9461;
+  --font-thunder-black: 'ThunderBlack';
+  --font-dm-sans: "DM Sans",sans-serif;
+  --font-antic-didone: "Antic Didone",regular;
+  --font-thunder-semi: 'ThunderSemBd';
+}
 
 :root {
-  --bg: #1a1a1a;
-  --fg: #edf1e8;
-  --light: #d7dbd2;
-  --dark: #0f0f0f;
+  --bg-main: #0b1020;      /* deep navy */
+  --bg-card: #11162b;      /* card surface */
+  --accent: #6d5cff;      /* subtle purple accent */
+  --text-main: #e6e8ff;
+  --text-muted: #aab0ff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@utility flex-center {
+  @apply flex justify-center items-center;
 }
+
+@utility green-gradient{
+  @apply bg-linear-90 from-[#146342] to-[#28C986];
+}
+
+
+@utility white-gradient{
+  @apply bg-linear-90 from-[#D9F2E8] to-[#7E8C86];
+}
+
+
+@layer utilities {
+  .stroke {
+    -webkit-text-stroke: 1.5px #030806;
+  }
+}
+
+/* * {
+  border: 1px solid red;
+} */
 
 body {
-  font-family: "Manrope", sans-serif;
-  background-color: #000;
+  -webkit-user-select: none; /* Safari, Chrome, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standard syntax */
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+.aurora {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  filter: blur(120px);
+  opacity: 0.45;
+  animation: auroraMove 18s ease-in-out infinite alternate;
 }
 
-h1 {
-  font-size: 7rem;
-  font-weight: 800;
-  letter-spacing: -0.35rem;
-  line-height: 1.1;
+.aurora-1 {
+  background: radial-gradient(circle at 30% 30%, #6d5cff, transparent 60%);
 }
 
-p {
-  font-size: 1.125rem;
-  font-weight: 500;
+.aurora-2 {
+  background: radial-gradient(circle at 70% 40%, #3b82f6, transparent 60%);
+  animation-delay: -6s;
 }
 
-section {
-  position: relative;
-  width: 100%;
-  height: 100svh;
-  background-color: var(--bg);
-  color: var(--fg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.aurora-3 {
+  background: radial-gradient(circle at 50% 70%, #38bdf8, transparent 60%);
+  animation-delay: -12s;
 }
 
-@media (max-width: 1000px) {
-  h1 {
-    font-size: 2rem;
-    letter-spacing: 0;
+@keyframes auroraMove {
+  0% {
+    transform: translate(-10%, -10%) scale(1);
   }
-
-  p {
-    font-size: 1rem;
+  100% {
+    transform: translate(10%, 10%) scale(1.2);
   }
+}
+
+.aurora {
+  position: absolute;
+  inset: -20%;
+  filter: blur(140px);
+  opacity: 0.45;
+  will-change: transform;
 }
