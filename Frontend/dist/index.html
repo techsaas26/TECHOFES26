@@ -2,16 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/T79-logo.png" />
+
+    <!-- Favicon (correct MIME) -->
+    <link rel="icon" type="image/svg+xml" href="/T79-logo.svg" />
+
+    <!-- Preload critical logo -->
+    <link rel="preload" href="/T79-logo.svg" as="image" fetchpriority="high" />
+
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist+Sans:ital@0;1&display=swap" rel="stylesheet" />
+
+    <!-- Non-blocking Google Font -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Geist+Sans:ital@0;1&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Sans:ital@0;1&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
     <title>Techofes'79</title>
-    <script type="module" crossorigin src="/assets/index-BGfS5THZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DllDfP8M.css">
+    <script type="module" crossorigin src="/assets/index-uX2XKait.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DUNB6Yeq.css">
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- Main entry -->
   </body>
 </html>

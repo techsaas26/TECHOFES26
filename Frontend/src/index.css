@@ -1,42 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+/* =========================
+   GOOGLE FONTS (KEEP)
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
 @import "tailwindcss";
 
-/* Hide scrollbars */
-html, body {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+/* =========================
+   SCROLLBAR (HIDDEN)
+   ========================= */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-@font-face {
-    font-family: 'ThunderBlack';
-    src: url('./Thunder-BlackLC.eot'); /* IE9 Compat Modes */
-    src: url('Thunder-BlackLC.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./fonts/Thunder-BlackLC.woff') format('woff'), /* Modern Browsers */
-         url('./fonts/Thunder-BlackLC.woff2') format('woff2'), /* Modern Browsers */
-         url('./fonts/Thunder-BlackLC.ttf') format('truetype'); /* Safari, Android, iOS */
-             font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
-}
-/* Webfont: Thunder-SemiBoldLC */@font-face {
-    font-family: 'ThunderSemBd';
-    src: url('Thunder-SemiBoldLC.eot'); /* IE9 Compat Modes */
-    src: url('Thunder-SemiBoldLC.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./fonts/Thunder-SemiBoldLC.woff') format('woff'), /* Modern Browsers */
-         url('./fonts/Thunder-SemiBoldLC.woff2') format('woff2'), /* Modern Browsers */
-         url('./fonts/Thunder-SemiBoldLC.ttf') format('truetype'); /* Safari, Android, iOS */
-             font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
+  display: none;
 }
 
+/* =========================
+   CUSTOM FONTS (UNCHANGED VISUALLY)
+   ========================= */
+@font-face {
+  font-family: "ThunderBlack";
+  src: url("./Thunder-BlackLC.eot");
+  src:
+    url("./Thunder-BlackLC.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Thunder-BlackLC.woff2") format("woff2"),
+    url("./fonts/Thunder-BlackLC.woff") format("woff"),
+    url("./fonts/Thunder-BlackLC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap; /* SAFE ADD */
+}
+
+@font-face {
+  font-family: "ThunderSemBd";
+  src: url("Thunder-SemiBoldLC.eot");
+  src:
+    url("Thunder-SemiBoldLC.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Thunder-SemiBoldLC.woff2") format("woff2"),
+    url("./fonts/Thunder-SemiBoldLC.woff") format("woff"),
+    url("./fonts/Thunder-SemiBoldLC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap; /* SAFE ADD */
+}
+
+/* =========================
+   THEME VARIABLES
+   ========================= */
 @theme {
   --color-bg: #030806;
-  --color-fg: #d9f2e8 ;
+  --color-fg: #d9f2e8;
   --jungle-green: #25c180;
   --spring-green: #0ce389;
   --greeni: #28c986;
@@ -45,33 +64,35 @@ body::-webkit-scrollbar {
   --mountain-meadow: #1bbca2;
   --dark-green: #0f4334;
   --elf-green: #0d9461;
-  --font-thunder-black: 'ThunderBlack';
-  --font-dm-sans: "DM Sans",sans-serif;
-  --font-antic-didone: "Antic Didone",regular;
-  --font-thunder-semi: 'ThunderSemBd';
+
+  --font-thunder-black: "ThunderBlack";
+  --font-thunder-semi: "ThunderSemBd";
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-antic-didone: "Antic Didone", regular;
 }
 
 :root {
-  --bg-main: #0b1020;      /* deep navy */
-  --bg-card: #11162b;      /* card surface */
-  --accent: #6d5cff;      /* subtle purple accent */
+  --bg-main: #0b1020;
+  --bg-card: #11162b;
+  --accent: #6d5cff;
   --text-main: #e6e8ff;
   --text-muted: #aab0ff;
 }
 
+/* =========================
+   UTILITIES (UNCHANGED)
+   ========================= */
 @utility flex-center {
   @apply flex justify-center items-center;
 }
 
-@utility green-gradient{
+@utility green-gradient {
   @apply bg-linear-90 from-[#146342] to-[#28C986];
 }
 
-
-@utility white-gradient{
+@utility white-gradient {
   @apply bg-linear-90 from-[#D9F2E8] to-[#7E8C86];
 }
-
 
 @layer utilities {
   .stroke {
@@ -79,25 +100,29 @@ body::-webkit-scrollbar {
   }
 }
 
-/* * {
-  border: 1px solid red;
-} */
-
+/* =========================
+   BODY
+   ========================= */
 body {
-  -webkit-user-select: none; /* Safari, Chrome, Opera */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-
+/* =========================
+   AURORA (SMOOTHER, SAME LOOK)
+   ========================= */
 .aurora {
   position: absolute;
   width: 120%;
   height: 120%;
-  filter: blur(120px);
+  inset: -20%;
   opacity: 0.45;
+  filter: blur(140px);
   animation: auroraMove 18s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0); /* GPU hint */
 }
 
 .aurora-1 {
@@ -116,17 +141,9 @@ body {
 
 @keyframes auroraMove {
   0% {
-    transform: translate(-10%, -10%) scale(1);
+    transform: translate3d(-10%, -10%, 0) scale(1);
   }
   100% {
-    transform: translate(10%, 10%) scale(1.2);
+    transform: translate3d(10%, 10%, 0) scale(1.2);
   }
-}
-
-.aurora {
-  position: absolute;
-  inset: -20%;
-  filter: blur(140px);
-  opacity: 0.45;
-  will-change: transform;
 }

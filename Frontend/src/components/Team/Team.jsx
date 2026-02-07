@@ -1,9 +1,11 @@
 import React from "react";
 import { useGSAP } from "@gsap/react";
+import { Globe, Share2 } from "lucide-react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import AuroraBackground from "../Hero/Aurora-BG/AuroraBackground";
 import SocialLinks from "./SocialLinks";
+import Footer from "../Footer/Footer";
 
 gsap.registerPlugin(SplitText);
 
@@ -229,7 +231,7 @@ const Team = () => {
   useGSAP(() => {
     const titleSplit = SplitText.create(".team-title", {
       type: "lines, words, chars",
-      linesClass: "split-line", 
+      linesClass: "split-line",
     });
 
     const tl = gsap.timeline({
@@ -262,13 +264,36 @@ const Team = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="border-b border-gray-800/50 p-4 md:p-6 lg:p-8">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <h2 className="text-sm md:text-base lg:text-lg font-semibold tracking-widest text-cyan-400">
-                TECHOFES 79
-              </h2>
-            </div>
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-5">
+          <div className="flex items-center gap-2">
+            <h2 className="text-sm md:text-base lg:text-lg font-semibold tracking-widest text-cyan-400">
+              SAAS CEG
+            </h2>
+          </div>
+
+          {/* SAAS CEG Social Links */}
+          <div className="flex gap-3">
+            {/* Website */}
+            <a
+              href="https://saasceg.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 border border-cyan-400/60 rounded-full flex items-center justify-center hover:bg-cyan-400/10 transition"
+              aria-label="SAAS CEG Website"
+            >
+              <Globe className="w-4 h-4 text-cyan-400" />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/saas_ceg/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 border border-cyan-400/60 rounded-full flex items-center justify-center hover:bg-cyan-400/10 transition"
+              aria-label="SAAS CEG Instagram"
+            >
+              <Share2 className="w-4 h-4 text-cyan-400" />
+            </a>
           </div>
         </div>
 
@@ -305,7 +330,7 @@ const Team = () => {
                           src={`/images/team/${item.image}`}
                           alt={item.name}
                           className="absolute inset-0 w-full h-full object-cover scale-[1.01] group-hover:scale-110 transition-transform duration-700 ease-out will-change-transform backface-hidden"
-                          style={{ backfaceVisibility: 'hidden' }}
+                          style={{ backfaceVisibility: "hidden" }}
                           loading="lazy"
                         />
                         {/* The inner shadow also helps mask edge artifacts */}
@@ -342,7 +367,7 @@ const Team = () => {
                           src={`/images/team/${item.image}`}
                           alt={item.name}
                           className="absolute inset-0 w-full h-full object-cover scale-[1.01] group-hover:scale-110 transition-transform duration-700 ease-out will-change-transform backface-hidden"
-                          style={{ backfaceVisibility: 'hidden' }}
+                          style={{ backfaceVisibility: "hidden" }}
                           loading="lazy"
                         />
                         {/* The inner shadow also helps mask edge artifacts */}
@@ -368,28 +393,8 @@ const Team = () => {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="border-t border-gray-800/50 p-4 md:p-6 lg:p-8 mt-12 md:mt-16 lg:mt-20">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] sm:text-xs md:text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 md:w-3 md:h-3 bg-cyan-400 rotate-45"></div>
-              <p>TECHOFES'79</p>
-            </div>
-            <div className="flex gap-4 md:gap-8">
-              <a href="#" className="hover:text-cyan-400 transition">
-                hub
-              </a>
-              <a href="#" className="hover:text-cyan-400 transition">
-                public
-              </a>
-              <a href="#" className="hover:text-cyan-400 transition">
-                groups
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
+      <Footer />
     </section>
   );
 };
