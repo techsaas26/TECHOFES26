@@ -320,7 +320,7 @@ const Team = () => {
               {/* Office Bearers Section */}
               <div className="mb-12 md:mb-16 lg:mb-20">
                 <h3 className="text-center uppercase tracking-widest text-cyan-400 text-xs sm:text-sm md:text-base lg:text-lg font-semibold mb-8 md:mb-10 lg:mb-12">
-                  Student's Association
+                  Students Association
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                   {SA.map((item, idx) => (

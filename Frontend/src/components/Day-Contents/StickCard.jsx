@@ -11,7 +11,7 @@ const StickyCard = () => {
   const data = [
     {
       index: "Day - 00",
-      title: ["Inauguration", "Movie Night"],
+      title: ["Inauguration +", "Movie Night"],
       image: "/images/days/inau.jpeg",
       description:
         "An opening ceremony followed by a relaxed movie night to set the tone for the days ahead. Join us for an unforgettable inaugural movie experience as we celebrate the launch of Techofes 79.",
@@ -21,21 +21,23 @@ const StickyCard = () => {
       title: ["Concert", "Night"],
       image: "/images/days/concert.jpg",
       description:
-        "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
+        // "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
+        "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm"
     },
     {
       index: "Day - 02",
       title: ["T-Awards"],
       image: "/images/days/t-awards.png",
       description:
-        "Recognising excellence, creativity, and contribution across multiple domains.",
+        // "Recognising excellence, creativity, and contribution across multiple domains.",
+        "A grand tribute to the silver screen. We welcome the visionaries of cinema to honor their craft, celebrating the storytellers and artists across multiple domains.",
     },
     {
       index: "Day - 03",
-      title: ["Choreo", "Night"],
+      title: ["Choreo Night", "& ToT"],
       image: "/images/days/choreo_night.jpg",
       description:
-        "A visually intense dance night blending choreography with stage storytelling.",
+        "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
     },
   ];
 

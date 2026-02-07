@@ -1,163 +1,109 @@
 import React from "react";
-import { Share2, Globe, Mic, Mail } from "lucide-react";
-import { Menu } from "lucide-react";
+import { Share2, Globe, Mail } from "lucide-react";
 
 const Footer = () => {
+  // Team data array for easy management
+  const teamMembers = [
+    { name: "Krishnendu MR", role: "Lead Dev", img: "/images/team/Krishnendu.jpg" },
+    { name: "Krisna VJ", role: "Lead Dev", img: "/images/team/Krisna.jpeg" },
+    { name: "Abirami", role: "Backend", img: "https://i.pravatar.cc/150?u=3" },
+    { name: "Suchitra", role: "Backend", img: "https://i.pravatar.cc/150?u=4" },
+    { name: "Taylor", role: "Frontend", img: "https://i.pravatar.cc/150?u=5" },
+    { name: "Morgan", role: "UI/UX", img: "https://i.pravatar.cc/150?u=6" },
+    { name: "Casey", role: "Frontend", img: "https://i.pravatar.cc/150?u=7" },
+  ];
+
   return (
     <footer className="bg-gray-950 text-gray-300 py-16 px-8 relative overflow-hidden">
-      {/* Purple floating button */}
-      {/* <button className="fixed bottom-8 right-8 w-14 h-14 bg-purple-200 rounded-full flex items-center justify-center hover:bg-purple-100 transition z-50 shadow-lg shadow-purple-200/50">
-        <Menu className="w-6 h-6 text-gray-950 font-bold" strokeWidth={3} />
-      </button> */}
-
       <div className="max-w-7xl mx-auto">
         {/* Main content grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand Section */}
           <div className="md:col-span-1">
-            <h1 className="text-3xl font-bold text-purple-200 mb-4">
+            <h1 className="text-3xl font-bold text-purple-200 mb-4 tracking-tighter">
               TECHOFES 79
             </h1>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               The legendary cultural festival of South India, radiating
               brilliance and innovation across the cobalt night.
             </p>
-            {/* Social Icons */}
             <div className="flex gap-4">
-              {/* Website */}
-              <a
-                href="https://saasceg.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-purple-200 rounded-full flex items-center justify-center hover:bg-purple-200/20 transition"
-              >
-                <Globe className="w-5 h-5 text-purple-200" />
+              <a href="https://saasceg.in" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-purple-200/30 rounded-full flex items-center justify-center hover:bg-purple-200 hover:text-gray-950 transition-all duration-300 group">
+                <Globe className="w-5 h-5 text-purple-200 group-hover:text-gray-950" />
               </a>
-
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/techofes_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 border border-purple-200 rounded-full flex items-center justify-center hover:bg-purple-200/20 transition"
-              >
-                <Share2 className="w-5 h-5 text-purple-200" />
+              <a href="https://www.instagram.com/techofes_official/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-purple-200/30 rounded-full flex items-center justify-center hover:bg-purple-200 hover:text-gray-950 transition-all duration-300 group">
+                <Share2 className="w-5 h-5 text-purple-200 group-hover:text-gray-950" />
               </a>
-
-              {/* Email */}
-              <a
-                href="mailto:saascegc@gmail.com"
-                className="w-10 h-10 border border-purple-200 rounded-full flex items-center justify-center hover:bg-purple-200/20 transition"
-              >
-                <Mail className="w-5 h-5 text-purple-200" />
+              <a href="mailto:saascegc@gmail.com" className="w-10 h-10 border border-purple-200/30 rounded-full flex items-center justify-center hover:bg-purple-200 hover:text-gray-950 transition-all duration-300 group">
+                <Mail className="w-5 h-5 text-purple-200 group-hover:text-gray-950" />
               </a>
             </div>
           </div>
 
-          {/* Explore Section */}
-          <div>
-            <h3 className="text-purple-200 text-sm font-semibold tracking-widest mb-6">
-              EXPLORE
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="/schedule"
-                  className="text-gray-400 hover:text-purple-200 transition text-sm"
-                >
-                  Schedule
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/events"
-                  className="text-gray-400 hover:text-purple-200 transition text-sm"
-                >
-                  Events
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/events"
-                  className="text-gray-400 hover:text-purple-200 transition text-sm"
-                >
-                  pro-shows
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support Section */}
-          <div>
-            <h3 className="text-purple-200 text-sm font-semibold tracking-widest mb-6">
-              SUPPORT
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="/sponsors"
-                  className="text-gray-400 hover:text-purple-200 transition text-sm"
-                >
-                  Sponsors
-                </a>
-              </li>
-              {/* <li>
-                <a href="#" className="text-gray-400 hover:text-purple-200 transition text-sm">Volunteer</a>
-              </li> */}
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-purple-200 transition text-sm"
-                >
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+          {/* Explore & Support (Standard Links) */}
+          <div className="grid grid-cols-2 md:col-span-2 gap-8">
+            <div>
+              <h3 className="text-purple-200 text-xs font-bold tracking-[0.2em] mb-6 uppercase">Explore</h3>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/schedule" className="hover:text-purple-200 transition">Schedule</a></li>
+                <li><a href="/events" className="hover:text-purple-200 transition">Events</a></li>
+                <li><a href="/proshows" className="hover:text-purple-200 transition">Pro-Shows</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-purple-200 text-xs font-bold tracking-[0.2em] mb-6 uppercase">Support</h3>
+              <ul className="space-y-3 text-sm">
+                <li><a href="/sponsors" className="hover:text-purple-200 transition">Sponsors</a></li>
+                <li><a href="/contact" className="hover:text-purple-200 transition">Contact Us</a></li>
+              </ul>
+            </div>
           </div>
 
           {/* Venue Section */}
           <div>
-            <h3 className="text-purple-200 text-sm font-semibold tracking-widest mb-6">
-              VENUE
-            </h3>
-            <p className="text-sm text-gray-400 mb-4">Anna University</p>
-            <p className="text-xs text-gray-500 mb-4">
-              Guindy, Chennai
-              <br />
-              Tamil Nadu, India
+            <h3 className="text-purple-200 text-xs font-bold tracking-[0.2em] mb-6 uppercase">Venue</h3>
+            <p className="text-sm text-gray-400 mb-1">Anna University</p>
+            <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+              Guindy, Chennai<br />Tamil Nadu, India
             </p>
-            <a
-              href="https://www.google.com/maps/place/AnnaUniversityChennaihttps://www.google.com/maps/place/Anna+University/@13.0110783,80.2337369,17z/data=!3m1!4b1!4m6!3m5!1s0x3a52679fd80e657f:0x9727dde0ba49c84e!8m2!3d13.0110731!4d80.2363118!16zL20vMDI0NTFr?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-200 hover:text-purple-100 transition text-sm font-semibold"
-            >
+            <a href="#" className="text-purple-200 hover:text-purple-100 transition text-xs font-bold border-b border-purple-200/30 pb-1">
               VIEW MAP ➜
             </a>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          {/* Copyright */}
-          <p className="text-xs text-gray-600 mb-4 md:mb-0">
+        {/* --- NEW DEVELOPERS SECTION --- */}
+        <div className="border-t border-gray-900 py-10 flex flex-col items-center">
+          <p className="text-[10px] tracking-[0.3em] text-gray-500 uppercase mb-6">Designed & Developed By</p>
+          <div className="flex -space-x-3 hover:space-x-1 transition-all duration-500">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="relative group cursor-pointer">
+                {/* Tooltip */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1 bg-purple-200 text-gray-950 text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+                  {member.name} • <span className="font-normal opacity-70">{member.role}</span>
+                  {/* Tooltip Arrow */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-purple-200"></div>
+                </div>
+                
+                {/* Avatar */}
+                <img 
+                  src={member.img} 
+                  alt={member.name}
+                  className="w-10 h-10 rounded-full border-2 border-gray-950 grayscale hover:grayscale-0 hover:scale-125 transition-all duration-300 object-cover ring-2 ring-transparent group-hover:ring-purple-200"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-[10px] text-center text-gray-600 mb-4 md:mb-0 uppercase tracking-widest">
             © 2026 - Techofes Edition 79. All Rights Reserved.
           </p>
-
-          {/* Footer Links */}
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-xs text-gray-400 hover:text-purple-200 transition"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-xs text-gray-400 hover:text-purple-200 transition"
-            >
-              Terms of Service
-            </a>
+            <a href="#" className="text-[10px] hover:text-purple-200 transition uppercase tracking-widest">Privacy Policy</a>
+            <a href="#" className="text-[10px] hover:text-purple-200 transition uppercase tracking-widest">Terms of Service</a>
           </div>
         </div>
       </div>
