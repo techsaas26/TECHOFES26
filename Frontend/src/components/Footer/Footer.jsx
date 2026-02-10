@@ -6,11 +6,13 @@ const Footer = () => {
   const teamMembers = [
     { name: "Krishnendu MR", role: "Lead Dev", img: "/images/team/Krishnendu.jpg" },
     { name: "Krisna VJ", role: "Lead Dev", img: "/images/team/Krisna.jpeg" },
-    { name: "Abirami", role: "Backend", img: "https://i.pravatar.cc/150?u=3" },
-    { name: "Suchitra", role: "Backend", img: "https://i.pravatar.cc/150?u=4" },
-    { name: "Taylor", role: "Frontend", img: "https://i.pravatar.cc/150?u=5" },
-    { name: "Morgan", role: "UI/UX", img: "https://i.pravatar.cc/150?u=6" },
-    { name: "Casey", role: "Frontend", img: "https://i.pravatar.cc/150?u=7" },
+    { name: "Abirami", role: "Backend", img: "/images/tech/Abirami" },
+    { name: "Suchitra", role: "Backend", img: "/images/tech/Suchhitra" },
+    { name: "Kavinarasan K", role: "Frontend", img: "/images/tech/Kavinarasan" },
+    { name: "Harish M", role: "Frontend", img: "/images/tech/Harish" },
+    { name: "Shankararam SU", role: "Frontend", img: "/images/tech/Shankararam" },
+    { name: "Balasanthoshraj", role: "Frontend", img: "/images/tech/Bala" },
+    { name: "Akileshwaran", role: "Frontend", img: "/images/tech/Akileshwaran" },
   ];
 
   return (
