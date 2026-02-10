@@ -6,13 +6,13 @@ const Footer = () => {
   const teamMembers = [
     { name: "Krishnendu MR", role: "Lead Dev", img: "/images/team/Krishnendu.jpg" },
     { name: "Krisna VJ", role: "Lead Dev", img: "/images/team/Krisna.jpeg" },
-    { name: "Abirami", role: "Backend", img: "/images/tech/Abirami" },
-    { name: "Suchitra", role: "Backend", img: "/images/tech/Suchhitra" },
-    { name: "Kavinarasan K", role: "Frontend", img: "/images/tech/Kavinarasan" },
-    { name: "Harish M", role: "Frontend", img: "/images/tech/Harish" },
-    { name: "Shankararam SU", role: "Frontend", img: "/images/tech/Shankararam" },
-    { name: "Balasanthoshraj", role: "Frontend", img: "/images/tech/Bala" },
-    { name: "Akileshwaran", role: "Frontend", img: "/images/tech/Akileshwaran" },
+    { name: "Abirami", role: "Backend", img: "/images/team/Abirami.jpg" },
+    { name: "Suchitra", role: "Backend", img: "/images/team/Suchitra.jpg" },
+    { name: "Kavinarasan K", role: "Frontend", img: "/images/team/Kavinarasan.jpg" },
+    { name: "Harish M", role: "Frontend", img: "/images/team/Harish.jpg" },
+    { name: "Shankararam SU", role: "Frontend", img: "/images/team/Shankararam.jpg" },
+    { name: "Balasanthoshraj", role: "Frontend", img: "/images/team/Bala.jpg" },
+    { name: "Akileswaran", role: "Frontend", img: "/images/team/Akileswaran.jpg" },
   ];
 
   return (
