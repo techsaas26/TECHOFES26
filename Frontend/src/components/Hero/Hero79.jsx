@@ -80,7 +80,7 @@ const Hero79 = () => {
         {/* --- LOGO SECTION --- */}
         <div className="hero-logo mb-4 sm:mb-6 lg:mb-2">
           <img
-            src="/T79-logo.svg"
+            src="/T79-logo.jpg"
             alt="Techofes Logo"
             className="w-64 h-auto md:w-84 lg:w-lg object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
           />
