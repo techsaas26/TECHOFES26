@@ -1,54 +1,47 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import AuroraBackground from "./Aurora-BG/AuroraBackground";
-
-gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hero79 = () => {
   const container = useRef(null);
 
   useGSAP(
     () => {
-      const titleSplit = SplitText.create(".hero-title2", {
-        type: "chars",
-      });
+      const titleSplit = SplitText.create(".hero-title2", { type: "chars" });
+      const tl = gsap.timeline({ delay: 0.5 });
 
-      const herotl = gsap.timeline({
-        delay: 0.5,
-      });
-
-      // Animate the Logo first
-      herotl.from(".hero-logo", {
-        y: -50,
+      // Animate Logo
+      tl.from(".hero-logo", {
+        y: -30,
+        x: -10,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
       });
 
-      // Animate the Title
-      herotl.from(
+      // Animate Title
+      tl.from(
         titleSplit.chars,
         {
           yPercent: 300,
           stagger: 0.03,
           ease: "power2.out",
         },
-        "-=0.7", // Overlap with logo animation
+        "-=0.5",
       );
 
-      // Animate the numbers and subtitle
-      herotl.from(
-        ".numbersn, .hero-subtitle",
+      // Animate Dates and Subtitle
+      tl.from(
+        ".hero-dates, .hero-subtitle",
         {
           opacity: 0,
           y: 20,
           duration: 0.8,
           stagger: 0.2,
         },
-        "-=0.5",
+        "-=0.4",
       );
     },
     { scope: container },
@@ -57,59 +50,49 @@ const Hero79 = () => {
   return (
     <section
       ref={container}
-      className="relative min-h-dvh z-10 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Aurora Background */}
       <AuroraBackground themeColor="default" />
 
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30 z-3"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 z-10"></div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-linear-to-t from-black/20 via-transparent to-transparent">
-        <svg
-          className="absolute bottom-0 left-0 right-0 w-full h-32 text-black/10"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,40 Q360,20 720,40 T1440,40 L1440,120 L0,120 Z"
-            fill="currentColor"
-          ></path>
-        </svg>
-      </div>
+      {/* Main content */}
+      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4">
+        {/* Title + Logo */}
+        <div className="relative flex items-center justify-center">
+          {/* Logo at top-left of title */}
+          <div className="hero-logo absolute -top-25 -left-12 w-40 sm:w-48 md:w-56 lg:w-64">
+            <img
+              src="/T79-logo.png"
+              alt="Techofes Logo"
+              className="object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]"
+            />
+          </div>
 
-      <div className="relative flex flex-col items-center justify-center h-dvh z-20 px-4">
-        {/* --- LOGO SECTION --- */}
-        <div className="hero-logo mb-4 sm:mb-6 lg:mb-2">
-          <img
-            src="/T79-logo.png"
-            alt="Techofes Logo"
-            className="w-64 h-auto md:w-84 lg:w-lg object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-          />
+          {/* Title */}
+          <h1
+            className="hero-title2 text-7xl sm:text-6xl lg:text-7xl text-white font-extralight tracking-[0.3em] uppercase leading-relaxed"
+            style={{
+              fontFamily: "'Montserrat Alternates', 'Proxima Nova', sans-serif", // Geometric sans, tall and narrow
+              letterSpacing: "0.1em",
+              fontWeight: 800, // matches the light/extralight feel
+              lineHeight: "2", // tighter line height for geometric look
+            }}
+          >
+            TECHOFES'79
+          </h1>
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-2 sm:gap-4 w-full">
-          <div className="flex flex-col sm:flex-row justify-center items-center z-30 hero-container2 gap-0 lg:gap-6">
-            <div
-              className="text-5xl sm:text-7xl lg:text-8xl text-[#eff2ff] hero-title2 leading-none italic font-bold tracking-tight"
-              style={{ fontFamily: "Geist Sans, sans-serif" }}
-            >
-              TECHOFES
-            </div>
-            <div className="font-thunder-black text-[#eff2ff] text-6xl sm:text-8xl lg:text-[14rem] numbersn leading-[0.8]">
-              79
-            </div>
-          </div>
+        {/* Dates */}
+        <div className="hero-dates flex gap-6 mt-6 text-white/90 text-2xl sm:text-4xl font-bold tracking-widest">
+          February 25-28, 2026
+        </div>
 
-          {/* Subtitle / Divider */}
-          <div
-            className="hero-subtitle flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-12 gap-2 sm:gap-0"
-            style={{ marginTop: "-0.5rem" }}
-          >
-            <div className="h-px w-16 sm:w-32 bg-linear-to-r from-transparent to-white/60 hidden sm:block"></div>
-            <p className="text-white/80 text-xs md:text-sm tracking-[0.3em] uppercase font-light">
-              • Aurora Edition •
-            </p>
-            <div className="h-px w-16 sm:w-32 bg-linear-to-l from-transparent to-white/60 hidden sm:block"></div>
-          </div>
+        {/* Subtitle / Catchy Aurora tagline */}
+        <div className="hero-subtitle mt-4 text-xl sm:text-2xl text-white/70 font-light tracking-wider">
+          Ride the Northern Lights - Aurora, Colours of Creativity
         </div>
       </div>
     </section>

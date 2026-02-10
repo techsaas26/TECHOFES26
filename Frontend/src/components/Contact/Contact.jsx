@@ -49,8 +49,7 @@ const Contact = () => {
                 </h4>
                 <p className="text-gray-400 text-sm">saascegc@gmail.com</p>
                 <p className="text-gray-400 text-sm">
-                  techsaas26@gmail.com{" "}
-                  <span className="text-gray-500">(Tech queries)</span>
+                  Tech Queries - techsaas26@gmail.com{" "}
                 </p>
               </div>
             </div>
@@ -63,7 +62,13 @@ const Contact = () => {
                 </h4>
                 <p className="text-gray-400 text-sm">
                   {/* You will add later */}
-                  +91 XXXXXXXXXX
+                  Events - Nikaash +91 84389 74361{" "}
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Marketing - Navanee +91 93847 91862{" "}
+                </p>
+                <p className="text-gray-400 text-sm">
+                  HR - Dharshini +91 63854 47456
                 </p>
               </div>
             </div>
