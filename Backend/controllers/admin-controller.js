@@ -1,5 +1,4 @@
 import User from "../models/User.js";
-import Registration from "../models/Registration.js";
 import logger from "../utils/logger.js";
 
 // -----------------------------

@@ -1,10 +1,5 @@
 import express from "express";
-import {
-  getAllUsers,
-  getAllRegistrations,
-  getTotalUsers,
-  getTotalRegistrations,
-} from "../controllers/admin-controller.js";
+import { getAllUsers, getTotalUsers } from "../controllers/admin-controller.js";
 
 import { userExtractor } from "../utils/middleware.js";
 
@@ -25,10 +20,5 @@ router.use((req, res, next) => {
 // Users
 router.get("/users", getAllUsers);
 router.get("/totalusers", getTotalUsers);
-
-// Registrations
-router.get("/registrations", getAllRegistrations);
-router.get("/totalregistrations", getTotalRegistrations);
-
 
 export default router;

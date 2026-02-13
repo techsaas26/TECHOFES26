@@ -1,9 +1,3 @@
-import User from "../models/User.js";
-import Registration from "../models/Registration.js";
-import Accommodation from "../models/Accommodation.js";
-import MerchOrder from "../models/MerchOrder.js";
-import Event from "../models/Event.js";
-
 /* ======================
    Get user profile
 ====================== */

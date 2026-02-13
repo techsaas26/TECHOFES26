@@ -12,11 +12,6 @@ const config = {
   PORT: Number(process.env.PORT) || 4000,
   MONGODB_URI: requireEnv("MONGO_URI"),
 
-  // ---------------- Cloudinary ----------------
-  CLOUDINARY_CLOUD_NAME: requireEnv("CLOUDINARY_CLOUD_NAME"),
-  CLOUDINARY_API_KEY: requireEnv("CLOUDINARY_API_KEY"),
-  CLOUDINARY_API_SECRET: requireEnv("CLOUDINARY_API_SECRET"),
-
   // ---------------- JWT ----------------
   JWT_SECRET: requireEnv("JWT_SECRET"),
   JWT_EXPIRY: process.env.JWT_EXPIRY || "1d",
@@ -30,12 +25,8 @@ const config = {
   FROM_NAME: requireEnv("FROM_NAME"),
 
   // ---------------- Frontend ----------------
-  FRONTEND_URL: requireEnv("FRONTEND_URL"),
-
-  // ---------------- Razorpay ----------------
-  RAZORPAY_KEY_ID: requireEnv("RAZORPAY_KEY_ID"),
-  RAZORPAY_KEY_SECRET: requireEnv("RAZORPAY_KEY_SECRET"),
-  RAZORPAY_WEBHOOK_SECRET: requireEnv("RAZORPAY_WEBHOOK_SECRET"),
+  FRONTEND_URL1: requireEnv("FRONTEND_URL1"),
+  FRONTEND_URL2: requireEnv("FRONTEND_URL2"),
 };
 
 export default config;

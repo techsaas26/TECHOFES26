@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import config from "./utils/config.js";
 import middleware from "./utils/middleware.js";
-
+import sendMail from "./utils/mail.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import adminRouter from "./routes/admin.js";
@@ -13,9 +13,17 @@ import "express-async-errors";
 const app = express();
 
 // CORS
+const allowedOrigins = [config.FRONTEND_URL1, config.FRONTEND_URL2];
+
 app.use(
   cors({
-    origin: [config.FRONTEND_URL],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
