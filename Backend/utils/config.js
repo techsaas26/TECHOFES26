@@ -20,7 +20,7 @@ const config = {
   SMTP_HOST: requireEnv("SMTP_HOST"),
   SMTP_PORT: Number(process.env.SMTP_PORT) || 587,
   SMTP_USER: requireEnv("SMTP_USER"),
-  SMTP_PASSWORD: requireEnv("SMTP_PASSWORD"),
+  BREVO_API_KEY: requireEnv("SMTP_PASSWORD"),
   FROM_EMAIL: requireEnv("FROM_EMAIL"),
   FROM_NAME: requireEnv("FROM_NAME"),
 

@@ -268,3 +268,32 @@
 2026-02-14 10:42:14 [INFO]: MongoDB connected
 2026-02-14 10:42:14 [INFO]: Server running on port 4000 
 2026-02-14 10:42:25 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 12:54:11 [INFO]: MongoDB connected
+2026-02-14 12:54:11 [INFO]: Server running on port 4000 
+2026-02-14 12:54:41 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 12:54:41 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 12:54:42 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000006)
+2026-02-14 12:54:42 [INFO]: Email sent
+2026-02-14 12:55:14 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 13:19:04 [INFO]: MongoDB connected
+2026-02-14 13:19:04 [INFO]: Server running on port 4000 
+2026-02-14 13:19:07 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 13:19:07 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 13:19:07 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000007)
+2026-02-14 13:19:08 [ERROR]: Brevo HTTP SEND FAILED {"message":"Key not found","code":"unauthorized"}
+2026-02-14 13:19:08 [ERROR]: Error during registration: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+2026-02-14 13:19:08 [ERROR]: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+2026-02-14 13:20:08 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 13:20:12 [INFO]: MongoDB connected
+2026-02-14 13:20:12 [INFO]: Server running on port 4000 
+2026-02-14 13:20:17 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 13:20:17 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 13:20:17 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000008)
+2026-02-14 13:20:18 [INFO]: Email sent successfully
+2026-02-14 13:20:35 [WARN]: SIGINT received. Shutting down gracefully...

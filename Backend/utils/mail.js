@@ -1,16 +1,6 @@
-import nodemailer from "nodemailer";
+import fetch from "node-fetch";
 import config from "./config.js";
 import logger from "./logger.js";
-
-const transporter = nodemailer.createTransport({
-  host: config.SMTP_HOST,
-  port: config.SMTP_PORT,
-  secure: false, // correct for 587
-  auth: {
-    user: config.SMTP_USER,      // MUST be "apikey"
-    pass: config.SMTP_PASSWORD,  // 64-char SMTP key
-  },
-});
 
 const sendMail = async (to, subject, text) => {
   if (!to || !subject || !text) {
@@ -19,27 +9,28 @@ const sendMail = async (to, subject, text) => {
   }
 
   try {
-    const info = await transporter.sendMail({
-      from: `"${config.FROM_NAME}" <${config.FROM_EMAIL}>`,
-      to,
-      subject,
-      text,
+    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        "api-key": config.BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { email: config.FROM_EMAIL, name: config.FROM_NAME },
+        to: [{ email: to }],
+        subject: subject,
+        htmlContent: `<p>${text}</p>`,
+      }),
     });
 
-    logger.info("Email sent", {
-      to,
-      messageId: info.messageId,
-      response: info.response,
-    });
+    const result = await res.json();
+    if (!res.ok) throw new Error(JSON.stringify(result));
+
+    logger.info("Email sent successfully", { to, result });
   } catch (err) {
-    logger.error("SMTP SEND FAILED", {
-      message: err.message,
-      code: err.code,
-      command: err.command,
-      response: err.response,
-      stack: err.stack,
-    });
-    throw err; // IMPORTANT: rethrow so routes know it failed
+    logger.error("Brevo HTTP SEND FAILED", err);
+    throw err;
   }
 };
 
