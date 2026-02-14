@@ -74,7 +74,7 @@ export const registerUser = async (req, res, next) => {
 
     // Optional confirmation email
     const subject = "Registration Confirmation";
-    const text = `Dear ${savedUser.firstName},\n\nThank you for registering! Your unique T_ID is: ${savedUser.T_ID} and username is: "${savedUser.username}".\n\nBest regards,\nEvent Team`;
+    const text = `Dear ${savedUser.firstName},\n\nThank you for registering! Your unique T_ID is: ${savedUser.T_ID} and username is: "${savedUser.username}".\n\nBest regards,\nTechofes Tech Team`;
     await sendMail(savedUser.email, subject, text);
 
     res
@@ -106,7 +106,7 @@ export const loginUser = async (req, res, next) => {
         await sendMail(
           user.email,
           "Frequent Login Attempts Detected",
-          `Dear ${username},\n\nWe noticed multiple failed login attempts on your account.\n\nIf you need help resetting your password, please contact support.\n\nBest regards,\nEvent Team`,
+          `Dear ${username},\n\nWe noticed multiple failed login attempts on your account.\n\nIf you need help resetting your password, please contact support (techsaas26@gmail.com).\n\nBest regards,\nTechofes Tech Team`,
         );
       }
       if (user.username !== "admin") await user.save();
