@@ -180,7 +180,7 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/mohitha-arul-vadivu-0a21a625b",
     },
     {
-      image: "Krishnendu.jpg",
+      image: "Krishnendu.jpeg",
       name: "Krishnendu MR",
       domain: "Technical Design",
       instagram:
@@ -264,7 +264,7 @@ const Team = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-5">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-20 px-5 md:px-8 md:py-5">
           <div className="flex items-center gap-2">
             <h2 className="text-sm md:text-base lg:text-lg font-semibold tracking-widest text-cyan-400">
               SAAS CEG
