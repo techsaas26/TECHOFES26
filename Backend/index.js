@@ -11,9 +11,7 @@ const startServer = async () => {
     await connectDB(config.MONGODB_URI);
 
     const server = app.listen(PORT, () => {
-      logger.info(
-        `Server running on port ${PORT} in ${config.NODE_ENV || "development"} mode`
-      );
+      logger.info(`Server running on port ${PORT} `);
     });
 
     // Graceful shutdown handler
