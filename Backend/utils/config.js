@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 function requireEnv(varName) {
   const value = process.env[varName];
   if (!value) throw new Error(`${varName} is not defined`);

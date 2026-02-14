@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import config from "./utils/config.js";
 import middleware from "./utils/middleware.js";
-import sendMail from "./utils/mail.js";
 import authRouter from "./routes/auth.js";
 import usersRouter from "./routes/users.js";
 import adminRouter from "./routes/admin.js";
