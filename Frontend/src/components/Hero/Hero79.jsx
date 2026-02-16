@@ -58,7 +58,7 @@ const Hero79 = () => {
       <AuroraBackground themeColor="default" />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-10"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/60 z-10"></div>
 
       {/* 1) Fixed Logo Positioning */}
       <div 
@@ -93,7 +93,7 @@ const Hero79 = () => {
             Ignite the Night.
           </p>
           <p className="catchy-phrase text-base sm:text-xl text-white/90 font-light tracking-widest max-w-md mx-auto">
-            Where Technology Meets the Ethereal.
+            Where Cultural Meets the Ethereal.
           </p>
           <p className="catchy-phrase mt-8 text-xs sm:text-sm text-white/40 font-medium tracking-[0.5em] uppercase">
             Ride the Northern Lights
