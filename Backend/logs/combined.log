@@ -1,0 +1,299 @@
+2026-02-13 21:50:32 [INFO]: MongoDB connected
+2026-02-13 21:50:32 [INFO]: Server running on port 4000 in development mode
+2026-02-13 21:50:45 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:50:46 [INFO]: Method: GET | Path: /favicon.ico | Body: {}
+2026-02-13 21:50:50 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:12 [INFO]: MongoDB connected
+2026-02-13 21:51:12 [INFO]: Server running on port 4000 in development mode
+2026-02-13 21:51:12 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:12 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:15 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:15 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:27 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:27 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:30 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:30 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:30 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:31 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:51:31 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:51:31 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:53:02 [INFO]: MongoDB connected
+2026-02-13 21:53:02 [INFO]: Server running on port 4000 in development mode
+2026-02-13 21:53:08 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:53:08 [ERROR]: Error sending email
+2026-02-13 21:53:08 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:55:01 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:55:02 [ERROR]: Error sending email
+2026-02-13 21:55:02 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:58:34 [INFO]: MongoDB connected
+2026-02-13 21:58:34 [INFO]: Server running on port 4000 in development mode
+2026-02-13 21:58:38 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:58:39 [ERROR]: Error sending email
+2026-02-13 21:58:39 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 21:59:49 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-13 21:59:55 [INFO]: MongoDB connected
+2026-02-13 21:59:55 [INFO]: Server running on port 4000 in development mode
+2026-02-13 21:59:58 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 21:59:58 [ERROR]: Error sending email
+2026-02-13 21:59:58 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:06:27 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-13 22:06:33 [INFO]: MongoDB connected
+2026-02-13 22:06:33 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:07:03 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:07:04 [ERROR]: Error sending email
+2026-02-13 22:07:04 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:08:22 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:08:22 [ERROR]: Error sending email
+2026-02-13 22:08:22 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:08:25 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:08:25 [ERROR]: Error sending email
+2026-02-13 22:08:25 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:08:31 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-13 22:11:20 [INFO]: MongoDB connected
+2026-02-13 22:11:20 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:11:22 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:11:22 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:12:24 [INFO]: MongoDB connected
+2026-02-13 22:12:24 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:12:25 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:12:25 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:13:27 [INFO]: MongoDB connected
+2026-02-13 22:13:27 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:14:21 [INFO]: MongoDB connected
+2026-02-13 22:14:21 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:14:29 [INFO]: MongoDB connected
+2026-02-13 22:14:29 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:14:33 [INFO]: MongoDB connected
+2026-02-13 22:14:33 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:15:30 [INFO]: MongoDB connected
+2026-02-13 22:15:30 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:16:31 [INFO]: MongoDB connected
+2026-02-13 22:16:31 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:16:35 [INFO]: MongoDB connected
+2026-02-13 22:16:35 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:16:37 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:16:38 [ERROR]: SMTP SEND FAILED Invalid login: 535 5.7.8 Authentication failed
+2026-02-13 22:16:38 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:19:26 [INFO]: MongoDB connected
+2026-02-13 22:19:26 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:19:26 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:19:27 [INFO]: Email sent
+2026-02-13 22:19:27 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:19:57 [INFO]: MongoDB connected
+2026-02-13 22:19:57 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:20:01 [INFO]: MongoDB connected
+2026-02-13 22:20:01 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:20:20 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:20:21 [INFO]: Email sent
+2026-02-13 22:20:21 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:20:58 [INFO]: MongoDB connected
+2026-02-13 22:20:58 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:21:01 [INFO]: Method: GET | Path: /test-email | Body: {}
+2026-02-13 22:21:02 [INFO]: Email sent
+2026-02-13 22:21:02 [INFO]: Method: GET | Path: /.well-known/appspecific/com.chrome.devtools.json | Body: {}
+2026-02-13 22:21:45 [INFO]: MongoDB connected
+2026-02-13 22:21:45 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:22:20 [INFO]: MongoDB connected
+2026-02-13 22:22:20 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:22:42 [INFO]: MongoDB connected
+2026-02-13 22:22:42 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:25:54 [INFO]: Method: GET | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"9876543210","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:26:13 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"9876543210","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:26:13 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-13 22:26:13 [INFO]: User registered successfully: krishnendu (T_ID: CEG1)
+2026-02-13 22:26:14 [INFO]: Email sent
+2026-02-13 22:27:24 [INFO]: MongoDB connected
+2026-02-13 22:27:24 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:29:05 [INFO]: MongoDB connected
+2026-02-13 22:29:05 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:30:22 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"9876543210","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:30:22 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-13 22:30:22 [INFO]: User registered successfully: krishnendu (T_ID: CEG1)
+2026-02-13 22:30:23 [INFO]: Email sent
+2026-02-13 22:33:41 [INFO]: MongoDB connected
+2026-02-13 22:33:41 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:40:11 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:40:11 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:40:11 [ERROR]: Error during registration: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:40:11 [ERROR]: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:41:21 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-13 22:42:06 [INFO]: MongoDB connected
+2026-02-13 22:42:06 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:42:20 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:42:20 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:42:20 [ERROR]: Error during registration: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:42:20 [ERROR]: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:43:05 [INFO]: MongoDB connected
+2026-02-13 22:43:05 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:43:07 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:43:07 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:43:07 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEGnull)
+2026-02-13 22:43:08 [INFO]: Email sent
+2026-02-13 22:45:09 [INFO]: MongoDB connected
+2026-02-13 22:45:09 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:45:40 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:45:40 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:45:41 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEG1)
+2026-02-13 22:45:45 [INFO]: Email sent
+2026-02-13 22:46:24 [INFO]: MongoDB connected
+2026-02-13 22:46:24 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:46:41 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:46:41 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:46:42 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEG1)
+2026-02-13 22:46:42 [INFO]: Email sent
+2026-02-13 22:47:50 [INFO]: MongoDB connected
+2026-02-13 22:47:50 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:48:04 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:04 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:04 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEG1)
+2026-02-13 22:48:04 [INFO]: Email sent
+2026-02-13 22:48:08 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:08 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:08 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:09 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:09 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:09 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:10 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:10 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:10 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:10 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:10 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:10 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:11 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:11 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:11 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:11 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:11 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:11 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:11 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:11 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:11 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:48:11 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:48:11 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:48:11 [WARN]: Registration failed: username/email already in use (KRISHNENDU / krishnendumr@gmail.com)
+2026-02-13 22:49:22 [INFO]: MongoDB connected
+2026-02-13 22:49:22 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:49:24 [INFO]: MongoDB connected
+2026-02-13 22:49:24 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:51:03 [INFO]: MongoDB connected
+2026-02-13 22:51:03 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:51:24 [INFO]: MongoDB connected
+2026-02-13 22:51:24 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:51:26 [INFO]: MongoDB connected
+2026-02-13 22:51:26 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:51:32 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:51:32 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:51:32 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEG1)
+2026-02-13 22:51:33 [INFO]: Email sent
+2026-02-13 22:53:41 [INFO]: MongoDB connected
+2026-02-13 22:53:41 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:53:51 [INFO]: MongoDB connected
+2026-02-13 22:53:51 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:54:18 [INFO]: MongoDB connected
+2026-02-13 22:54:18 [INFO]: Server running on port 4000 in development mode
+2026-02-13 22:54:20 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDU","firstName":"Krishendu","lastName":"MR","email":"krishnendumr@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:54:20 [INFO]: Register attempt | username: KRISHNENDU | email: krishnendumr@gmail.com | type: CEG
+2026-02-13 22:54:20 [INFO]: User registered successfully: KRISHNENDU (T_ID: CEG2026000001)
+2026-02-13 22:54:21 [INFO]: Email sent
+2026-02-13 22:54:43 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"KRISHNENDUMR","firstName":"Krishendu","lastName":"MR","email":"krishnenduis19@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-13 22:54:43 [INFO]: Register attempt | username: KRISHNENDUMR | email: krishnenduis19@gmail.com | type: CEG
+2026-02-13 22:54:44 [INFO]: User registered successfully: KRISHNENDUMR (T_ID: CEG2026000002)
+2026-02-13 22:54:44 [INFO]: Email sent
+2026-02-13 22:55:23 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"techssas","firstName":"Krishendu","lastName":"MR","email":"techsaas26@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"OUTSIDE"}
+2026-02-13 22:55:23 [INFO]: Register attempt | username: techssas | email: techsaas26@gmail.com | type: OUTSIDE
+2026-02-13 22:55:23 [INFO]: User registered successfully: techssas (T_ID: EXT2026100001)
+2026-02-13 22:55:24 [INFO]: Email sent
+2026-02-13 22:56:44 [ERROR]: SyntaxError: Expected ',' or '}' after property value in JSON at position 33 (line 3 column 3)
+    at JSON.parse (<anonymous>)
+    at parse (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\body-parser\lib\types\json.js:92:19)
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2026-02-13 22:56:55 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"KRISHNENDU","password":"***"}
+2026-02-13 22:56:55 [INFO]: Login attempt for username: KRISHNENDU
+2026-02-13 22:56:55 [INFO]: User logged in successfully: KRISHNENDU (T_ID: CEG2026000001)
+2026-02-13 22:58:31 [INFO]: MongoDB connected
+2026-02-13 22:58:31 [INFO]: Server running on port 4000 in development mode
+2026-02-13 23:37:26 [WARN]: Registration failed: username/email already in use (krish / krishnendumr18@gmail.com)
+2026-02-14 10:39:43 [INFO]: MongoDB connected
+2026-02-14 10:39:43 [INFO]: Server running on port 4000 in development mode
+2026-02-14 10:40:46 [INFO]: MongoDB connected
+2026-02-14 10:40:46 [INFO]: Server running on port 4000 in development mode
+2026-02-14 10:42:06 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 10:42:14 [INFO]: MongoDB connected
+2026-02-14 10:42:14 [INFO]: Server running on port 4000 
+2026-02-14 10:42:25 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 12:54:11 [INFO]: MongoDB connected
+2026-02-14 12:54:11 [INFO]: Server running on port 4000 
+2026-02-14 12:54:41 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 12:54:41 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 12:54:42 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000006)
+2026-02-14 12:54:42 [INFO]: Email sent
+2026-02-14 12:55:14 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 13:19:04 [INFO]: MongoDB connected
+2026-02-14 13:19:04 [INFO]: Server running on port 4000 
+2026-02-14 13:19:07 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 13:19:07 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 13:19:07 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000007)
+2026-02-14 13:19:08 [ERROR]: Brevo HTTP SEND FAILED {"message":"Key not found","code":"unauthorized"}
+2026-02-14 13:19:08 [ERROR]: Error during registration: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+2026-02-14 13:19:08 [ERROR]: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+2026-02-14 13:20:08 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-14 13:20:12 [INFO]: MongoDB connected
+2026-02-14 13:20:12 [INFO]: Server running on port 4000 
+2026-02-14 13:20:17 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"krishnendu","firstName":"Krishnendu","lastName":"M R","email":"krishnendumr18@gmail.com","phoneNumber":"7306183808","rollNo":"CEG22CS101","password":"***","userType":"CEG"}
+2026-02-14 13:20:17 [INFO]: Register attempt | username: krishnendu | email: krishnendumr18@gmail.com | type: CEG
+2026-02-14 13:20:17 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000008)
+2026-02-14 13:20:18 [INFO]: Email sent successfully
+2026-02-14 13:20:35 [WARN]: SIGINT received. Shutting down gracefully...

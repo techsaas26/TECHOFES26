@@ -1,0 +1,72 @@
+2026-02-13 21:53:08 [ERROR]: Error sending email
+2026-02-13 21:55:02 [ERROR]: Error sending email
+2026-02-13 21:58:39 [ERROR]: Error sending email
+2026-02-13 21:59:58 [ERROR]: Error sending email
+2026-02-13 22:07:04 [ERROR]: Error sending email
+2026-02-13 22:08:22 [ERROR]: Error sending email
+2026-02-13 22:08:25 [ERROR]: Error sending email
+2026-02-13 22:16:38 [ERROR]: SMTP SEND FAILED Invalid login: 535 5.7.8 Authentication failed
+2026-02-13 22:40:11 [ERROR]: Error during registration: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:40:11 [ERROR]: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:42:20 [ERROR]: Error during registration: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:42:20 [ERROR]: MongoServerError: Updating the path 'lastInsiderId' would create a conflict at 'lastInsiderId'
+    at Connection.sendCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:305:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\cmap\connection.js:333:26)
+    at async Server.command (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\sdam\server.js:171:29)
+    at async FindOneAndUpdateOperation.executeCommand (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\command.js:76:16)
+    at async FindOneAndUpdateOperation.execute (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\find_and_modify.js:85:24)
+    at async tryOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:207:20)
+    at async executeOperation (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\operations\execute_operation.js:75:16)
+    at async Collection.findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\node_modules\mongodb\lib\collection.js:500:16)
+    at async model.Query._findOneAndUpdate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\query.js:3536:13)
+2026-02-13 22:56:44 [ERROR]: SyntaxError: Expected ',' or '}' after property value in JSON at position 33 (line 3 column 3)
+    at JSON.parse (<anonymous>)
+    at parse (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\body-parser\lib\types\json.js:92:19)
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at invokeCallback (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2026-02-14 13:19:08 [ERROR]: Brevo HTTP SEND FAILED {"message":"Key not found","code":"unauthorized"}
+2026-02-14 13:19:08 [ERROR]: Error during registration: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+2026-02-14 13:19:08 [ERROR]: Error: {"message":"Key not found","code":"unauthorized"}
+    at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)

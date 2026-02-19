@@ -1,0 +1,52 @@
+.timer-section {
+  /* background-color: #25c977;  */ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh; /* Adjust height as needed */
+  width: 100%;
+}
+
+.timer-countdown-container {
+  display: flex;
+  gap: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .timer-countdown-container {
+    gap: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .timer-countdown-container {
+    gap: 20px;
+  }
+}
+
+.timer-time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-time-block .number {
+  line-height: 1; 
+  /* color: black; */
+}
+
+.timer-time-block .label {
+  margin-top: 5px;
+  /* color: black; */
+}
+
+@media (max-width: 1000px) {
+  .timer-section {
+    height: 25vh;
+  }
+  /* .timer-countdown-container {
+    flex-direction: column;
+  } */
+}

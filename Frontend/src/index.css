@@ -1,0 +1,291 @@
+/* =========================
+   GOOGLE FONTS (KEEP)
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Antic+Didone&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@import "tailwindcss";
+
+/* =========================
+   SCROLLBAR (HIDDEN)
+   ========================= */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   CUSTOM FONTS (UNCHANGED VISUALLY)
+   ========================= */
+@font-face {
+  font-family: "ThunderBlack";
+  src: url("./Thunder-BlackLC.eot");
+  src:
+    url("./Thunder-BlackLC.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Thunder-BlackLC.woff2") format("woff2"),
+    url("./fonts/Thunder-BlackLC.woff") format("woff"),
+    url("./fonts/Thunder-BlackLC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap; /* SAFE ADD */
+}
+
+@font-face {
+  font-family: "ThunderSemBd";
+  src: url("Thunder-SemiBoldLC.eot");
+  src:
+    url("Thunder-SemiBoldLC.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Thunder-SemiBoldLC.woff2") format("woff2"),
+    url("./fonts/Thunder-SemiBoldLC.woff") format("woff"),
+    url("./fonts/Thunder-SemiBoldLC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap; /* SAFE ADD */
+}
+
+/* =========================
+   THEME VARIABLES
+   ========================= */
+@theme {
+  --color-bg: #030806;
+  --color-fg: #d9f2e8;
+  --jungle-green: #25c180;
+  --spring-green: #0ce389;
+  --greeni: #28c986;
+  --blue-smoke: #7e8e89;
+  --genoa: #10765b;
+  --mountain-meadow: #1bbca2;
+  --dark-green: #0f4334;
+  --elf-green: #0d9461;
+
+  --font-thunder-black: "ThunderBlack";
+  --font-thunder-semi: "ThunderSemBd";
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-antic-didone: "Antic Didone", regular;
+}
+
+:root {
+  --bg-main: #0b1020;
+  --bg-card: #11162b;
+  --accent: #6d5cff;
+  --text-main: #e6e8ff;
+  --text-muted: #aab0ff;
+}
+
+/* =========================
+   UTILITIES (UNCHANGED)
+   ========================= */
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@utility green-gradient {
+  @apply bg-linear-90 from-[#146342] to-[#28C986];
+}
+
+@utility white-gradient {
+  @apply bg-linear-90 from-[#D9F2E8] to-[#7E8C86];
+}
+
+@layer utilities {
+  .stroke {
+    -webkit-text-stroke: 1.5px #030806;
+  }
+}
+
+/* =========================
+   BODY & SMOOTH SCROLL
+   ========================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* =========================
+   AURORA (GPU-ACCELERATED)
+   ========================= */
+.aurora {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  inset: -20%;
+  opacity: 0.45;
+  filter: blur(140px);
+  animation: auroraMove 18s ease-in-out infinite alternate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.aurora-1 {
+  background: radial-gradient(circle at 30% 30%, #6d5cff, transparent 60%);
+}
+
+.aurora-2 {
+  background: radial-gradient(circle at 70% 40%, #3b82f6, transparent 60%);
+  animation-delay: -6s;
+}
+
+.aurora-3 {
+  background: radial-gradient(circle at 50% 70%, #38bdf8, transparent 60%);
+  animation-delay: -12s;
+}
+
+@keyframes auroraMove {
+  0% {
+    transform: translate3d(-10%, -10%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(10%, 10%, 0) scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+/* =========================
+   LOADER ANIMATIONS (LIGHTWEIGHT)
+   ========================= */
+.loader-logo {
+  animation: loaderLogoIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.loader-text {
+  animation: loaderFadeUp 0.5s 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.loader-bar {
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-exit {
+  animation: loaderExit 0.4s ease-in forwards;
+}
+
+@keyframes loaderLogoIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loaderFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loaderExit {
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+/* =========================
+   AUTH PAGE ANIMATIONS (CSS-ONLY)
+   ========================= */
+.animate-auth-promo {
+  animation: authSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-auth-card {
+  animation: authSlideInRight 0.55s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.animate-auth-field {
+  animation: authFadeUp 0.45s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-auth-field:nth-child(1) { animation-delay: 0.18s; }
+.animate-auth-field:nth-child(2) { animation-delay: 0.24s; }
+.animate-auth-field:nth-child(3) { animation-delay: 0.3s; }
+.animate-auth-field:nth-child(4) { animation-delay: 0.36s; }
+.animate-auth-field:nth-child(5) { animation-delay: 0.42s; }
+.animate-auth-field:nth-child(6) { animation-delay: 0.48s; }
+.animate-auth-field:nth-child(7) { animation-delay: 0.54s; }
+.animate-auth-field:nth-child(8) { animation-delay: 0.6s; }
+.animate-auth-field:nth-child(9) { animation-delay: 0.66s; }
+
+.animate-auth-submit {
+  animation: authFadeUp 0.4s 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-auth-social {
+  animation: authFadeUp 0.4s 0.55s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes authSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes authSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes authFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* snow removed per user request */
