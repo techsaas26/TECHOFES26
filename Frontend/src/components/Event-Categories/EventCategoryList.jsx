@@ -21,7 +21,7 @@ function EventCategoryItem({ item, onClose }) {
       onMouseEnter={() => setHoverKey((k) => k + 1)}
     >
       <div className="flex items-baseline gap-6 justify-center">
-        <span className="text-sm text-white/30 tabular-nums">{item.num}</span>
+        {/* <span className="text-sm text-white/30 tabular-nums">{item.num}</span> */}
         <div className="relative">
           <span className="text-2xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-indigo-400 md:text-5xl lg:text-6xl xl:text-7xl">
             <TextRoll

@@ -13,6 +13,7 @@ const eventData = {
       entryFee: "₹100 / Head",
       cashPrize: "Up to ₹10,000",
       rulesImage: '/images/rules/group_d.png',
+      posterImage: '/images/poster/intra-grp.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSd9W10A8AZG7YTHs_mYVDq6NQT44pPh9ZD1cubT2dxRb8OSFw/viewform'
     },
     {
@@ -28,6 +29,7 @@ const eventData = {
       entryFee: "₹200 / Head",
       cashPrize: "Up to ₹7,500 ",
       rulesImage: ['/images/rules/solo_d.png','/images/rules/sol_d_2.png'],
+      posterImage: '/images/poster/Solo-dance.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfqzxXoMGaSTh6QzL0aP5CPr1Q9LrYN4izTwE6Ih49t_m8fzw/viewform'
     },
     {
@@ -43,6 +45,7 @@ const eventData = {
       entryFee: "₹300 / Team of 2",
       cashPrize: "Up to ₹7,500",
       rulesImage: '/images/rules/duo_d.jpg',
+      posterImage: '/images/poster/Duo-dance.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdrjCJI7ATMWXQPjw2wMCJ_ZYxILfmmkSjFxz17cF_-o0MK3w/viewform'
     },
     {
@@ -72,6 +75,7 @@ const eventData = {
       entryFee: "₹200 / Head",
       cashPrize: "₹10,000",
       rulesImage: '/images/rules/solo_s_2.png',
+      posterImage: '/images/poster/solo-sing.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfzqB09JkNqirQh-0mhUWxHZmXbbBTMjwMDXVoy4nUbeHCejQ/viewform'
     },
     {
@@ -87,6 +91,7 @@ const eventData = {
       entryFee: "₹200 / Head",
       cashPrize: "₹15,000",
       rulesImage: '/images/rules/botb_2.png',
+      posterImage: '/images/poster/Bob.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeo2wuBv4fiKkHEmqyjfwqv0_7m--1ZpcRlVg3MQ5MbIb6LrQ/viewform'
     },
     {
@@ -115,6 +120,7 @@ const eventData = {
       entryFee: "₹1000/ Team",
       cashPrize: "Up to ₹10,000",
       rulesImage: ['/images/rules/intra_college_2.png','/images/rules/intra_3.png'],
+      posterImage: '/images/poster/intra.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSepMvhUaLJpM9xM1y8Ela4grxxx1oEdoFdvCDza29QYo8MHJg/viewform'
     },
     {
@@ -130,6 +136,7 @@ const eventData = {
       entryFee: "₹2000/ Team",
       cashPrize: "Up to ₹20,000",
       rulesImage: ['/images/rules/inter_2.png','/images/rules/Inter_3.png'],
+      posterImage: '/images/poster/inter.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeKVNOpGzA0MQUGbetVC56oCW2iQ0xi-EXvH5KjVxSR4_9Ouw/viewform'
     }
   ],

@@ -6,37 +6,41 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const STICKY_DATA = [
-    {
-      index: "Day - 00",
-      title: ["Inauguration +", "Movie Night"],
-      image: "/images/days/inau.jpeg",
-      description:
-        "An opening ceremony followed by a relaxed movie night to set the tone for the days ahead. Join us for an unforgettable inaugural movie experience as we celebrate the launch of Techofes 79.",
-    },
-    {
-      index: "Day - 01",
-      title: ["Concert", "Night"],
-      image: "/images/days/concert.jpg",
-      description:
-        // "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
-        "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm",
-    },
-    {
-      index: "Day - 02",
-      title: ["T-Awards"],
-      image: "/images/days/t-awards.png",
-      description:
-        // "Recognising excellence, creativity, and contribution across multiple domains.",
-        "A grand tribute to the silver screen. We welcome the visionaries of cinema to honor their craft, celebrating the storytellers and artists across multiple domains.",
-    },
-    {
-      index: "Day - 03",
-      title: ["Choreo Night", "& ToT"],
-      image: "/images/days/choreo_night.jpg",
-      description:
-        "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
-    },
-  ];
+  {
+    index: "Day - 00",
+    title: ["Inauguration +", "Movie Night"],
+    image: "/images/days/inau.jpeg",
+    description:
+      "An opening ceremony followed by a relaxed movie night to set the tone for the days ahead. Join us for an unforgettable inaugural movie experience as we celebrate the launch of Techofes 79.",
+    link: null,
+  },
+  {
+    index: "Day - 01",
+    title: ["Concert", "Night"],
+    image: "/images/days/concert.jpg",
+    description:
+      // "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
+      "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
+  },
+  {
+    index: "Day - 02",
+    title: ["T-Awards"],
+    image: "/images/days/t-awards.png",
+    description:
+      // "Recognising excellence, creativity, and contribution across multiple domains.",
+      "A grand tribute to the silver screen. We welcome the visionaries of cinema to honor their craft, celebrating the storytellers and artists across multiple domains.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
+  },
+  {
+    index: "Day - 03",
+    title: ["Choreo Night", "& ToT"],
+    image: "/images/days/choreo_night.jpg",
+    description:
+      "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
+  },
+];
 
 const StickyCard = () => {
   const container = useRef(null);
@@ -140,9 +144,39 @@ const StickyCard = () => {
                 </p>
               </div>
 
-              <div className="mt-6 sm:mt-8 text-xs tracking-widest text-(--text-muted) uppercase">
-                EST 2025
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="text-xs tracking-widest text-(--text-muted) uppercase">
+                  EST 2025
+                </div>
+
+                {/* NEW BUTTON LOGIC */}
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3 border border-(--accent) text-(--accent) text-xs font-bold uppercase tracking-widest rounded-full hover:bg-(--accent) hover:text-black transition-all duration-300 transform hover:scale-105 active:scale-95"
+                  >
+                    Register Now
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="ml-2 w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </a>
+                )}
               </div>
+
+              
             </div>
           </div>
         </article>

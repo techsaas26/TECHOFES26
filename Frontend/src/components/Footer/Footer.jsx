@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Share2, Globe, Mail } from "lucide-react";
+import { Instagram, Globe, Mail } from "lucide-react";
 
 const TEAM_MEMBERS = [
     {
@@ -59,7 +59,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-purple-200/30 rounded-full flex items-center justify-center hover:bg-purple-200 hover:text-gray-950 transition-all duration-300 group"
               >
-                <Share2 className="w-5 h-5 text-purple-200 group-hover:text-gray-950" />
+                <Instagram className="w-5 h-5 text-purple-200 group-hover:text-gray-950" />
               </a>
               <a
                 href="mailto:saascegc@gmail.com"
