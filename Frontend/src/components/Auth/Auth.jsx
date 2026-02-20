@@ -47,8 +47,7 @@ const Auth = () => {
           </button>
 
           <div className="flex items-center gap-2 mb-6 lg:mb-24">
-            <img src="/T79-logo.png" alt="Techofes" className="h-10 w-auto object-contain" />
-            <span className="text-xl font-semibold text-white tracking-tight">TECHOFES</span>
+            <img src="/T79-logo.png" alt="Techofes" className="h-20 w-auto object-contain" />
           </div>
 
           <h1 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
