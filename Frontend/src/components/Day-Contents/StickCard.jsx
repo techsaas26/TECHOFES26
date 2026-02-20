@@ -22,7 +22,7 @@ const StickyCard = () => {
       image: "/images/days/concert.jpg",
       description:
         // "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
-        "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm"
+        "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm",
     },
     {
       index: "Day - 02",
@@ -73,19 +73,16 @@ const StickyCard = () => {
         }
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
-    <section
-      ref={container}
-      className="relative w-full bg-(--bg-main)"
-    >
+    <section ref={container} className="relative w-full bg-(--bg-main)">
       {data.map((item, idx) => (
         <article
           key={idx}
           className={`sc relative h-screen w-full bg-(--bg-card) text-(--text-main) flex flex-col md:flex-row will-change-transform ${
-            idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+            idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
           }`}
           style={{
             boxShadow: "0 40px 120px rgba(0,0,0,0.4)",
@@ -98,13 +95,15 @@ const StickyCard = () => {
           />
 
           {/* Image Section */}
-          <div className={`absolute z-0 w-full h-screen flex items-center justify-center md:z-20 md:w-1/2 md:top-0 ${
-            idx % 2 === 0 ? 'md:right-0' : 'md:left-0'
-          }`}>
+          <div
+            className={`absolute z-0 w-full h-screen flex items-center justify-center md:z-20 md:w-1/2 md:top-0 ${
+              idx % 2 === 0 ? "md:right-0" : "md:left-0"
+            }`}
+          >
             <img
               src={item.image}
               alt=""
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${idx % 2 === 0 ? "md:border-l-2" : "md:border-r-2"}`}
             />
           </div>
 
@@ -112,15 +111,17 @@ const StickyCard = () => {
           <div className="absolute md:hidden inset-0 bg-black/50 z-15 pointer-events-none" />
 
           {/* Title and Description Section */}
-          <div className={`absolute md:relative z-20 w-full md:w-1/2 h-screen flex flex-col justify-center px-6 sm:px-12 py-8 md:py-10 md:top-0 ${
-            idx % 2 === 0 ? 'md:left-0' : 'md:right-0'
-          }`}>
+          <div
+            className={`absolute md:relative z-20 w-full md:w-1/2 h-screen flex flex-col justify-center px-6 sm:px-12 py-8 md:py-10 md:top-0 ${
+              idx % 2 === 0 ? "md:left-0" : "md:right-0"
+            }`}
+          >
             <div className="md:bg-transparent bg-white/10 backdrop-blur-sm md:backdrop-blur-none border border-white/20 md:border-transparent rounded-lg p-6 sm:p-8 md:p-0">
               <span className="text-xs sm:text-sm tracking-widest uppercase text-(--accent) font-semibold mb-4 sm:mb-6">
                 {item.index}
               </span>
 
-              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-bold mb-6 sm:mb-8">
+              <h2 className="text-3xl sm:text-5xl lg:text-7xl leading-[1.05] font-bold mb-6 sm:mb-8">
                 {item.title.map((t, i) => (
                   <span key={i} className="block">
                     {t}
@@ -132,7 +133,7 @@ const StickyCard = () => {
                 <p className="uppercase text-xs tracking-widest text-(--text-muted)">
                   What happens ?
                 </p>
-                <p className="text-xs sm:text-sm md:text-base leading-relaxed text-(--text-muted)">
+                <p className="text-xs sm:text-sm md:text-lg leading-relaxed text-(--text-muted)">
                   {item.description}
                 </p>
               </div>

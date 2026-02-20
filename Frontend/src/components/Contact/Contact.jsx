@@ -32,7 +32,7 @@ const Contact = () => {
             Contact Us
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-            For event details, collaborations, or technical queries — reach out
+            For event details, collaborations, or technical queries - reach out
             to us.
           </p>
         </div>
@@ -61,14 +61,13 @@ const Contact = () => {
                   Phone
                 </h4>
                 <p className="text-gray-400 text-sm">
-                  {/* You will add later */}
-                  Events - Nikaash +91 84389 74361{" "}
+                  HR - Dharshini +91 63854 47456{" "}
                 </p>
                 <p className="text-gray-400 text-sm">
-                  Marketing - Navanee +91 93847 91862{" "}
+                  HR - Thilagaraj +91 90254 04846{" "}
                 </p>
                 <p className="text-gray-400 text-sm">
-                  HR - Dharshini +91 63854 47456
+                  HR - Kathir +91 98949 39097
                 </p>
               </div>
             </div>

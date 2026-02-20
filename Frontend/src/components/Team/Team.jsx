@@ -43,7 +43,7 @@ const Team = () => {
       linkedin: "http://www.linkedin.com/in/krishnashree-d",
     },
     {
-      image: "default.webp",
+      image: "Ecilaise.jpg",
       name: "SP Ecialise",
       domain: "General Secretary",
       instagram: "",
@@ -180,7 +180,7 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/mohitha-arul-vadivu-0a21a625b",
     },
     {
-      image: "Krishnendu.jpeg",
+      image: "Krishnendu.jpg",
       name: "Krishnendu MR",
       domain: "Technical Design",
       instagram:

@@ -10,24 +10,24 @@ const Footer = () => {
       img: "/images/team/Krishnendu.jpeg",
     },
     { name: "Krisna VJ", role: "Lead Dev", img: "/images/team/Krisna.jpeg" },
-    { name: "Abirami", role: "Backend", img: "/images/team/Abirami.jpg" },
-    { name: "Suchitra", role: "Backend", img: "/images/team/Suchitra.jpg" },
+    { name: "Abirami", role: "Backend", img: "/images/tech/Abirami.jpg" },
+    { name: "Suchitra", role: "Backend", img: "/images/tech/Suchitra.jpg" },
     {
       name: "Kavinarasan K",
       role: "Frontend",
-      img: "/images/team/Kavinarasan.jpg",
+      img: "/images/tech/Kavinarasan.jpg",
     },
-    { name: "Harish M", role: "Frontend", img: "/images/team/Harish.jpg" },
+    { name: "Harish M", role: "Frontend", img: "/images/tech/Harish.jpg" },
     {
       name: "Shankararam SU",
       role: "Frontend",
-      img: "/images/team/Shankararam.jpg",
+      img: "/images/tech/Shankararam.jpg",
     },
-    { name: "Balasanthoshraj", role: "Frontend", img: "/images/team/Bala.jpg" },
+    { name: "Balasanthoshraj", role: "Frontend", img: "/images/tech/Bala.jpg" },
     {
       name: "Akileswaran",
       role: "Frontend",
-      img: "/images/team/Akileswaran.jpg",
+      img: "/images/tech/Akileswaran.jpg",
     },
   ];
 
