@@ -297,3 +297,35 @@
 2026-02-14 13:20:17 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000008)
 2026-02-14 13:20:18 [INFO]: Email sent successfully
 2026-02-14 13:20:35 [WARN]: SIGINT received. Shutting down gracefully...
+<<<<<<< HEAD
+=======
+2026-02-20 09:08:57 [INFO]: MongoDB connected
+2026-02-20 09:08:57 [INFO]: Server running on port 4000 
+2026-02-20 09:10:08 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"john123","fullName":"John Doe","email":"john@example.com","phoneNumber":"9876543210","collegeName":"ABC College","department":"CSE","rollNo":"12345","password":"***","userType":"CEG"}
+2026-02-20 09:10:08 [INFO]: Register attempt | username: john123 | email: john@example.com | type: CEG
+2026-02-20 09:10:09 [ERROR]: Error during registration: ValidationError: User validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.
+    at Document.invalidate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3381:32)
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3142:17
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\schemaType.js:1446:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-02-20 09:10:09 [ERROR]: ValidationError: User validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.
+    at Document.invalidate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3381:32)
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3142:17
+    at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\schemaType.js:1446:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-02-20 09:11:23 [INFO]: MongoDB connected
+2026-02-20 09:11:23 [INFO]: Server running on port 4000 
+2026-02-20 09:11:31 [INFO]: MongoDB connected
+2026-02-20 09:11:31 [INFO]: Server running on port 4000 
+2026-02-20 09:11:37 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"john123","fullName":"John Doe","email":"john@example.com","phoneNumber":"9876543210","collegeName":"ABC College","department":"CSE","rollNo":"12345","password":"***","userType":"CEG"}
+2026-02-20 09:11:37 [INFO]: Register attempt | username: john123 | email: john@example.com | type: CEG
+2026-02-20 09:11:38 [INFO]: User registered successfully: john123 (T_ID: CEG2026000013)
+2026-02-20 09:11:39 [INFO]: Email sent successfully
+2026-02-20 09:12:06 [INFO]: Method: POST | Path: /api/auth/login | Body: {"username":"john123","password":"***"}
+2026-02-20 09:12:06 [INFO]: Login attempt for username: john123
+2026-02-20 09:12:07 [INFO]: User logged in successfully: john123 (T_ID: CEG2026000013)
+2026-02-20 09:12:59 [INFO]: Method: GET | Path: /api/profile/ | Body: {"username":"john123","password":"***"}
+2026-02-20 09:13:32 [INFO]: MongoDB connected
+2026-02-20 09:13:32 [INFO]: Server running on port 4000 
+2026-02-20 09:14:15 [WARN]: SIGINT received. Shutting down gracefully...
+>>>>>>> upstream/main
