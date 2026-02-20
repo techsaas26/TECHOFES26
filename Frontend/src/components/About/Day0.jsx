@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { memo, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Timer from "./Timer";
@@ -66,26 +66,35 @@ const AuroraSection = () => {
   );
 
   useEffect(() => {
+    let rafId = null;
+    let lastX = 0;
+    let lastY = 0;
+
     const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const x = (clientX / window.innerWidth - 0.5) * 40;
-      const y = (clientY / window.innerHeight - 0.5) * 40;
-      
-      if (a1.current && a2.current && a3.current) {
-        [a1.current, a2.current, a3.current].forEach((blob, index) => {
-          const speed = (index + 1) * 0.5;
-          gsap.to(blob, {
-            x: x * speed,
-            y: y * speed,
-            duration: 0.5,
-            overwrite: false,
+      lastX = (e.clientX / window.innerWidth - 0.5) * 40;
+      lastY = (e.clientY / window.innerHeight - 0.5) * 40;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        if (a1.current && a2.current && a3.current) {
+          [a1.current, a2.current, a3.current].forEach((blob, index) => {
+            const speed = (index + 1) * 0.5;
+            gsap.to(blob, {
+              x: lastX * speed,
+              y: lastY * speed,
+              duration: 0.5,
+              overwrite: false,
+            });
           });
-        });
-      }
+        }
+        rafId = null;
+      });
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -151,4 +160,4 @@ const AuroraSection = () => {
   );
 };
 
-export default AuroraSection;
+export default memo(AuroraSection);

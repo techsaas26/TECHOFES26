@@ -70,6 +70,8 @@
     at sendMail (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/utils/mail.js:28:24)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async registerUser (file:///C:/Users/krish/OneDrive/Documents/TECHOFES26/Backend/controllers/auth-controller.js:78:5)
+<<<<<<< HEAD
+=======
 2026-02-20 09:10:09 [ERROR]: Error during registration: ValidationError: User validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.
     at Document.invalidate (C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3381:32)
     at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3142:17
@@ -80,3 +82,4 @@
     at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\document.js:3142:17
     at C:\Users\krish\OneDrive\Documents\TECHOFES26\Backend\node_modules\mongoose\lib\schemaType.js:1446:9
     at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+>>>>>>> upstream/main

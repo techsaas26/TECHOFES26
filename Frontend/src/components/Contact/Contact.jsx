@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { memo, useState, useCallback } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
@@ -8,11 +8,12 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
 
     const subject = encodeURIComponent("Techofes '79 – Contact Query");
@@ -21,7 +22,7 @@ const Contact = () => {
     );
 
     window.location.href = `mailto:saascegc@gmail.com?cc=techsaas26@gmail.com&subject=${subject}&body=${body}`;
-  };
+  }, [form]);
 
   return (
     <section className="bg-gray-950 text-gray-300 py-20 px-8">
@@ -157,4 +158,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);

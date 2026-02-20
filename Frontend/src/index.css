@@ -101,8 +101,12 @@ body::-webkit-scrollbar {
 }
 
 /* =========================
-   BODY
+   BODY & SMOOTH SCROLL
    ========================= */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -111,7 +115,7 @@ body {
 }
 
 /* =========================
-   AURORA (SMOOTHER, SAME LOOK)
+   AURORA (GPU-ACCELERATED)
    ========================= */
 .aurora {
   position: absolute;
@@ -121,8 +125,8 @@ body {
   opacity: 0.45;
   filter: blur(140px);
   animation: auroraMove 18s ease-in-out infinite alternate;
-  will-change: transform;
-  transform: translateZ(0); /* GPU hint */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .aurora-1 {
@@ -147,3 +151,141 @@ body {
     transform: translate3d(10%, 10%, 0) scale(1.2);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+/* =========================
+   LOADER ANIMATIONS (LIGHTWEIGHT)
+   ========================= */
+.loader-logo {
+  animation: loaderLogoIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.loader-text {
+  animation: loaderFadeUp 0.5s 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.loader-bar {
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-exit {
+  animation: loaderExit 0.4s ease-in forwards;
+}
+
+@keyframes loaderLogoIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loaderFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loaderExit {
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+/* =========================
+   AUTH PAGE ANIMATIONS (CSS-ONLY)
+   ========================= */
+.animate-auth-promo {
+  animation: authSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-auth-card {
+  animation: authSlideInRight 0.55s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.animate-auth-field {
+  animation: authFadeUp 0.45s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-auth-field:nth-child(1) { animation-delay: 0.18s; }
+.animate-auth-field:nth-child(2) { animation-delay: 0.24s; }
+.animate-auth-field:nth-child(3) { animation-delay: 0.3s; }
+.animate-auth-field:nth-child(4) { animation-delay: 0.36s; }
+.animate-auth-field:nth-child(5) { animation-delay: 0.42s; }
+.animate-auth-field:nth-child(6) { animation-delay: 0.48s; }
+.animate-auth-field:nth-child(7) { animation-delay: 0.54s; }
+.animate-auth-field:nth-child(8) { animation-delay: 0.6s; }
+.animate-auth-field:nth-child(9) { animation-delay: 0.66s; }
+
+.animate-auth-submit {
+  animation: authFadeUp 0.4s 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-auth-social {
+  animation: authFadeUp 0.4s 0.55s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes authSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes authSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes authFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* snow removed per user request */

@@ -1,9 +1,7 @@
-import React from "react";
+import { memo } from "react";
 import { Share2, Globe, Mail } from "lucide-react";
 
-const Footer = () => {
-  // Team data array for easy management
-  const teamMembers = [
+const TEAM_MEMBERS = [
     {
       name: "Krishnendu MR",
       role: "Lead Dev",
@@ -31,6 +29,7 @@ const Footer = () => {
     },
   ];
 
+const Footer = () => {
   return (
     <footer className="bg-gray-950 text-gray-300 py-16 px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -155,7 +154,7 @@ const Footer = () => {
             Designed & Developed By
           </p>
           <div className="flex -space-x-3 hover:space-x-1 transition-all duration-500">
-            {teamMembers.map((member, index) => (
+            {TEAM_MEMBERS.map((member, index) => (
               <div key={index} className="relative group cursor-pointer">
                 {/* Tooltip */}
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1 bg-purple-200 text-gray-950 text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
@@ -169,6 +168,8 @@ const Footer = () => {
                 <img
                   src={member.img}
                   alt={member.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-10 h-10 rounded-full border-2 border-gray-950 grayscale hover:grayscale-0 hover:scale-125 transition-all duration-300 object-cover ring-2 ring-transparent group-hover:ring-purple-200"
                 />
               </div>
@@ -201,4 +202,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

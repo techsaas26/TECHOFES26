@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { memo, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -70,6 +70,10 @@ const Hero79 = () => {
         <img
           src="/T79-logo.png"
           alt="Techofes Logo"
+          width={256}
+          height={128}
+          fetchPriority="high"
+          decoding="async"
           className="object-contain drop-shadow-[0_0_15px_rgba(0,255,255,0.4)]"
         />
       </div>
@@ -111,4 +115,4 @@ const Hero79 = () => {
   );
 };
 
-export default Hero79;
+export default memo(Hero79);

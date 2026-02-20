@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
@@ -10,20 +11,15 @@ const ComingSoon = () => {
     const textSplit = SplitText.create(".coming-soon-text", {
       type: "chars",
     });
-    
-    const tl = gsap.timeline({
-      delay: 0.5,
-    });
-    
+
+    const tl = gsap.timeline({ delay: 0.5 });
     tl.from(
       textSplit.chars,
-      {
-        yPercent: 300,
-        stagger: 0.05,
-        ease: "power2.out",
-      },
+      { yPercent: 300, stagger: 0.05, ease: "power2.out" },
       "-=0.5"
     );
+
+    return () => textSplit.revert();
   });
 
   return (
@@ -57,4 +53,4 @@ const ComingSoon = () => {
   );
 };
 
-export default ComingSoon;
+export default memo(ComingSoon);

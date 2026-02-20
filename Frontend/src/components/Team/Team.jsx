@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { useGSAP } from "@gsap/react";
 import { Globe, Share2 } from "lucide-react";
 import gsap from "gsap";
@@ -399,4 +399,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default memo(Team);

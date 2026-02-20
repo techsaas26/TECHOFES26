@@ -1,14 +1,11 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StickyCard = () => {
-  const container = useRef(null);
-
-  const data = [
+const STICKY_DATA = [
     {
       index: "Day - 00",
       title: ["Inauguration +", "Movie Night"],
@@ -40,6 +37,9 @@ const StickyCard = () => {
         "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
     },
   ];
+
+const StickyCard = () => {
+  const container = useRef(null);
 
   useGSAP(
     () => {
@@ -78,7 +78,7 @@ const StickyCard = () => {
 
   return (
     <section ref={container} className="relative w-full bg-(--bg-main)">
-      {data.map((item, idx) => (
+      {STICKY_DATA.map((item, idx) => (
         <article
           key={idx}
           className={`sc relative h-screen w-full bg-(--bg-card) text-(--text-main) flex flex-col md:flex-row will-change-transform ${
@@ -102,7 +102,9 @@ const StickyCard = () => {
           >
             <img
               src={item.image}
-              alt=""
+              alt={item.title.join(" ")}
+              loading="lazy"
+              decoding="async"
               className={`w-full h-full object-cover ${idx % 2 === 0 ? "md:border-l-2" : "md:border-r-2"}`}
             />
           </div>
@@ -149,4 +151,4 @@ const StickyCard = () => {
   );
 };
 
-export default StickyCard;
+export default memo(StickyCard);

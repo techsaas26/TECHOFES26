@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { memo, useState, useEffect, useRef, useCallback } from 'react'
 import gsap from 'gsap'
 import StaggeredMenu from './StaggeredMenu'
 import { TextRoll } from './core/text-roll'
 
-export default function FloatingMenu() {
+function FloatingMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const tlRef = useRef(null)
   const buttonRef = useRef(null)
@@ -38,17 +38,18 @@ export default function FloatingMenu() {
     }, 0.2)
   }, [])
 
-  const handleMenuClick = () => {
-    if (isMenuOpen) {
-      tlRef.current?.reverse()
-      setIsMenuOpen(false)
-    } else {
-      tlRef.current?.play()
-      setIsMenuOpen(true)
-    }
-  }
+  const handleMenuClick = useCallback(() => {
+    setIsMenuOpen((prev) => {
+      if (prev) {
+        tlRef.current?.reverse();
+      } else {
+        tlRef.current?.play();
+      }
+      return !prev;
+    });
+  }, []);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (hoverTlRef.current) {
       hoverTlRef.current.kill()
     }
@@ -58,9 +59,9 @@ export default function FloatingMenu() {
       duration: 0.3,
       ease: 'power2.out'
     })
-  }
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (hoverTlRef.current) {
       hoverTlRef.current.kill()
     }
@@ -70,7 +71,12 @@ export default function FloatingMenu() {
       duration: 0.3,
       ease: 'power2.out'
     })
-  }
+  }, []);
+
+  const handleClose = useCallback(() => {
+    tlRef.current?.reverse();
+    setIsMenuOpen(false);
+  }, []);
 
   return (
     <>
@@ -91,10 +97,9 @@ export default function FloatingMenu() {
       )}
 
       {/* Menu Modal - Always rendered for GSAP animation */}
-      <StaggeredMenu onClose={() => {
-        tlRef.current?.reverse()
-        setIsMenuOpen(false)
-      }} />
+      <StaggeredMenu onClose={handleClose} />
     </>
   )
 }
+
+export default memo(FloatingMenu)

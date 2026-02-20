@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { memo, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -129,7 +129,7 @@ function AuroraContent({ themeColor }) {
   );
 }
 
-export default function AuroraBackground({ themeColor = "default" }) {
+function AuroraBackground({ themeColor = "default" }) {
   return (
     <div className="absolute inset-0 z-0 bg-[#010205]">
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
@@ -138,3 +138,5 @@ export default function AuroraBackground({ themeColor = "default" }) {
     </div>
   );
 }
+
+export default memo(AuroraBackground);

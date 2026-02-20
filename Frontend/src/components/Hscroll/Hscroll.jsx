@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { memo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -6,10 +6,7 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const Hscroll = () => {
-  const containerRef = useRef(null);
-
-  const panelData = [
+const PANEL_DATA = [
     { image: "/images/hScroll/stage-sing.jpg" },
     {
       image: "/images/hScroll/techofes_stage.jpeg",
@@ -37,11 +34,14 @@ const Hscroll = () => {
     },
   ];
 
+const Hscroll = () => {
+  const containerRef = useRef(null);
+
   useGSAP(
     () => {
       const sections = gsap.utils.toArray(".panel");
 
-      // 1. Setup the Horizontal Scroll Timeline
+      // 1. Setup the Horizontal Scroll Timeline with snap per panel
       const scrollTween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
@@ -51,6 +51,12 @@ const Hscroll = () => {
           scrub: 1.2,
           end: () => "+=" + containerRef.current.offsetWidth,
           anticipatePin: 1,
+          snap: {
+            snapTo: 1 / (sections.length - 1),
+            duration: { min: 0.2, max: 0.6 },
+            ease: "power2.inOut",
+            delay: 0,
+          },
         },
       });
 
@@ -79,7 +85,7 @@ const Hscroll = () => {
         {/* FIRST PANEL: INTRO */}
         <section className="panel relative w-screen h-screen flex flex-col justify-center items-center px-1 text-center overflow-hidden">
           <div
-            style={{ backgroundImage: `url(${panelData[0].image})` }}
+            style={{ backgroundImage: `url(${PANEL_DATA[0].image})` }}
             className="absolute inset-0 bg-center bg-cover scale-110"
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -96,9 +102,9 @@ const Hscroll = () => {
         </section>
 
         {/* SUBSEQUENT PANELS */}
-        {panelData.slice(1).map((panel, index) => (
+        {PANEL_DATA.slice(1).map((panel, index) => (
           <section
-            key={index}
+            key={panel.label}
             className="panel relative w-screen h-screen overflow-hidden"
           >
             <div
@@ -143,4 +149,4 @@ const Hscroll = () => {
   );
 };
 
-export default Hscroll;
+export default memo(Hscroll);

@@ -65,6 +65,12 @@ export default function MenuPage({ onClose }) {
     navigate("/");
   };
 
+  const handleLogin = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (onClose) onClose();
+    navigate('/login');
+  };
+
   return (
     <div
       className="menu fixed inset-0 z-40 h-screen w-screen overflow-hidden bg-linear-to-br from-[#0f2d2d] via-[#0d2535] to-[#0a1628]"
@@ -111,13 +117,13 @@ export default function MenuPage({ onClose }) {
               <p className="mb-2 text-[10px] uppercase tracking-widest text-white/50">
                 Member Portal
               </p>
-              <Link
-                to="/login"
-                onClick={handleClose}
+              <a
+                href="/login"
+                onClick={handleLogin}
                 className="text-xl font-bold text-white hover:text-teal-400 transition"
               >
                 LOGIN →
-              </Link>
+              </a>
             </div>
           </nav>
 
@@ -134,12 +140,13 @@ export default function MenuPage({ onClose }) {
               immersive edition of South India's oldest cultural festival.
             </p>
 
-            <Link
-              to="/login"
+            <a
+              href="/login"
+              onClick={handleLogin}
               className="flex items-center gap-2 text-base font-bold text-white transition-colors hover:text-teal-400"
             >
               LOGIN →
-            </Link>
+            </a>
           </div>
         </div>
 

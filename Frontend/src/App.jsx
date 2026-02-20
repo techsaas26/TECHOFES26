@@ -1,3 +1,4 @@
+import { lazy, Suspense, memo } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
@@ -8,14 +9,25 @@ import Hscroll from "./components/Hscroll/Hscroll";
 import Day0 from "./components/About/Day0";
 import Stickycard from "./components/Day-Contents/StickCard";
 import FloatingMenu from "./components/Menu/FloatingMenu";
+import { EventCategoryButton } from "./components/Event-Categories";
 import Footer from "./components/Footer/Footer";
-import ComingSoon from "./components/Coming-Soon/ComingSoon";
-import Team from "./components/Team/Team";
-import Contact from "./components/Contact/Contact.jsx";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-const HomePage = () => {
+const EventDescription = lazy(() => import("./components/Event-Categories/EventDescription"));
+const ComingSoon = lazy(() => import("./components/Coming-Soon/ComingSoon"));
+const Team = lazy(() => import("./components/Team/Team"));
+const Contact = lazy(() => import("./components/Contact/Contact.jsx"));
+const Auth = lazy(() => import("./components/Auth/Auth"));
+const SignUp = lazy(() => import("./components/Auth/SignUp"));
+
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-bg">
+    <div className="w-8 h-8 border-2 border-(--jungle-green)/30 border-t-(--jungle-green) rounded-full animate-spin" />
+  </div>
+);
+
+const HomePage = memo(() => {
   useGSAP(() => {
     let smoother;
 
@@ -54,21 +66,26 @@ const HomePage = () => {
       </div>
     </main>
   );
-};
+});
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/teams" element={<Team />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="/events" element={<ComingSoon />} />
-        <Route path="/sponsors" element={<ComingSoon />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<ComingSoon />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/teams" element={<Team />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
+          <Route path="/events" element={<ComingSoon />} />
+          <Route path="/event-description/:category" element={<EventDescription />} />
+          <Route path="/sponsors" element={<ComingSoon />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Auth />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Suspense>
       <FloatingMenu />
+      <EventCategoryButton />
     </>
   );
 };

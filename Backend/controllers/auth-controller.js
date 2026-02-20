@@ -13,21 +13,31 @@ export const registerUser = async (req, res, next) => {
   try {
     const {
       username,
+<<<<<<< HEAD
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+=======
       fullName,
       email,
       phoneNumber,
       collegeName,
       department,
+>>>>>>> upstream/main
       rollNo,
       password,
       userType,
     } = req.body;
 
+<<<<<<< HEAD
+=======
     // Basic validation
     if (!username || !email || !password || !userType) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
+>>>>>>> upstream/main
     if (!["CEG", "OUTSIDE"].includes(userType)) {
       return res
         .status(400)
@@ -38,6 +48,13 @@ export const registerUser = async (req, res, next) => {
       `Register attempt | username: ${username} | email: ${email} | type: ${userType}`,
     );
 
+<<<<<<< HEAD
+    // Check duplicates
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      logger.warn(
+        `Registration failed: username/email already in use (${username} / ${email})`,
+=======
     // Normalize email
     const normalizedEmail = email.toLowerCase();
 
@@ -49,6 +66,7 @@ export const registerUser = async (req, res, next) => {
     if (existingUser) {
       logger.warn(
         `Registration failed: username/email already in use (${username} / ${normalizedEmail})`,
+>>>>>>> upstream/main
       );
       return res
         .status(400)
@@ -56,7 +74,11 @@ export const registerUser = async (req, res, next) => {
     }
 
     // Hash password
+<<<<<<< HEAD
+    const passwordHash = await bcrypt.hash(password, 10);
+=======
     const passwordHash = await bcrypt.hash(password, 12);
+>>>>>>> upstream/main
 
     // Generate T_ID
     const T_ID =
@@ -64,6 +86,22 @@ export const registerUser = async (req, res, next) => {
         ? await UserIdTracker.getNextInsiderId()
         : await UserIdTracker.getNextOutsiderId();
 
+<<<<<<< HEAD
+    const userData = {
+      T_ID,
+      username,
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      passwordHash,
+      userType,
+      rollNo: userType === "CEG" ? rollNo : undefined,
+      college: userType === "CEG" ? "CEG" : req.body.college || "N/A",
+    };
+
+    const user = new User(userData);
+=======
     const user = new User({
       T_ID,
       username,
@@ -77,6 +115,7 @@ export const registerUser = async (req, res, next) => {
       department,
     });
 
+>>>>>>> upstream/main
     const savedUser = await user.save();
 
     logger.info(
@@ -85,6 +124,14 @@ export const registerUser = async (req, res, next) => {
 
     // Optional confirmation email
     const subject = "Registration Confirmation";
+<<<<<<< HEAD
+    const text = `Dear ${savedUser.firstName},\n\nThank you for registering! Your unique T_ID is: ${savedUser.T_ID} and username is: "${savedUser.username}".\n\nBest regards,\nTechofes Tech Team`;
+    await sendMail(savedUser.email, subject, text);
+
+    res
+      .status(201)
+      .json({ message: "User registered successfully", user: savedUser });
+=======
     const text = `Dear ${savedUser.fullName},
 
 Thank you for registering!
@@ -104,6 +151,7 @@ Tech Team`;
       message: "User registered successfully",
       user: userResponse,
     });
+>>>>>>> upstream/main
   } catch (err) {
     logger.error(`Error during registration: ${err.stack}`);
     next(err);
@@ -116,8 +164,12 @@ export const loginUser = async (req, res, next) => {
     const { username, password } = req.body;
     logger.info(`Login attempt for username: ${username}`);
 
+<<<<<<< HEAD
+    const user = await User.findOne({ username });
+=======
     const user = await User.findOne({ username }).select("+passwordHash");
 
+>>>>>>> upstream/main
     if (!user)
       return res.status(401).json({ error: "Invalid username or password" });
 
