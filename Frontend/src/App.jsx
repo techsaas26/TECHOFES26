@@ -22,8 +22,8 @@ const Auth = lazy(() => import("./components/Auth/Auth"));
 const SignUp = lazy(() => import("./components/Auth/SignUp"));
 
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-[#030806]">
-    <div className="w-8 h-8 border-2 border-[var(--jungle-green)]/30 border-t-[var(--jungle-green)] rounded-full animate-spin" />
+  <div className="min-h-screen flex items-center justify-center bg-bg">
+    <div className="w-8 h-8 border-2 border-(--jungle-green)/30 border-t-(--jungle-green) rounded-full animate-spin" />
   </div>
 );
 

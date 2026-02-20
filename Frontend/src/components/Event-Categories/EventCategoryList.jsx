@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextRoll } from "../Menu/core/text-roll";
+import { X } from "lucide-react"; // Added for a cleaner close icon
 
 function EventCategoryItem({ item, onClose }) {
   const [hoverKey, setHoverKey] = useState(0);
@@ -20,9 +21,9 @@ function EventCategoryItem({ item, onClose }) {
       onMouseEnter={() => setHoverKey((k) => k + 1)}
     >
       <div className="flex items-baseline gap-6 justify-center">
-        <span className="text-sm text-white/40 tabular-nums">{item.num}</span>
+        <span className="text-sm text-white/30 tabular-nums">{item.num}</span>
         <div className="relative">
-          <span className="text-4xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-blue-500 md:text-5xl lg:text-6xl">
+          <span className="text-2xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-indigo-400 md:text-5xl lg:text-6xl xl:text-7xl">
             <TextRoll
               key={hoverKey}
               getEnterDelay={isHoverReanimate ? () => 0 : (i) => i * 0.1}
@@ -30,29 +31,21 @@ function EventCategoryItem({ item, onClose }) {
               {item.label}
             </TextRoll>
           </span>
-          <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-500 transition-[width] duration-500 ease-out group-hover:w-full" />
+          {/* Animated underline */}
+          <span className="absolute -bottom-2 left-0 h-1 w-0 bg-linear-to-r from-indigo-500 to-violet-500 transition-[width] duration-500 ease-out group-hover:w-full" />
         </div>
-      </div>
-
-      <div className="relative mt-2 flex">
-        <span className="w-12 shrink-0 md:w-14" />
-        <span className="relative block min-h-0.5 flex-1">
-          <span className="event-line-draw absolute bottom-0 left-0 h-0.5 w-0 bg-blue-500 transition-[width] duration-500 ease-out group-hover:w-full" />
-        </span>
       </div>
     </button>
   );
 }
 
 const eventCategories = [
-  {  label: "Signature Events" },
-  { label: "ProShows" },
-  {  label: "Red Building Events" },
-  {  label: "Carnival" },
-  {  label: "Night Shows" },
+  { num: "01", label: "Agenda" },
+  { num: "02", label: "Signature Events" },
+  { num: "03", label: "ProShows" },
+  { num: "04", label: "Red Building Events" },
+  { num: "05", label: "Carnival" },
 ];
-
-
 
 export default function EventCategoryList({ onClose }) {
   const handleClose = () => {
@@ -61,19 +54,32 @@ export default function EventCategoryList({ onClose }) {
 
   return (
     <div
-      className="event-category-menu fixed inset-0 z-40 h-screen w-screen overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"
-      style={{ opacity: 0, pointerEvents: "none" }}
+      className="event-category-menu fixed inset-0 z-40 h-screen w-screen overflow-hidden bg-[#0a0c1a]"
+      style={{ opacity: 0, pointerEvents: "none" }} // Logic handled by your GSAP/Animation library
     >
-      <div className="event-category-bg pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-600/5" />
+      {/* Background Gradients - Aligned with Auth.jsx */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-linear-to-br from-[#0f1329] via-[#1a1d3a] to-[#16132a]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(99,102,241,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(139,92,246,0.12),transparent_50%)]" />
+        
+        {/* Top Accent Line */}
+        <div
+          className="absolute top-0 left-0 right-0 h-px opacity-40"
+          style={{
+            background: "linear-gradient(to right, transparent, rgba(99,102,241,0.6), rgba(139,92,246,0.6), transparent)",
+          }}
+        />
+      </div>
 
-      <div className="relative flex h-full flex-col items-center justify-center p-8 md:p-12">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center p-8 md:p-12">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="event-category-text flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-white/90 transition-colors hover:text-white fixed top-8 right-8"
+          className="event-category-text flex items-center gap-2 p-3 rounded-full bg-white/5 border border-white/10 text-white/70 transition-all hover:bg-white/10 hover:text-white fixed top-8 left-8"
           style={{ opacity: 0, transform: "translateY(20px)" }}
         >
-          <TextRoll>X</TextRoll>
+          <X className="w-6 h-6" />
         </button>
 
         {/* Main content - Centered */}
@@ -81,13 +87,23 @@ export default function EventCategoryList({ onClose }) {
           className="event-category-text flex flex-col items-center justify-center gap-12 w-full"
           style={{ opacity: 0, transform: "translateY(20px)" }}
         >
-          {/* Event Categories - Centered */}
-          <nav className="flex flex-col gap-6 md:gap-8 text-center">
+          <nav className="flex flex-col gap-8 md:gap-12 text-center">
             {eventCategories.map((event) => (
-              <EventCategoryItem key={event.num} item={event} onClose={handleClose} />
+              <EventCategoryItem
+                key={event.num}
+                item={event}
+                onClose={handleClose}
+              />
             ))}
           </nav>
         </div>
+      </div>
+      
+      {/* Footer Branding */}
+      <div className="absolute bottom-8 left-0 right-0 text-center z-10">
+        <p className="text-white/20 text-xs tracking-[0.2em] uppercase">
+          © 2026 Techofes · Technical Team
+        </p>
       </div>
     </div>
   );
