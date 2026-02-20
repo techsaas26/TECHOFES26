@@ -45,9 +45,14 @@ Authorization: Bearer <JWT_TOKEN>
 }
 
 ```
+#### Important Notes: 
 
+- make sure to send email in lowercase - do specify in frontend via validation that only lowercase and numbers allowed ad explicitly convert to lowercase as well.
+- username is case sensitive - specify it in the frontend
+- all fields are required
+- Usertype is a dropdown - either 'CEG' or outside
 
-###success reponsie
+### Success Reponse
 ```
 {
   "message": "User registered successfully",
@@ -106,7 +111,7 @@ headers: {
 ```
 localStorage.removeItem("token");
 ```
--If you do not remove it, the user will remain authenticated.
+- If you do not remove it, the user will remain authenticated.
 
 # 2️⃣ Profile Route
 ## GET /profile

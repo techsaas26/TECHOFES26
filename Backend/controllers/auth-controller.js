@@ -73,7 +73,7 @@ export const registerUser = async (req, res, next) => {
       passwordHash,
       userType,
       rollNo,
-      college: userType === "CEG" ? "CEG" : collegeName,
+      college: userType === "CEG" ? "College of Engineering Guindy" : collegeName,
       department,
     });
 
