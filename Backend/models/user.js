@@ -13,25 +13,48 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["CEG", "OUTSIDE", "admin"],
       required: true,
+      index: true,
     },
 
-    username: { type: String, unique: true, required: true },
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      index: true,
+    },
+
+    fullName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
 
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
+      trim: true,
       match: /.+\@.+\..+/,
+      index: true,
     },
 
-    passwordHash: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
+    passwordHash: {
+      type: String,
+      required: true,
+      select: false,
+    },
+
+    phoneNumber: {
+      type: String,
+      required: true,
+      trim: true,
+    },
 
     college: {
       type: String,
+      trim: true,
       required: function () {
         return this.userType === "OUTSIDE";
       },
@@ -39,37 +62,51 @@ const userSchema = new mongoose.Schema(
 
     rollNo: {
       type: String,
+      trim: true,
       required: function () {
         return this.userType === "CEG";
       },
     },
 
-    failedAttempts: { type: Number, default: 0 },
+    department: {
+      type: String,
+      trim: true,
+    },
+
+    failedAttempts: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
 );
 
-// Pre-validation hook to generate T_ID
+// Auto-generate T_ID before validation
 userSchema.pre("validate", async function (next) {
-  if (!this.T_ID) {
-    if (this.userType === "CEG") {
-      this.T_ID = await UserIdTracker.getNextInsiderId();
-    } else if (this.userType === "OUTSIDE") {
-      this.T_ID = await UserIdTracker.getNextOutsiderId();
+  try {
+    if (!this.T_ID) {
+      if (this.userType === "CEG") {
+        this.T_ID = await UserIdTracker.getNextInsiderId();
+      } else if (this.userType === "OUTSIDE") {
+        this.T_ID = await UserIdTracker.getNextOutsiderId();
+      }
     }
+    next();
+  } catch (err) {
+    next(err);
   }
-  next();
 });
 
-// Hide sensitive fields in JSON
+// Clean JSON output
 userSchema.set("toJSON", {
   transform: (doc, ret) => {
     ret.id = ret._id.toString();
     delete ret._id;
     delete ret.__v;
-    delete ret.passwordHash;
+    return ret;
   },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
+
 export default User;
