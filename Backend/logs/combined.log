@@ -297,8 +297,6 @@
 2026-02-14 13:20:17 [INFO]: User registered successfully: krishnendu (T_ID: CEG2026000008)
 2026-02-14 13:20:18 [INFO]: Email sent successfully
 2026-02-14 13:20:35 [WARN]: SIGINT received. Shutting down gracefully...
-<<<<<<< HEAD
-=======
 2026-02-20 09:08:57 [INFO]: MongoDB connected
 2026-02-20 09:08:57 [INFO]: Server running on port 4000 
 2026-02-20 09:10:08 [INFO]: Method: POST | Path: /api/auth/register | Body: {"username":"john123","fullName":"John Doe","email":"john@example.com","phoneNumber":"9876543210","collegeName":"ABC College","department":"CSE","rollNo":"12345","password":"***","userType":"CEG"}
@@ -328,4 +326,3 @@
 2026-02-20 09:13:32 [INFO]: MongoDB connected
 2026-02-20 09:13:32 [INFO]: Server running on port 4000 
 2026-02-20 09:14:15 [WARN]: SIGINT received. Shutting down gracefully...
->>>>>>> upstream/main
