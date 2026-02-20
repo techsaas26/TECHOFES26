@@ -7,11 +7,7 @@ import config from "./config.js";
 // ---------------- Request Logger ----------------
 export const requestLogger = (req, res, next) => {
   const safeBody = { ...req.body };
-<<<<<<< HEAD
-  if (safeBody.password) safeBody.password = "***"; // mask sensitive info
-=======
   if (safeBody.password) safeBody.password = "***"; 
->>>>>>> upstream/main
   logger.info(
     `Method: ${req.method} | Path: ${req.path} | Body: ${JSON.stringify(
       safeBody
@@ -37,13 +33,8 @@ export const userExtractor = async (req, res, next) => {
       return res.status(401).json({ error: "token invalid" });
 
     req.T_ID = decodedToken.T_ID;
-<<<<<<< HEAD
-    req.user = await User.findOne({ T_ID: decodedToken.T_ID }).select(
-      "-passwordHash"
-    );
-=======
+
     req.user = await User.findOne({ T_ID: decodedToken.T_ID });
->>>>>>> upstream/main
     next();
   } catch (err) {
     return res.status(401).json({ error: "token invalid" });

@@ -326,3 +326,6 @@
 2026-02-20 09:13:32 [INFO]: MongoDB connected
 2026-02-20 09:13:32 [INFO]: Server running on port 4000 
 2026-02-20 09:14:15 [WARN]: SIGINT received. Shutting down gracefully...
+2026-02-20 14:53:36 [INFO]: MongoDB connected
+2026-02-20 14:53:36 [INFO]: Server running on port 4000 
+2026-02-20 14:53:40 [WARN]: SIGINT received. Shutting down gracefully...
