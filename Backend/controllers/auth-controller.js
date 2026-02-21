@@ -8,6 +8,22 @@ import UserIdTracker from "../models/userIdTracker.js";
 
 const MAX_ATTEMPTS = 3;
 
+/**
+ * Safe Non-Blocking Email Sender
+ * Does NOT throw errors
+ */
+const sendEmailSafely = (to, subject, text) => {
+  sendMail(to, subject, text)
+    .then(() => {
+      logger.info(`Email successfully sent to ${to}`);
+    })
+    .catch((err) => {
+      logger.info(
+        `Email sending failed for ${to}. Reason: ${err.message}`
+      );
+    });
+};
+
 // ---------------- Register ----------------
 export const registerUser = async (req, res, next) => {
   try {
@@ -23,7 +39,6 @@ export const registerUser = async (req, res, next) => {
       userType,
     } = req.body;
 
-    // Basic validation
     if (!username || !email || !password || !userType) {
       return res.status(400).json({ error: "Missing required fields" });
     }
@@ -35,30 +50,26 @@ export const registerUser = async (req, res, next) => {
     }
 
     logger.info(
-      `Register attempt | username: ${username} | email: ${email} | type: ${userType}`,
+      `Register attempt | username: ${username} | email: ${email} | type: ${userType}`
     );
 
-    // Normalize email
     const normalizedEmail = email.toLowerCase();
 
-    // Check duplicates
     const existingUser = await User.findOne({
       $or: [{ username }, { email: normalizedEmail }],
     });
 
     if (existingUser) {
-      logger.warn(
-        `Registration failed: username/email already in use (${username} / ${normalizedEmail})`,
+      logger.info(
+        `Registration failed: username/email already in use (${username} / ${normalizedEmail})`
       );
       return res
         .status(400)
         .json({ error: "Username or email already in use" });
     }
 
-    // Hash password
     const passwordHash = await bcrypt.hash(password, 12);
 
-    // Generate T_ID
     const T_ID =
       userType === "CEG"
         ? await UserIdTracker.getNextInsiderId()
@@ -73,17 +84,19 @@ export const registerUser = async (req, res, next) => {
       passwordHash,
       userType,
       rollNo,
-      college: userType === "CEG" ? "College of Engineering Guindy" : collegeName,
+      college: userType === "CEG"
+        ? "College of Engineering Guindy"
+        : collegeName,
       department,
     });
 
     const savedUser = await user.save();
 
     logger.info(
-      `User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`,
+      `User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`
     );
 
-    // Optional confirmation email
+    // 🔥 Non-Blocking Email (Production Style)
     const subject = "Registration Confirmation";
     const text = `Dear ${savedUser.fullName},
 
@@ -94,9 +107,8 @@ Username: ${savedUser.username}
 Best regards,
 Tech Team`;
 
-    await sendMail(savedUser.email, subject, text);
+    sendEmailSafely(savedUser.email, subject, text);
 
-    // Convert to object and remove passwordHash safely
     const userResponse = savedUser.toObject();
     delete userResponse.passwordHash;
 
@@ -104,8 +116,9 @@ Tech Team`;
       message: "User registered successfully",
       user: userResponse,
     });
+
   } catch (err) {
-    logger.error(`Error during registration: ${err.stack}`);
+    logger.info(`Error during registration: ${err.message}`);
     next(err);
   }
 };
@@ -122,19 +135,31 @@ export const loginUser = async (req, res, next) => {
       return res.status(401).json({ error: "Invalid username or password" });
 
     const passwordCorrect = await bcrypt.compare(password, user.passwordHash);
+
     if (!passwordCorrect) {
       user.failedAttempts += 1;
+
       if (user.failedAttempts >= MAX_ATTEMPTS && user.username !== "admin") {
-        logger.warn(
-          `User ${username} exceeded max login attempts. Sending alert email.`,
+        logger.info(
+          `User ${username} exceeded max login attempts. Sending alert email.`
         );
-        await sendMail(
-          user.email,
-          "Frequent Login Attempts Detected",
-          `Dear ${username},\n\nWe noticed multiple failed login attempts on your account.\n\nIf you need help resetting your password, please contact support (techsaas26@gmail.com).\n\nBest regards,\nTechofes Tech Team`,
-        );
+
+        const alertSubject = "Frequent Login Attempts Detected";
+        const alertText = `Dear ${username},
+
+We noticed multiple failed login attempts on your account.
+
+If you need help resetting your password, please contact support (techsaas26@gmail.com).
+
+Best regards,
+Techofes Tech Team`;
+
+        // 🔥 Non-Blocking
+        sendEmailSafely(user.email, alertSubject, alertText);
       }
+
       if (user.username !== "admin") await user.save();
+
       return res.status(401).json({ error: "Invalid username or password" });
     }
 
@@ -142,12 +167,13 @@ export const loginUser = async (req, res, next) => {
     if (user.username !== "admin") await user.save();
 
     const tokenPayload = { T_ID: user.T_ID, userType: user.userType };
+
     const token = jwt.sign(tokenPayload, config.JWT_SECRET, {
       expiresIn: config.JWT_EXPIRY || "7d",
     });
 
     logger.info(
-      `User logged in successfully: ${username} (T_ID: ${user.T_ID})`,
+      `User logged in successfully: ${username} (T_ID: ${user.T_ID})`
     );
 
     res.status(200).json({
@@ -156,8 +182,9 @@ export const loginUser = async (req, res, next) => {
       T_ID: user.T_ID,
       userType: user.userType,
     });
+
   } catch (err) {
-    logger.error(`Error during login: ${err.stack}`);
+    logger.info(`Error during login: ${err.message}`);
     next(err);
   }
 };
