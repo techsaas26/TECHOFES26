@@ -67,7 +67,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Timing
                         </span>
-                        <span className="text-xs sm:text-sm font-mono text-white/90">
+                        <span className="text-xs sm:text-xl font-mono text-white/90">
                           {event.timing}
                         </span>
                       </div>
@@ -77,7 +77,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Event
                         </span>
-                        <span className="text-sm sm:text-base font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                        <span className="text-sm sm:text-xl font-semibold text-white group-hover:text-cyan-300 transition-colors">
                           {event.name}
                         </span>
                       </div>
@@ -87,7 +87,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Venue
                         </span>
-                        <span className="text-xs sm:text-sm text-teal-300/90">
+                        <span className="text-xs sm:text-xl text-teal-300/90">
                           {event.venue}
                         </span>
                       </div>

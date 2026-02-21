@@ -11,7 +11,6 @@ import Stickycard from "./components/Day-Contents/StickCard";
 import FloatingMenu from "./components/Menu/FloatingMenu";
 import { EventCategoryButton } from "./components/Event-Categories";
 import Footer from "./components/Footer/Footer";
-import { Timeline } from "./components/Timeline";
 
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
