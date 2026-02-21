@@ -40,13 +40,13 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
 
             {/* Header */}
             <header className="mb-4 sm:mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent  bg-blue-600 ">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent text-white bg-blue-600">
                 {day.title}
               </h1>
 
               <div className="h-1 w-full bg-cyan-400 rounded origin-left mt-3 mb-3" />
               
-              <p className="text-sm sm:text-base md:text-lg text-white font-semibold">{day.date}</p>
+              <p className="text-xl sm:text-base md:text-xl text-white font-semibold">{day.date}</p>
             </header>
 
             {/* Search Bar */}
@@ -67,7 +67,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Timing
                         </span>
-                        <span className="text-xs sm:text-xl font-mono text-white/90">
+                        <span className="text-md sm:text-xl font-mono text-white/90">
                           {event.timing}
                         </span>
                       </div>
@@ -77,7 +77,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Event
                         </span>
-                        <span className="text-sm sm:text-xl font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                        <span className="text-xl sm:text-xl font-semibold text-white group-hover:text-cyan-300 transition-colors">
                           {event.name}
                         </span>
                       </div>
@@ -87,7 +87,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                         <span className="text-xs text-cyan-400/70 uppercase tracking-widest mb-1 font-semibold">
                           Venue
                         </span>
-                        <span className="text-xs sm:text-xl text-teal-300/90">
+                        <span className="text-md sm:text-xl text-teal-300/90">
                           {event.venue}
                         </span>
                       </div>
