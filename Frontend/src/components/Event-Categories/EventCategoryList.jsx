@@ -40,11 +40,11 @@ function EventCategoryItem({ item, onClose }) {
 }
 
 const eventCategories = [
-  { num: "01", label: "Agenda" },
-  { num: "02", label: "Signature Events" },
-  { num: "03", label: "ProShows" },
-  { num: "04", label: "Red Building Events" },
-  { num: "05", label: "Carnival" },
+  
+  { num: "01", label: "Signature Events" },
+  { num: "02", label: "ProShows" },
+  { num: "03", label: "Red Building Events" },
+  { num: "04", label: "Carnival" },
 ];
 
 export default function EventCategoryList({ onClose }) {

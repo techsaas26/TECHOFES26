@@ -7,27 +7,27 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const PANEL_DATA = [
-    { image: "/images/hScroll/stage-sing.jpg" },
+    { image: "/images/hScroll/stage-sing.webp" },
     {
-      image: "/images/hScroll/techofes_stage.jpeg",
+      image: "/images/hScroll/techofes_stage.webp",
       label: "MUSIC",
       subtitle: "Feel the vibe of the night",
       pos: "bottom-right",
     },
     {
-      image: "/images/hScroll/techofes_dance.jpeg",
+      image: "/images/hScroll/techofes_dance.webp",
       label: "DANCE",
       subtitle: "Where the rhythm paints movement",
       pos: "top-left",
     },
     {
-      image: "/images/hScroll/techofes_culture.jpg",
+      image: "/images/hScroll/techofes_culture.webp",
       label: "CULTURE",
       subtitle: "Celebrating the roots that bind us",
       pos: "bottom-right",
     },
     {
-      image: "/images/hScroll/techofes_energy.jpg",
+      image: "/images/hScroll/techofes_energy.webp",
       label: "ENERGY",
       subtitle: "The raw spark of youth",
       pos: "top-left",

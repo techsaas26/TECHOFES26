@@ -9,7 +9,7 @@ const STICKY_DATA = [
   {
     index: "Day - 00",
     title: ["Inauguration +", "Movie Night"],
-    image: "/images/days/inau.jpeg",
+    image: "/images/days/inau.webp",
     description:
       "An opening ceremony followed by a relaxed movie night to set the tone for the days ahead. Join us for an unforgettable inaugural movie experience as we celebrate the launch of Techofes 79.",
     link: null,
@@ -17,7 +17,7 @@ const STICKY_DATA = [
   {
     index: "Day - 01",
     title: ["Concert", "Night"],
-    image: "/images/days/concert.jpg",
+    image: "/images/days/concert.webp",
     description:
       // "Live performances, immersive lighting, and a night built entirely around sound and rhythm.",
       "Experience the raw synergy of a live band as they bridge the gap between artist and audience throughout a night built entirely around sound and rhythm",
@@ -26,7 +26,7 @@ const STICKY_DATA = [
   {
     index: "Day - 02",
     title: ["T-Awards"],
-    image: "/images/days/t-awards.png",
+    image: "/images/days/t-awards.webp",
     description:
       // "Recognising excellence, creativity, and contribution across multiple domains.",
       "A grand tribute to the silver screen. We welcome the visionaries of cinema to honor their craft, celebrating the storytellers and artists across multiple domains.",
@@ -35,7 +35,7 @@ const STICKY_DATA = [
   {
     index: "Day - 03",
     title: ["Choreo Night", "& ToT"],
-    image: "/images/days/choreo_night.jpg",
+    image: "/images/days/choreo_night.webp",
     description:
       "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
@@ -81,7 +81,7 @@ const StickyCard = () => {
   );
 
   return (
-    <section ref={container} className="relative w-full bg-(--bg-main)">
+    <section ref={container} className="relative w-full bg-(--bg-main) overflow-hidden">
       {STICKY_DATA.map((item, idx) => (
         <article
           key={idx}

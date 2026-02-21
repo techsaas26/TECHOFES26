@@ -45,9 +45,10 @@ function MenuNavItem({ item, onClose }) {
 const navItems = [
   { num: "01", label: "HOME", path: "/" },
   { num: "02", label: "EVENTS", path: "/events" },
-  { num: "03", label: "SPONSORS", path: "/sponsors" },
-  { num: "04", label: "MAKERS", path: "/teams" },
-  { num: "05", label: "CONTACT", path: "/contact" },
+  { num: "03", label: "AGENDA", path: "/agenda" },
+  { num: "04", label: "SPONSORS", path: "/sponsors" },
+  { num: "05", label: "MAKERS", path: "/teams" },
+  { num: "06", label: "CONTACT", path: "/contact" },
 ];
 
 const socialLinks = [
