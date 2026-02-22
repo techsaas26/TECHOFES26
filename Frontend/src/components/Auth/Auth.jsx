@@ -2,6 +2,8 @@ import { memo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Mail, Lock, LogIn, ArrowLeft, Eye, EyeOff } from "lucide-react";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 // --- Reusable Sub-Components ---
 
 const AuthBackground = () => (
@@ -97,7 +99,7 @@ const Auth = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://techofes26-backend.onrender.com/api/auth/login", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

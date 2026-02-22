@@ -14,6 +14,8 @@ import {
   Building2,
 } from "lucide-react";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 // Reusable Input Component for consistency
 const InputField = ({ label, icon: Icon, ...props }) => (
   <div className="auth-field animate-auth-field w-full">
@@ -78,7 +80,7 @@ const SignUp = () => {
       const { confirmPassword, acceptTerms, ...payload } = form;
 
       // 3. API Call
-      const response = await fetch("https://techofes26-backend.onrender.com/api/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
