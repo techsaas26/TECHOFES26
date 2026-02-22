@@ -327,7 +327,7 @@ function DetailsModal({ isOpen, event, onClose }) {
 
         <div className="space-y-3 text-sm textblue">
           {event.details && (
-            <div className="text-white/80">
+            <div className="text-white/80 text-xs">
               {Array.isArray(event.details) ? (
                 event.details.map((d, i) => <p key={i}>{d}</p>)
               ) : (
@@ -667,7 +667,7 @@ export default function EventDescription() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-[#02040a] via-[#031028] to-black p-8 md:p-12 pt-36 md:pt-44 relative z-20">
+    <div className="min-h-screen bg-linear-to-br from-[#02040a] via-[#031028] to-black p-8 md:p-12 pt-36 md:pt-44 relative z-20 overflow-hidden">
       {/* main content overlay — no snow (removed) */}
       {/* Close Button */}
 
@@ -718,7 +718,7 @@ export default function EventDescription() {
           />
           <p className="text-white/60 mt-4 text-lg">
             {categoryDescriptions[decodedCategory] && (
-              <p className="text-white/60 mt-4 text-lg">
+              <p className="text-white/60 mt-4 text-sm">
                 {categoryDescriptions[decodedCategory]}
               </p>
             )}

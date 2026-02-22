@@ -12,11 +12,14 @@ import FloatingMenu from "./components/Menu/FloatingMenu";
 import { EventCategoryButton } from "./components/Event-Categories";
 import Footer from "./components/Footer/Footer";
 
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const EventDescription = lazy(() => import("./components/Event-Categories/EventDescription"));
 const ComingSoon = lazy(() => import("./components/Coming-Soon/ComingSoon"));
 const Team = lazy(() => import("./components/Team/Team"));
+const Agenda = lazy(() => import("./components/Agenda/Agenda"));
+const Sponsors = lazy(() => import("./components/Sponsors/Sponsors"));
 const Contact = lazy(() => import("./components/Contact/Contact.jsx"));
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const SignUp = lazy(() => import("./components/Auth/SignUp"));
@@ -75,10 +78,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/teams" element={<Team />} />
+          <Route path="/agenda" element={<Agenda />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/events" element={<ComingSoon />} />
           <Route path="/event-description/:category" element={<EventDescription />} />
-          <Route path="/sponsors" element={<ComingSoon />} />
+          <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/signup" element={<SignUp />} />

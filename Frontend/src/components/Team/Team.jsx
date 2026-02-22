@@ -253,7 +253,7 @@ const Team = () => {
   });
 
   return (
-    <section className="relative w-full bg-gray-950 text-white overflow-x-hidden">
+    <section className="relative w-full bg-gray-950 text-white ">
       {/* Aurora Background - Fixed to viewport */}
       <div className="fixed inset-0 z-0">
         <AuroraBackground themeColor="nebula" />
@@ -325,7 +325,7 @@ const Team = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                   {SA.map((item, idx) => (
                     <div key={idx} className="team-card group">
-                      <div className="relative w-full aspect-5/6 rounded-2xl overflow-hidden cursor-pointer mb-4 bg-gray-900/50">
+                      <div className="relative w-full aspect-5/6 rounded-2xl cursor-pointer mb-4 bg-gray-900/50">
                         <img
                           src={`/images/team/${item.image}`}
                           alt={item.name}
