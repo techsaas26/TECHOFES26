@@ -21,7 +21,7 @@ function MenuNavItem({ item, onClose }) {
     >
       <div className="flex items-baseline gap-6">
         <span className="text-sm text-white/40 tabular-nums">{item.num}</span>
-        <span className="text-4xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-teal-400 md:text-5xl lg:text-6xl">
+        <span className="text-2xl font-bold uppercase tracking-tight text-white transition-colors duration-300 group-hover:text-teal-400 md:text-3xl lg:text-4xl">
           <TextRoll
             key={hoverKey}
             getEnterDelay={isHoverReanimate ? () => 0 : (i) => i * 0.1}
@@ -69,7 +69,7 @@ export default function MenuPage({ onClose }) {
   const handleLogin = (e) => {
     if (e && e.preventDefault) e.preventDefault();
     if (onClose) onClose();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (

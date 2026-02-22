@@ -18,17 +18,17 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
   });
 
   return (
-    <div className="fixed inset-0 h-screen w-screen overflow-hidden bg-gradient-to-br from-[#04121a] via-[#07192b] to-[#081022] text-white">
+    <div className="fixed inset-0 h-screen w-screen overflow-hidden bg-linear-to-br from-[#04121a] via-[#07192b] to-[#081022] text-white">
       {/* Background Gradients */}
-      <div className="pointer-events-none absolute -right-24 -top-20 w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-r from-cyan-400/20 via-purple-400/10 to-pink-400/8 filter blur-3xl opacity-60" />
-      <div className="pointer-events-none absolute -left-24 -bottom-24 w-56 h-56 md:w-72 md:h-72 rounded-full bg-gradient-to-tr from-emerald-300/10 via-teal-400/6 to-indigo-400/6 filter blur-2xl opacity-50" />
+      <div className="pointer-events-none absolute -right-24 -top-20 w-72 h-72 md:w-96 md:h-96 rounded-full bg-linear-to-r from-cyan-400/20 via-purple-400/10 to-pink-400/8 filter blur-3xl opacity-60" />
+      <div className="pointer-events-none absolute -left-24 -bottom-24 w-56 h-56 md:w-72 md:h-72 rounded-full bg-linear-to-tr from-emerald-300/10 via-teal-400/6 to-indigo-400/6 filter blur-2xl opacity-50" />
 
       {/* Main Content Container */}
       <div className="relative z-10 h-full flex flex-col overflow-hidden md:items-center md:justify-center md:px-8 lg:px-12">
         {/* Centered wrapper for desktop/tablet */}
         <div className="w-full md:max-w-6xl h-full md:h-auto md:max-h-[90vh] flex flex-col overflow-hidden">
           {/* Top Section - Back Button and Header */}
-          <div className="flex-shrink-0 px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8">
+          <div className="shrink-0 px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8">
             {/* Back Button */}
             <button
               onClick={onBack}
@@ -40,13 +40,15 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
 
             {/* Header */}
             <header className="mb-4 sm:mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent text-white bg-blue-600">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-blue-600">
                 {day.title}
               </h1>
 
               <div className="h-1 w-full bg-cyan-400 rounded origin-left mt-3 mb-3" />
-              
-              <p className="text-xl sm:text-base md:text-xl text-white font-semibold">{day.date}</p>
+
+              <p className="text-xl sm:text-base md:text-xl text-white font-semibold">
+                {day.date}
+              </p>
             </header>
 
             {/* Search Bar */}
@@ -59,7 +61,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
                 {filteredEvents.map((event, idx) => (
                   <div
                     key={idx}
-                    className="group bg-gradient-to-r from-white/5 to-white/3 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20"
+                    className="group bg-linear-to-r from-white/5 to-white/3 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                       {/* Timing */}
@@ -106,8 +108,7 @@ export default function AgendaDayDetailsPage({ day, onBack }) {
           </div>
 
           {/* Bottom Summary - Footer */}
-         
-         </div>
+        </div>
       </div>
     </div>
   );
