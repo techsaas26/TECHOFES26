@@ -95,8 +95,47 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setIsSubmitting(false);
+
+    try {
+      const response = await fetch("https://techofes26-backend.onrender.com/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle 401 Unauthorized or 404 Not Found
+        throw new Error(data.message || "Invalid username or password");
+      }
+
+      // --- Success Logic ---
+      
+      // 1. Store the token (if your backend returns one)
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+      
+      // 2. Optional: Store user info for the profile page
+      localStorage.setItem("user", JSON.stringify(data.user || { username }));
+
+      alert("Login successful! Welcome back.");
+      
+      // 3. Redirect to Dashboard or Home
+      navigate("/");
+
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert(error.message || "Failed to connect to server");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

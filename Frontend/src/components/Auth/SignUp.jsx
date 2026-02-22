@@ -64,15 +64,46 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (form.password !== form.confirmPassword) return;
+    
+    // 1. Basic Validation
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
     setIsSubmitting(true);
-    
-    // Simulate API Call
-    await new Promise((r) => setTimeout(r, 800));
-    
-    const { confirmPassword, acceptTerms, ...payload } = form;
-    console.log("Payload to send:", payload);
-    setIsSubmitting(false);
+
+    try {
+      // 2. Prepare Payload (Removing frontend-only fields)
+      const { confirmPassword, acceptTerms, ...payload } = form;
+
+      // 3. API Call
+      const response = await fetch("https://techofes26-backend.onrender.com/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle backend validation errors (e.g., email already exists)
+        throw new Error(data.message || "Registration failed");
+      }
+
+      // 4. Success Handling
+      console.log("Registration Successful:", data);
+      alert("Account created successfully! Please login.");
+      navigate("/login"); // Redirect user to login page
+      
+    } catch (error) {
+      console.error("Auth Error:", error);
+      alert(error.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const passwordsMatch = form.password === form.confirmPassword || !form.confirmPassword;
