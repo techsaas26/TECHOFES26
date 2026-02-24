@@ -30,7 +30,7 @@ const STICKY_DATA = [
     description:
       // "Recognising excellence, creativity, and contribution across multiple domains.",
       "A grand tribute to the silver screen. We welcome the visionaries of cinema to honor their craft, celebrating the storytellers and artists across multiple domains.",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScr3oTVO9zjtQkEp9Iex3rcbXlwShWLXstdCwwwnGA3X2IZBg/viewform",
   },
   {
     index: "Day - 03",
@@ -38,7 +38,7 @@ const STICKY_DATA = [
     image: "/images/days/choreo_night.webp",
     description:
       "Witness elite dance troupes battle for glory, culminating in the search for the year’s most versatile performers to be crowned the ultimate icons of Techofes.",
-    link: "https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScr3oTVO9zjtQkEp9Iex3rcbXlwShWLXstdCwwwnGA3X2IZBg/viewform",
   },
 ];
 

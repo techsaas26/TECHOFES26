@@ -46,7 +46,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Info & Form - 2 Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
             {/* Left Side - Contact Info Cards */}
             <div>
               {/* Email and Phone Row */}
@@ -59,6 +59,9 @@ const Contact = () => {
                   <h3 className="text-gray-300 uppercase tracking-widest text-xs font-semibold mb-1 md:mb-2">
                     Email
                   </h3>
+                  <p className="text-gray-500 text-xs mb-0.5 md:mb-1">
+                    Random Queries
+                  </p>
                   <p className="text-white text-xs sm:text-sm font-medium mb-0.5 md:mb-1 line-clamp-1">
                     saascegc@gmail.com
                   </p>
@@ -83,8 +86,12 @@ const Contact = () => {
                     +91 63854 47456
                   </p>
                   <p className="text-gray-500 text-xs mb-0.5">HR - THILAGARAJ</p>
-                  <p className="text-white text-xs sm:text-sm font-medium">
+                  <p className="text-white text-xs sm:text-sm font-medium  mb-1 md:mb-2">
                     +91 90254 04846
+                  </p>
+                  <p className="text-gray-500 text-xs mb-0.5">HR - KATHIR</p>
+                  <p className="text-white text-xs sm:text-sm font-medium">
+                    +91 98949 39097
                   </p>
                 </div>
               </div>
@@ -176,7 +183,7 @@ const Contact = () => {
                   <div className="flex justify-center pt-2 md:pt-4">
                     <button
                       type="submit"
-                      className="px-6 sm:px-8 md:px-12 py-2 md:py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs sm:text-sm font-semibold hover:from-purple-600 hover:to-pink-600 transition"
+                      className="px-6 sm:px-8 md:px-12 py-2 md:py-3 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white text-xs sm:text-sm font-semibold hover:from-purple-600 hover:to-pink-600 transition"
                     >
                       Send Message
                     </button>

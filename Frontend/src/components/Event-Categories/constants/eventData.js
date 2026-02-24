@@ -211,7 +211,7 @@ const eventData = {
       venue: "Sports Gallery",
       entryFee: "₹2000",
       cashPrize: "N/A",
-      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform',
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScr3oTVO9zjtQkEp9Iex3rcbXlwShWLXstdCwwwnGA3X2IZBg/viewform',
       posterImage: '/images/posters/choreo_night.jpeg'
     },
     {
@@ -226,7 +226,7 @@ const eventData = {
       venue: "Sports Gallery",
       entryFee: "₹500",
       cashPrize: "N/A",
-      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform',
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScr3oTVO9zjtQkEp9Iex3rcbXlwShWLXstdCwwwnGA3X2IZBg/viewform',
       posterImage: '/images/posters/choreo_night.jpeg'
     },
     {

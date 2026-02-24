@@ -90,11 +90,11 @@ const Hscroll = () => {
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="flex flex-col backdrop-blur-sm h-full w-full justify-center">
-            <div className="text-5xl lg:text-9xl font-thunder-semi text-purple-50 mb-5 legacy-content-1">
-              One of India's largest cultural festivals,
-              <br />a symbol of tradition, creativity and unity
+            <div className="text-5xl lg:text-8xl xl:text-9xl font-thunder-semi text-purple-50 mb-5 legacy-content-1">
+              One of the South India's oldest cultural festivals,
+              a symbol of tradition, creativity and unity
             </div>
-            <div className="text-3xl lg:text-7xl font-thunder-semi text-purple-50 legacy-content-2 z-30">
+            <div className="text-3xl lg:text-5xl xl:text-7xl font-thunder-semi text-purple-50 legacy-content-2 z-30">
               Bringing people together with music, art and experience <br />
               that transcends boundaries
             </div>

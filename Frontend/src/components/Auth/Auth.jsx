@@ -44,12 +44,16 @@ const AuthPromo = ({ onBack }) => (
       </div>
 
       <h3 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
-        Experience the{" "}
+        Experience one of the{" "}
         <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-violet-400">
-          legendary cultural festival of South India,
+          oldest cultural festival
         </span>{" "}
-        radiating brilliance and innovation across the cobalt night.
+        of South India.
       </h3>
+      <p className="hidden lg:block mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
+        Join our community of visionaries and creators. Beautifully crafted for
+        the modern web.
+      </p>
     </div>
 
     <div className="hidden lg:block mt-10 pt-8 border-t border-white/10">

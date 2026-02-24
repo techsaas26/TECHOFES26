@@ -41,7 +41,7 @@ const Footer = () => {
               TECHOFES 79
             </h1>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              The legendary cultural festival of South India, radiating
+              One of the oldest Cultural Festival of South India, radiating
               brilliance and innovation across the cobalt night.
             </p>
             <div className="flex gap-4">
@@ -79,7 +79,7 @@ const Footer = () => {
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="/schedule"
+                    href="/agenda"
                     className="hover:text-purple-200 transition"
                   >
                     Schedule
@@ -95,7 +95,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/proshows"
+                    href="/event-description/ProShows"
                     className="hover:text-purple-200 transition"
                   >
                     Pro-Shows
@@ -140,7 +140,9 @@ const Footer = () => {
               Tamil Nadu, India
             </p>
             <a
-              href="#"
+              href="https://www.google.com/maps/place/Anna+University/@13.0110783,80.2337369,17z/data=!3m1!4b1!4m6!3m5!1s0x3a52679fd80e657f:0x9727dde0ba49c84e!8m2!3d13.0110731!4d80.2363118!16zL20vMDI0NTFr?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-purple-200 hover:text-purple-100 transition text-xs font-bold border-b border-purple-200/30 pb-1"
             >
               VIEW MAP ➜

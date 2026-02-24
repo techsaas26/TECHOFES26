@@ -65,65 +65,53 @@ const SignUp = () => {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (form.password !== form.confirmPassword) {
-    toast.error("Passwords do not match!");
-    return;
-  }
+    if (form.password !== form.confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  try {
+    try {
+      const { confirmPassword, acceptTerms, ...payload } = form;
 
-    const {
-      confirmPassword,
-      acceptTerms,
-      ...payload
-    } = form;
-
-    const response = await fetch(
-      `${API_BASE_URL}/api/auth/register`,
-      {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
+      });
+
+      let data;
+
+      try {
+        data = await response.json();
+      } catch {
+        data = { message: "Server error" };
       }
-    );
 
-    let data;
+      if (!response.ok) {
+        throw new Error(data.error || data.message || "Registration failed");
+      }
 
-    try {
-      data = await response.json();
-    } catch {
-      data = { message: "Server error" };
+      toast.success("Account created successfully!");
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setIsSubmitting(false);
     }
+  };
 
-    if (!response.ok) {
-      throw new Error( data.error || data.message || "Registration failed");
-    }
-
-    toast.success("Account created successfully!");
-    navigate("/login");
-
-  } catch (error) {
-
-    toast.error(error.message);
-
-  } finally {
-
-    setIsSubmitting(false);
-
-  }
-};
-
-  const passwordsMatch = form.password === form.confirmPassword || !form.confirmPassword;
+  const passwordsMatch =
+    form.password === form.confirmPassword || !form.confirmPassword;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0c1a]">
+    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-[#0a0c1a]">
       {/* Background Gradients (Directly from Auth.jsx) */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute inset-0 bg-linear-to-br from-[#0f1329] via-[#1a1d3a] to-[#16132a]" />
@@ -138,11 +126,55 @@ const handleSubmit = async (e) => {
         />
       </div>
 
+      {/* Left: Promotional section (Identical to Auth.jsx) */}
+      <div className="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-6 lg:py-12 order-1 lg:order-1">
+        <div className="auth-promo-content animate-auth-promo flex flex-col">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors mb-6 lg:mb-16 self-start"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back</span>
+          </button>
+
+          <div className="flex items-center gap-2 mb-6 lg:mb-24">
+            <img
+              src="/T79-logo.png"
+              alt="Techofes"
+              className="h-20 w-auto object-contain"
+            />
+          </div>
+
+          <h3 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
+            Experience one of the{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-violet-400">
+              oldest cultural festival
+            </span>{" "}
+            of South India.
+          </h3>
+          <p className="hidden lg:block mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
+            Join our community of visionaries and creators. Beautifully crafted
+            for the modern web.
+          </p>
+        </div>
+
+        <div className="hidden lg:block mt-10 pt-8 border-t border-white/10">
+          <p className="text-white/50 text-sm">
+            © 2026 Techofes ·{" "}
+            <span className="text-white/60 hover:text-white transition-colors">
+              Technical team
+            </span>
+          </p>
+        </div>
+      </div>
 
       {/* Right: Sign Up form section */}
-      <div className="relative z-10 w-full max-w-3xl px-6 py-10">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-6 lg:py-12 order-2 lg:order-2">
         <div className="auth-card animate-auth-card w-full max-w-2xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] p-6 sm:p-8 lg:p-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">Create Account</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">
+            Create Account
+          </h2>
           <p className="text-white/60 text-sm sm:text-base mb-8">
             Fill in your details to join Techofes.
           </p>
@@ -150,55 +182,136 @@ const handleSubmit = async (e) => {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Grid for fields to prevent the form from becoming too long */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <InputField label="Username" name="username" icon={User} value={form.username} onChange={handleChange} required placeholder="john123" />
-              <InputField label="Full Name" name="fullName" icon={User} value={form.fullName} onChange={handleChange} required placeholder="John Doe" />
-              
-              <InputField label="Email Address" name="email" type="email" icon={Mail} value={form.email} onChange={handleChange} required placeholder="john@example.com" />
-              <InputField label="Phone Number" name="phoneNumber" type="tel" icon={Phone} value={form.phoneNumber} onChange={handleChange} required placeholder="9876543210" />
-              
-              <InputField label="College Name" name="collegeName" icon={Building2} value={form.collegeName} onChange={handleChange} required placeholder="Your College" />
-              <InputField label="Department" name="department" icon={BookOpen} value={form.department} onChange={handleChange} required placeholder="Your dept" />
-              
-              <InputField label="Roll No" name="rollNo" icon={School} value={form.rollNo} onChange={handleChange} required placeholder="202xxxxxxx" />
+              <InputField
+                label="Username"
+                name="username"
+                icon={User}
+                value={form.username}
+                onChange={handleChange}
+                required
+                placeholder="john123"
+              />
+              <InputField
+                label="Full Name"
+                name="fullName"
+                icon={User}
+                value={form.fullName}
+                onChange={handleChange}
+                required
+                placeholder="John Doe"
+              />
+
+              <InputField
+                label="Email Address"
+                name="email"
+                type="email"
+                icon={Mail}
+                value={form.email}
+                onChange={handleChange}
+                required
+                placeholder="john@example.com"
+              />
+              <InputField
+                label="Phone Number"
+                name="phoneNumber"
+                type="tel"
+                icon={Phone}
+                value={form.phoneNumber}
+                onChange={handleChange}
+                required
+                placeholder="9876543210"
+              />
+
+              <InputField
+                label="College Name"
+                name="collegeName"
+                icon={Building2}
+                value={form.collegeName}
+                onChange={handleChange}
+                required
+                placeholder="Your College"
+              />
+              <InputField
+                label="Department"
+                name="department"
+                icon={BookOpen}
+                value={form.department}
+                onChange={handleChange}
+                required
+                placeholder="Your dept"
+              />
+
+              <InputField
+                label="Roll No"
+                name="rollNo"
+                icon={School}
+                value={form.rollNo}
+                onChange={handleChange}
+                required
+                placeholder="202xxxxxxx"
+              />
 
               <div className="auth-field animate-auth-field">
-                <label className="block text-white/90 text-sm font-medium mb-1.5 ml-1">User Type</label>
+                <label className="block text-white/90 text-sm font-medium mb-1.5 ml-1">
+                  User Type
+                </label>
                 <select
                   name="userType"
                   value={form.userType}
                   onChange={handleChange}
                   className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm appearance-none"
                 >
-                  <option value="CEG" className="bg-[#1a1d3a]">CEG</option>
-                  <option value="OUTSIDE" className="bg-[#1a1d3a]">Other College</option>
+                  <option value="CEG" className="bg-[#1a1d3a]">
+                    CEG
+                  </option>
+                  <option value="OUTSIDE" className="bg-[#1a1d3a]">
+                    Other College
+                  </option>
                 </select>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <InputField 
-                  label="Password" name="password" 
-                  type={showPassword ? "text" : "password"} 
-                  icon={Lock} value={form.password} onChange={handleChange} required placeholder="••••••••" 
+                <InputField
+                  label="Password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  icon={Lock}
+                  value={form.password}
+                  onChange={handleChange}
+                  required
+                  placeholder="••••••••"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-9.5 text-white/40 hover:text-white/70 transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
 
-              <InputField 
-                label="Confirm Password" name="confirmPassword" 
-                type="password" icon={Lock} value={form.confirmPassword} onChange={handleChange} required placeholder="••••••••" 
+              <InputField
+                label="Confirm Password"
+                name="confirmPassword"
+                type="password"
+                icon={Lock}
+                value={form.confirmPassword}
+                onChange={handleChange}
+                required
+                placeholder="••••••••"
               />
             </div>
 
             {!passwordsMatch && (
-              <p className="text-red-400 text-xs mt-1">Passwords do not match</p>
+              <p className="text-red-400 text-xs mt-1">
+                Passwords do not match
+              </p>
             )}
 
             <div className="pt-2">
@@ -212,7 +325,15 @@ const handleSubmit = async (e) => {
                   className="mt-1 w-4 h-4 rounded border-white/30 bg-white/5 text-indigo-500 focus:ring-indigo-500/50"
                 />
                 <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                  I agree to the <a href="#" className="text-indigo-400 underline">Terms</a> and <a href="#" className="text-indigo-400 underline">Privacy Policy</a>.
+                  I agree to the{" "}
+                  <a href="#" className="text-indigo-400 underline">
+                    Terms
+                  </a>{" "}
+                  and{" "}
+                  <a href="#" className="text-indigo-400 underline">
+                    Privacy Policy
+                  </a>
+                  .
                 </span>
               </label>
 
@@ -235,7 +356,10 @@ const handleSubmit = async (e) => {
 
           <p className="mt-6 text-center text-white/60 text-sm">
             Already have an account?{" "}
-            <Link to="/login" className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors">
+            <Link
+              to="/login"
+              className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+            >
               Sign in
             </Link>
           </p>

@@ -4,39 +4,39 @@ export const sponsorsData = {
     {
       name: "AGS Cinemas",
       description: "Official Entertainment Partner",
-      website: "https://sonata.co.in",
+      website: "#",
       logo: "/images/sponsors/ags.png",
     },
     {
-      name: "Coca-Cola",
-      description: "Beverage Partner",
-      website: "https://coca-cola.com",
-      logo: "/images/sponsors/coca-cola-logo.png",
+      name: "Mittai Kadai",
+      description: "Refreshment Partner",
+      website: "#",
+      logo: "/images/sponsors/MK.png",
     },
     {
-      name: "Language",
-      description: "Official Footwear Partner",
-      website: "https://language.com",
-      logo: "/images/sponsors/language-logo.png",
+      name: "Printer's Desk",
+      description: "Printables Partner",
+      website: "#",
+      logo: "/images/sponsors/PD.png",
     },
     {
-      name: "The Hindu",
-      description: "In Association Sponsor and Co-Title for Choreo",
-      website: "https://thehindu.com",
-      logo: "/images/sponsors/thehindu-logo.png",
+      name: "Rajams",
+      description: "Printing Partner",
+      website: "#",
+      logo: "/images/sponsors/rajams.jpg",
     },
   ],
   "Associate Sponsors": [
     {
       name: "Kyn",
       description: "Official Ticketing Partner",
-      website: "https://kyn.in",
+      website: "#",
       logo: "/images/sponsors/kyn-logo.png",
     },
     {
       name: "TravelXP",
       description: "Travel Partner",
-      website: "https://travelxp.com",
+      website: "#",
       logo: "/images/sponsors/travelxp-logo.png",
     },
     {
@@ -48,7 +48,7 @@ export const sponsorsData = {
     {
       name: "Canara Bank",
       description: "Banking Partner",
-      website: "https://canarabank.com",
+      website: "#",
       logo: "/images/sponsors/canara-bank-logo.png",
     },
     {
