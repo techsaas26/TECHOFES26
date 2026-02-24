@@ -1,5 +1,6 @@
 import { memo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import { Mail, Lock, LogIn, ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -35,20 +36,20 @@ const AuthPromo = ({ onBack }) => (
       </button>
 
       <div className="flex items-center gap-2 mb-6 lg:mb-24">
-        <img src="/T79-logo.png" alt="Techofes" className="h-20 w-auto object-contain" />
+        <img
+          src="/T79-logo.png"
+          alt="Techofes"
+          className="h-20 w-auto object-contain"
+        />
       </div>
 
-      <h1 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
+      <h3 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
         Experience the{" "}
         <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-violet-400">
-          next frontier
+          legendary cultural festival of South India,
         </span>{" "}
-        of tech and culture.
-      </h1>
-      <p className="hidden lg:block mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
-        Join our community of visionaries and creators. Secure, fast, and beautifully crafted for
-        the modern web.
-      </p>
+        radiating brilliance and innovation across the cobalt night.
+      </h3>
     </div>
 
     <div className="hidden lg:block mt-10 pt-8 border-t border-white/10">
@@ -61,7 +62,10 @@ const AuthPromo = ({ onBack }) => (
 
 const AuthInput = ({ label, id, icon: Icon, rightElement, ...props }) => (
   <div className="auth-field animate-auth-field">
-    <label htmlFor={id} className="block text-white/90 text-sm font-medium mb-2">
+    <label
+      htmlFor={id}
+      className="block text-white/90 text-sm font-medium mb-2"
+    >
       {label}
     </label>
     <div className="relative">
@@ -114,27 +118,28 @@ const Auth = () => {
 
       if (!response.ok) {
         // Handle 401 Unauthorized or 404 Not Found
-        throw new Error(data.message || "Invalid username or password");
+        throw new Error(
+          data.error || data.message || "Invalid username or password",
+        );
       }
 
       // --- Success Logic ---
-      
+
       // 1. Store the token (if your backend returns one)
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
-      
+
       // 2. Optional: Store user info for the profile page
       localStorage.setItem("user", JSON.stringify(data.user || { username }));
 
-      alert("Login successful! Welcome back.");
-      
+      toast.success("Login successful! Welcome back.");
+
       // 3. Redirect to Dashboard or Home
       navigate("/");
-
     } catch (error) {
       console.error("Login Error:", error);
-      alert(error.message || "Failed to connect to server");
+      toast.error(error.message || "Failed to connect to server");
     } finally {
       setIsSubmitting(false);
     }
@@ -149,9 +154,12 @@ const Auth = () => {
       {/* Right: Sign in form */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-6 lg:py-12 order-2 lg:order-2">
         <div className="auth-card animate-auth-card w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] p-6 sm:p-8 lg:p-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">Welcome back</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">
+            Welcome back
+          </h2>
           <p className="text-white/60 text-sm sm:text-base mb-6 sm:mb-8">
-            Enter your credentials to access your workspace.
+            Enter your credentials to access your workspace. (Check your mail
+            inbox for the username.)
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -184,7 +192,11 @@ const Auth = () => {
                   className="text-white/40 hover:text-white/70 transition-colors p-1"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               }
             />
@@ -227,7 +239,10 @@ const Auth = () => {
 
           <p className="mt-6 sm:mt-8 text-center text-white/60 text-sm">
             Don&apos;t have an account?{" "}
-            <Link to="/signup" className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors">
+            <Link
+              to="/signup"
+              className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+            >
               Sign up for free
             </Link>
           </p>

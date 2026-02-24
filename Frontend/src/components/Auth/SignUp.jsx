@@ -1,4 +1,5 @@
 import { memo, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
 import {
   Mail,
@@ -64,54 +65,65 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    // 1. Basic Validation
-    if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setIsSubmitting(true);
+  if (form.password !== form.confirmPassword) {
+    toast.error("Passwords do not match!");
+    return;
+  }
 
-    try {
-      // 2. Prepare Payload (Removing frontend-only fields)
-      const { confirmPassword, acceptTerms, ...payload } = form;
+  setIsSubmitting(true);
 
-      // 3. API Call
-      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+  try {
+
+    const {
+      confirmPassword,
+      acceptTerms,
+      ...payload
+    } = form;
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/auth/register`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        // Handle backend validation errors (e.g., email already exists)
-        throw new Error(data.message || "Registration failed");
       }
+    );
 
-      // 4. Success Handling
-      console.log("Registration Successful:", data);
-      alert("Account created successfully! Please login.");
-      navigate("/login"); // Redirect user to login page
-      
-    } catch (error) {
-      console.error("Auth Error:", error);
-      alert(error.message || "Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+    let data;
+
+    try {
+      data = await response.json();
+    } catch {
+      data = { message: "Server error" };
     }
-  };
+
+    if (!response.ok) {
+      throw new Error( data.error || data.message || "Registration failed");
+    }
+
+    toast.success("Account created successfully!");
+    navigate("/login");
+
+  } catch (error) {
+
+    toast.error(error.message);
+
+  } finally {
+
+    setIsSubmitting(false);
+
+  }
+};
 
   const passwordsMatch = form.password === form.confirmPassword || !form.confirmPassword;
 
   return (
-    <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-[#0a0c1a]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0c1a]">
       {/* Background Gradients (Directly from Auth.jsx) */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute inset-0 bg-linear-to-br from-[#0f1329] via-[#1a1d3a] to-[#16132a]" />
@@ -126,47 +138,9 @@ const SignUp = () => {
         />
       </div>
 
-      {/* Left: Promotional section (Identical to Auth.jsx) */}
-      <div className="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-6 lg:py-12 order-1 lg:order-1">
-        <div className="auth-promo-content animate-auth-promo flex flex-col">
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors mb-6 lg:mb-16 self-start"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back</span>
-          </button>
-
-          <div className="flex items-center gap-2 mb-6 lg:mb-24">
-            <img src="/T79-logo.png" alt="Techofes" className="h-20 w-auto object-contain" />
-          </div>
-
-          <h1 className="hidden lg:block text-3xl sm:text-4xl lg:text-5xl xl:text-[2.75rem] font-bold text-white leading-tight max-w-lg">
-            Experience the{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-violet-400">
-              next frontier
-            </span>{" "}
-            of culture.
-          </h1>
-          <p className="hidden lg:block mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
-            Join our community of visionaries and creators. Secure, fast, and beautifully crafted for
-            the modern web.
-          </p>
-        </div>
-
-        <div className="hidden lg:block mt-10 pt-8 border-t border-white/10">
-          <p className="text-white/50 text-sm">
-            © 2026 Techofes ·{" "}
-            <span className="text-white/60 hover:text-white transition-colors">
-              Technical team
-            </span>
-          </p>
-        </div>
-      </div>
 
       {/* Right: Sign Up form section */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-6 lg:py-12 order-2 lg:order-2">
+      <div className="relative z-10 w-full max-w-3xl px-6 py-10">
         <div className="auth-card animate-auth-card w-full max-w-2xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] p-6 sm:p-8 lg:p-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">Create Account</h2>
           <p className="text-white/60 text-sm sm:text-base mb-8">
@@ -196,8 +170,7 @@ const SignUp = () => {
                   className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm appearance-none"
                 >
                   <option value="CEG" className="bg-[#1a1d3a]">CEG</option>
-                  <option value="NON-CEG" className="bg-[#1a1d3a]">Other College</option>
-                  <option value="GUEST" className="bg-[#1a1d3a]">Guest</option>
+                  <option value="OUTSIDE" className="bg-[#1a1d3a]">Other College</option>
                 </select>
               </div>
             </div>

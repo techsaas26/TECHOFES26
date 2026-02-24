@@ -1,6 +1,9 @@
 import { lazy, Suspense, memo } from "react";
+import { useEffect } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
+import { Toaster } from "react-hot-toast";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 
@@ -12,10 +15,11 @@ import FloatingMenu from "./components/Menu/FloatingMenu";
 import { EventCategoryButton } from "./components/Event-Categories";
 import Footer from "./components/Footer/Footer";
 
-
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-const EventDescription = lazy(() => import("./components/Event-Categories/EventDescription"));
+const EventDescription = lazy(
+  () => import("./components/Event-Categories/EventDescription"),
+);
 const ComingSoon = lazy(() => import("./components/Coming-Soon/ComingSoon"));
 const Team = lazy(() => import("./components/Team/Team"));
 const Agenda = lazy(() => import("./components/Agenda/Agenda"));
@@ -23,6 +27,7 @@ const Sponsors = lazy(() => import("./components/Sponsors/Sponsors"));
 const Contact = lazy(() => import("./components/Contact/Contact.jsx"));
 const Auth = lazy(() => import("./components/Auth/Auth"));
 const SignUp = lazy(() => import("./components/Auth/SignUp"));
+const Profile = lazy(() => import("./components/Auth/Profile/Profile"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-bg">
@@ -74,6 +79,16 @@ const HomePage = memo(() => {
 const App = () => {
   return (
     <>
+    <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "#111827",
+            color: "#fff",
+            border: "1px solid rgba(255,255,255,0.1)"
+          }
+        }}
+      />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -81,11 +96,16 @@ const App = () => {
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
           <Route path="/events" element={<ComingSoon />} />
-          <Route path="/event-description/:category" element={<EventDescription />} />
+          <Route
+            path="/event-description/:category"
+            element={<EventDescription />}
+          />
           <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
       <FloatingMenu />

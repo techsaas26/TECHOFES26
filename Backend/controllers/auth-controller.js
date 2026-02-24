@@ -5,6 +5,7 @@ import sendMail from "../utils/mail.js";
 import logger from "../utils/logger.js";
 import config from "../utils/config.js";
 import UserIdTracker from "../models/userIdTracker.js";
+import registrationTemplate from "../utils/registrationTemplate.js";
 
 const MAX_ATTEMPTS = 3;
 
@@ -12,15 +13,13 @@ const MAX_ATTEMPTS = 3;
  * Safe Non-Blocking Email Sender
  * Does NOT throw errors
  */
-const sendEmailSafely = (to, subject, text) => {
-  sendMail(to, subject, text)
+const sendEmailSafely = (to, subject, text, html) => {
+  sendMail(to, subject, text, html)
     .then(() => {
       logger.info(`Email successfully sent to ${to}`);
     })
     .catch((err) => {
-      logger.info(
-        `Email sending failed for ${to}. Reason: ${err.message}`
-      );
+      logger.info(`Email sending failed for ${to}. Reason: ${err.message}`);
     });
 };
 
@@ -50,7 +49,7 @@ export const registerUser = async (req, res, next) => {
     }
 
     logger.info(
-      `Register attempt | username: ${username} | email: ${email} | type: ${userType}`
+      `Register attempt | username: ${username} | email: ${email} | type: ${userType}`,
     );
 
     const normalizedEmail = email.toLowerCase();
@@ -61,7 +60,7 @@ export const registerUser = async (req, res, next) => {
 
     if (existingUser) {
       logger.info(
-        `Registration failed: username/email already in use (${username} / ${normalizedEmail})`
+        `Registration failed: username/email already in use (${username} / ${normalizedEmail})`,
       );
       return res
         .status(400)
@@ -84,30 +83,37 @@ export const registerUser = async (req, res, next) => {
       passwordHash,
       userType,
       rollNo,
-      college: userType === "CEG"
-        ? "College of Engineering Guindy"
-        : collegeName,
+      college:
+        userType === "CEG" ? "College of Engineering Guindy" : collegeName,
       department,
     });
 
     const savedUser = await user.save();
 
     logger.info(
-      `User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`
+      `User registered successfully: ${savedUser.username} (T_ID: ${savedUser.T_ID})`,
     );
 
-    // 🔥 Non-Blocking Email (Production Style)
     const subject = "Registration Confirmation";
-    const text = `Dear ${savedUser.fullName},
 
-Thank you for registering!
-Your unique T_ID is: ${savedUser.T_ID}
+    const html = registrationTemplate(
+      savedUser.fullName,
+      savedUser.T_ID,
+      savedUser.username,
+    );
+
+    const text = `
+Registration Confirmation
+
+Name: ${savedUser.fullName}
+T_ID: ${savedUser.T_ID}
 Username: ${savedUser.username}
 
-Best regards,
-Tech Team`;
+Visit:
+https://saasceg.in
+`;
 
-    sendEmailSafely(savedUser.email, subject, text);
+    sendEmailSafely(savedUser.email, subject, text, html);
 
     const userResponse = savedUser.toObject();
     delete userResponse.passwordHash;
@@ -116,7 +122,6 @@ Tech Team`;
       message: "User registered successfully",
       user: userResponse,
     });
-
   } catch (err) {
     logger.info(`Error during registration: ${err.message}`);
     next(err);
@@ -141,7 +146,7 @@ export const loginUser = async (req, res, next) => {
 
       if (user.failedAttempts >= MAX_ATTEMPTS && user.username !== "admin") {
         logger.info(
-          `User ${username} exceeded max login attempts. Sending alert email.`
+          `User ${username} exceeded max login attempts. Sending alert email.`,
         );
 
         const alertSubject = "Frequent Login Attempts Detected";
@@ -173,7 +178,7 @@ Techofes Tech Team`;
     });
 
     logger.info(
-      `User logged in successfully: ${username} (T_ID: ${user.T_ID})`
+      `User logged in successfully: ${username} (T_ID: ${user.T_ID})`,
     );
 
     res.status(200).json({
@@ -182,7 +187,6 @@ Techofes Tech Team`;
       T_ID: user.T_ID,
       userType: user.userType,
     });
-
   } catch (err) {
     logger.info(`Error during login: ${err.message}`);
     next(err);
