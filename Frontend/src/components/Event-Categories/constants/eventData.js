@@ -17,6 +17,34 @@ const eventData = {
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSd9W10A8AZG7YTHs_mYVDq6NQT44pPh9ZD1cubT2dxRb8OSFw/viewform'
     },
     {
+      id: 10,
+      title: "Abinaya Workshop",
+      category: "WORKSHOP",
+      description: "Learn the concepts and types of Abinaya.",
+      dateMonth: "FEB",
+      dateDay: "26",
+      fullDate: "Feb 26, 2026",
+      time: "1:30 - 4:00 PM",
+      venue: "Ada Lovelace Auditorium",
+      entryFee: "Free",
+      cashPrize: "-",
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfpDaK2sQ5glU8RC73pv8LtRlyibiIjwPph3lUGDD2cB0vHYA/viewform'
+    },
+    {
+      id: 11,
+      title: "Parai Workshop",
+      category: "WORKSHOP",
+      description: "Learn the concepts and types of Abinaya.",
+      dateMonth: "FEB",
+      dateDay: "26",
+      fullDate: "Feb 26, 2026",
+      time: "1:30 - 4:00 PM",
+      venue: "Seminar Hall, CEG Square, 1st Floor",
+      entryFee: "Free",
+      cashPrize: "-",
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeXA6WeuAsKrya8j8mFyiv5BhQtvsQUlZNzEYCe8W_DSV1krA/viewform'
+    },
+    {
       id: 2,
       title: "Solo Dance",
       category: "COMPETITION",
@@ -51,14 +79,14 @@ const eventData = {
     {
       id: 4,
       title: "Standup Comedy",
-      category: "COMPETITION",
+      category: "SHOW",
       description: "24-hour coding marathon to build amazing projects.",
       dateMonth: "FEB",
       dateDay: "27",
       fullDate: "Feb 27, 2026",
       time: "10:30 - 12:30 PM",
       venue: "Vivekanandha Auditorium",
-      entryFee: "₹1000",
+      entryFee: "Free",
       cashPrize: "-",
       registrationLink: ''
     },
@@ -96,7 +124,7 @@ const eventData = {
     },
     {
       id: 7,
-      title: "Mind Competition",
+      title: "Comic Arena",
       category: "COMPETITION",
       description: "Inspiring talks from industry leaders about future trends.",
       dateMonth: "FEB",
@@ -105,7 +133,9 @@ const eventData = {
       time: "10:30 - 12:30 PM",
       venue: "Vivekanandha Auditorium",
       entryFee: "Free",
-      cashPrize: "N/A"
+      cashPrize: "TBA",
+      rulesImage: ['/images/rules/comic_1.png','/images/rules/comic_2.png'],
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf62iHatYsDf-eCaWVBhF_iIxB660Uq1V8SLOOzMkEScrK-4w/viewform?pli=1'
     },
     {
       id: 8,
@@ -138,7 +168,7 @@ const eventData = {
       rulesImage: ['/images/rules/inter_2.png','/images/rules/Inter_3.png'],
       posterImage: '/images/poster/inter.png',
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeKVNOpGzA0MQUGbetVC56oCW2iQ0xi-EXvH5KjVxSR4_9Ouw/viewform'
-    }
+    },
   ],
   "ProShows": [
     {
@@ -166,7 +196,7 @@ const eventData = {
       venue: "Sports Gallery",
       entryFee: "₹300",
       cashPrize: "N/A",
-      registrationLink: '',
+      registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform',
       posterImage: '/images/posters/concert_night.jpeg'
     },
     {
@@ -182,7 +212,7 @@ const eventData = {
       entryFee: "₹2000",
       cashPrize: "N/A",
       registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfiK_uFhjaOMW1Ai_xTmyLQ_AewNMxv8YaGe9A7-ZVmMIo9Wg/viewform',
-      posterImage: '/images/posters/concert_night.jpeg'
+      posterImage: '/images/posters/choreo_night.jpeg'
     },
     {
       id: 4,
@@ -210,7 +240,8 @@ const eventData = {
       time: "8:20 - 9:40 PM",
       venue: "Sports Gallery",
       entryFee: "Free",
-      cashPrize: "Merch Prizes"
+      cashPrize: "Merch Prizes",
+      registrationLink: ''
     }
   ],
   "Red Building Events": [
