@@ -15,7 +15,7 @@ const app = express();
 const allowedOrigins = [
   config.FRONTEND_URL1,
   config.FRONTEND_URL2,
-  "http://localhost:5173/",
+  "http://localhost:5173",
 ];
 
 app.use(
