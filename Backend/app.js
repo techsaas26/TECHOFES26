@@ -12,7 +12,11 @@ import "express-async-errors";
 const app = express();
 
 // CORS
-const allowedOrigins = [config.FRONTEND_URL1, config.FRONTEND_URL2];
+const allowedOrigins = [
+  config.FRONTEND_URL1,
+  config.FRONTEND_URL2,
+  "http://localhost:5173/",
+];
 
 app.use(
   cors({
