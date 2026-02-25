@@ -1,12 +1,43 @@
-// Sponsors data with categories and details
 export const sponsorsData = {
-  "Co-Title Sponsors": [
+  "Sponsors": [
     {
-      name: "AGS Cinemas",
-      description: "Official Entertainment Partner",
+      name: "Union Bank of India",
+      description: "Title Sponsor",
       website: "#",
-      logo: "/images/sponsors/ags.png",
+      logo: "/images/sponsors/union_bank.png",
     },
+    {
+      name: "NLC India",
+      description: "Co-Sponsor",
+      website: "#",
+      logo: "/images/sponsors/nlc.png",
+    },
+    {
+      name: "Aram IAS Academy",
+      description: "Associate Sponsor",
+      website: "#",
+      logo: "/images/sponsors/aram.png",
+    },
+    {
+      name: "DXN",
+      description: "Gift Sponsor",
+      website: "#",
+      logo: "/images/sponsors/DXN.png",
+    },
+    {
+      name: "AACEG",
+      description: "Logistics Sponsor",
+      website: "#",
+      logo: "/images/sponsors/AACEG.png",
+    },
+    {
+      name: "2IIM",
+      description: "Educational Sponsor",
+      website: "#",
+      logo: "/images/sponsors/2IIM.png",
+    },
+  ],
+  "Partners": [
     {
       name: "Mittai Kadai",
       description: "Refreshment Partner",
@@ -25,42 +56,77 @@ export const sponsorsData = {
       website: "#",
       logo: "/images/sponsors/rajams.jpg",
     },
-  ],
-  "Associate Sponsors": [
     {
-      name: "Kyn",
-      description: "Official Ticketing Partner",
+      name: "Naga",
+      description: "Snacks Partner",
       website: "#",
-      logo: "/images/sponsors/kyn-logo.png",
+      logo: "/images/sponsors/naga.png",
     },
     {
-      name: "TravelXP",
-      description: "Travel Partner",
+      name: "Rapido",
+      description: "Travel Sponsor", // Note: Usually grouped with Partners due to niche role
       website: "#",
-      logo: "/images/sponsors/travelxp-logo.png",
+      logo: "/images/sponsors/rapido.png",
     },
     {
-      name: "Alumni and Corporate Relations",
-      description: "Alumni Partner",
+      name: "Gourmet Popcornica",
+      description: "Refreshment Hamper Partner",
       website: "#",
-      logo: "/images/sponsors/alumni-logo.png",
+      logo: "/images/sponsors/gourmet.jpg",
     },
     {
-      name: "Canara Bank",
-      description: "Banking Partner",
+      name: "UNIQ",
+      description: "Momento Partner",
       website: "#",
-      logo: "/images/sponsors/canara-bank-logo.png",
+      logo: "/images/sponsors/uniq.png",
     },
     {
-      name: "MI Backline",
-      description: "Backline Partner",
+      name: "Times of India",
+      description: "Digital Partner",
       website: "#",
-      logo: "/images/sponsors/mi-backline-logo.png",
+      logo: "/images/sponsors/TOI.jpeg",
     },
     {
-      name: "Picture Productions",
-      description: "Sound and Light Partner",
+      name: "InstaPrint",
+      description: "Tickets Partner",
       website: "#",
+      logo: "/images/sponsors/instaprint.png",
+    },
+    {
+      name: "Kauvery Hospital",
+      description: "Medical Partner",
+      website: "#",
+      logo: "/images/sponsors/kauvery.png",
+    },
+    {
+      name: "Green Point Production",
+      description: "Celebrity Partner",
+      website: "#",
+      logo: "/images/sponsors/green_point.png",
+    },
+    {
+      name: "Dreambright",
+      description: "Production Partner",
+      website: "#",
+      logo: "/images/sponsors/dreambright.png",
+    },
+    {
+      name: "Gurunath",
+      description: "Logistics Partner",
+      website: "#",
+      logo: "/images/sponsors/gurunath.png",
+    },
+    {
+      name: "Wanaromah",
+      description: "Fragrance Partner",
+      website: "#",
+      logo: "/images/sponsors/wanaromah.webp",
+    },
+    {
+      name: "Elite Flex Print",
+      description: "Banner Partner",
+      website: "#",
+      logo: "/images/sponsors/flex_print.png",
     },
   ],
 };
