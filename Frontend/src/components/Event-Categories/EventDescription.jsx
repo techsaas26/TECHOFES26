@@ -14,14 +14,17 @@ function RulesModal({ isOpen, rulesImage, rulesText, onClose }) {
   const isAnimatingRef = useRef(false);
 
   useEffect(() => {
-    if (isOpen && modalRef.current) {
+    if (!isOpen) return;
+    requestAnimationFrame(() => {
+      setCarouselIndex(0);
+    });
+    if (modalRef.current) {
       gsap.fromTo(
         modalRef.current,
         { opacity: 0, scale: 0.9, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power3.out" },
       );
     }
-    if (isOpen) setCarouselIndex(0);
   }, [isOpen]);
 
   useEffect(() => {
@@ -102,30 +105,7 @@ function RulesModal({ isOpen, rulesImage, rulesText, onClose }) {
     slideTo(newIndex, "left");
   };
 
-  const animateButton = (el) => {
-    if (!el) return;
-    gsap.fromTo(
-      el,
-      { scale: 1 },
-      {
-        scale: 0.86,
-        duration: 0.08,
-        yoyo: true,
-        repeat: 1,
-        ease: "power1.inOut",
-      },
-    );
-  };
 
-  const handlePrevClick = (e) => {
-    animateButton(e.currentTarget);
-    prev();
-  };
-
-  const handleNextClick = (e) => {
-    animateButton(e.currentTarget);
-    next();
-  };
 
   return (
     <div
@@ -338,21 +318,53 @@ function DetailsModal({ isOpen, event, onClose }) {
 
           <p>
             <span className="text-blue-400 font-semibold">Date:</span>{" "}
-            {event.fullDate} · {event.time}
+            {event.fullDate}
           </p>
           <p>
             <span className="text-blue-400 font-semibold">Venue:</span>{" "}
             {event.venue}
           </p>
-          <p>
-            <span className="text-blue-400 font-semibold">Entry Fee:</span>{" "}
-            {event.entryFee}
-          </p>
-          {event.eventCategory !== "ProShows" && (
-            <p>
-              <span className="text-blue-400 font-semibold">Cash Prize:</span>{" "}
-              {event.cashPrize}
-            </p>
+
+          {/* Display Red Building Events specific fields */}
+          {event.eventCategory === "Red Building Events" ? (
+            <>
+              {event.timing ? (
+                <p>
+                  <span className="text-blue-400 font-semibold">Timing:</span>{" "}
+                  {event.timing}
+                </p>
+              ) : (
+                <>
+                  <p>
+                    <span className="text-blue-400 font-semibold">Round 1 Timing:</span>{" "}
+                    {event.round1Timing}
+                  </p>
+                  <p>
+                    <span className="text-blue-400 font-semibold">Round 2 Timing:</span>{" "}
+                    {event.round2Timing}
+                  </p>
+                </>
+              )}
+              {event.hallNumber && (
+                <p>
+                  <span className="text-blue-400 font-semibold">Hall Number:</span>{" "}
+                  {event.hallNumber}
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <p>
+                <span className="text-blue-400 font-semibold">Entry Fee:</span>{" "}
+                {event.entryFee}
+              </p>
+              {event.eventCategory !== "ProShows" && (
+                <p>
+                  <span className="text-blue-400 font-semibold">Cash Prize:</span>{" "}
+                  {event.cashPrize}
+                </p>
+              )}
+            </>
           )}
         </div>
 
@@ -393,10 +405,7 @@ function EventItem({ event, onRegister, index, category }) {
     }
   }, [index]);
 
-  const handleDetailsClick = () => {
-    // Open the details modal on all devices
-    setIsDetailsOpen(true);
-  };
+
 
   // Titles for which Register/Poster/Rules buttons should be hidden
   const hideButtons = [
@@ -414,7 +423,6 @@ function EventItem({ event, onRegister, index, category }) {
         onMouseEnter={() => setIsHoveblue(true)}
         onMouseLeave={() => {
           setIsHoveblue(false);
-          setShowPosterHover(false); 
         }}
         style={{
           backgroundImage: event.image
@@ -454,9 +462,11 @@ function EventItem({ event, onRegister, index, category }) {
             </div>
 
             <div className="flex items-center gap-3 mb-2">
-              <span className="px-3 py-1 text-xs font-bold uppercase tracking-widest text-blue-500 border border-blue-500/50 rounded-full bg-black/30">
-                {event.category}
-              </span>
+              {category !== "Red Building Events" && (
+                <span className="px-3 py-1 text-xs font-bold uppercase tracking-widest text-blue-500 border border-blue-500/50 rounded-full bg-black/30">
+                  {event.category}
+                </span>
+              )}
               <span className="text-base md:text-lg text-white/90 font-semibold">
                 {event.venue}
               </span>
@@ -469,27 +479,61 @@ function EventItem({ event, onRegister, index, category }) {
               {event.title}
             </h3>
 
-            {/* Always-visible summary: Entry Fee / Cash Prize / Time */}
+            {/* Always-visible summary: Entry Fee / Cash Prize / Time or Round timings/Hall for Red Building Events */}
             <div className="flex flex-wrap items-center gap-6 text-sm text-white/75 mb-4">
-              <div className="flex flex-col">
-                <span className="text-blue/70 text-xs">ENTRY FEE</span>
-                <span className="font-semibold">{event.entryFee}</span>
-              </div>
-              {category !== "ProShows" && (
-                <div className="flex flex-col">
-                  <span className="text-blue text-xs">CASH PRIZE</span>
-                  <span className="font-semibold">{event.cashPrize}</span>
-                </div>
+              {category === "Red Building Events" ? (
+                <>
+                  {event.timing ? (
+                    <div className="flex flex-col">
+                      <span className="text-blue/70 text-xs">TIMING</span>
+                      <span className="font-semibold">{event.timing}</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-4">
+                      <div className="flex flex-col">
+                        <span className="text-blue/70 text-xs">ROUND 1</span>
+                        <span className="font-semibold">{event.round1Timing}</span>
+                      </div>
+                      <div className="h-12 flex items-center">
+                        <div className="w-0.5 h-8 bg-white/40" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-blue text-xs">ROUND 2</span>
+                        <span className="font-semibold">{event.round2Timing}</span>
+                      </div>
+                    </div>
+                  )}
+                  {event.hallNumber && (
+                    <div className="flex flex-col">
+                      <span className="text-blue text-xs">HALL</span>
+                      <span className="font-semibold">{event.hallNumber}</span>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <>
+                  <div className="flex flex-col">
+                    <span className="text-blue/70 text-xs">ENTRY FEE</span>
+                    <span className="font-semibold">{event.entryFee}</span>
+                  </div>
+                  {category !== "ProShows" && (
+                    <div className="flex flex-col">
+                      <span className="text-blue text-xs">CASH PRIZE</span>
+                      <span className="font-semibold">{event.cashPrize}</span>
+                    </div>
+                  )}
+                  <div className="flex flex-col">
+                    <span className="text-blue text-xs">TIME</span>
+                    <span className="font-semibold">{event.time}</span>
+                  </div>
+                </>
               )}
-              <div className="flex flex-col">
-                <span className="text-blue text-xs">TIME</span>
-                <span className="font-semibold">{event.time}</span>
-              </div>
             </div>
 
             {/* Mobile actions: Rules + Register (no details on mobile) */}
             <div className="md:hidden flex items-center justify-between gap-3">
-              {category === "ProShows" && !hideButtons.includes(event.title) ? (
+              {(category === "ProShows" || category === "Red Building Events") &&
+              !hideButtons.includes(event.title) ? (
                 <button
                   onClick={() => setIsPosterOpen(true)}
                   className="px-3 py-2 border border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-sm flex items-center gap-2"
@@ -498,6 +542,7 @@ function EventItem({ event, onRegister, index, category }) {
                 </button>
               ) : (
                 category !== "ProShows" &&
+                category !== "Red Building Events" &&
                 !hideButtons.includes(event.title) && (
                   <button
                     onClick={() => setIsRulesOpen(true)}
@@ -508,7 +553,8 @@ function EventItem({ event, onRegister, index, category }) {
                 )
               )}
 
-              {!hideButtons.includes(event.title) && (
+              {category !== "Red Building Events" &&
+              !hideButtons.includes(event.title) && (
                 <a
                   href={event.registrationLink || "#"}
                   target={event.registrationLink ? "_blank" : undefined}
@@ -543,7 +589,8 @@ function EventItem({ event, onRegister, index, category }) {
 
           {/* Right - Actions (desktop only) */}
           <div className="hidden md:flex shrink-0 flex-col items-end gap-4">
-            {!hideButtons.includes(event.title) && (
+            {category !== "Red Building Events" &&
+            !hideButtons.includes(event.title) && (
               <a
                 href={event.registrationLink || "#"}
                 target={event.registrationLink ? "_blank" : undefined}
@@ -560,7 +607,7 @@ function EventItem({ event, onRegister, index, category }) {
               </a>
             )}
 
-            {category === "ProShows" ? (
+            {category === "ProShows" || category === "Red Building Events" ? (
               !hideButtons.includes(event.title) ? (
                 <button
                   onClick={() => setIsPosterOpen(true)}
@@ -604,7 +651,7 @@ function EventItem({ event, onRegister, index, category }) {
 // Replace the placeholder with your actual Google Form link (one per event) when ready.
 Object.values(eventData).forEach((arr) => {
   arr.forEach((ev) => {
-    if (!ev.hasOwnProperty("registrationLink"))
+    if (!ev.registrationLink)
       ev.registrationLink = "https://forms.gle/REPLACE_WITH_LINK";
   });
 });
@@ -614,10 +661,28 @@ export default function EventDescription() {
   const { category } = useParams();
   const decodedCategory = decodeURIComponent(category);
   const events = eventData[decodedCategory] || [];
+  const [selectedDay, setSelectedDay] = useState(null);
   const headerRef = useRef(null);
   const titleRef = useRef(null);
   const lineRef = useRef(null);
   const backButtonRef = useRef(null);
+
+  // Days mapping for Red Building Events: Day 1 = 26, Day 2 = 27, Day 3 = 28
+  const reverseDayMapping = { "Day 1": "26", "Day 2": "27", "Day 3": "28" };
+
+  // Set default selected day
+  useEffect(() => {
+    if (decodedCategory === "Red Building Events" && !selectedDay) {
+      requestAnimationFrame(() => {
+        setSelectedDay("Day 1");
+      });
+    }
+  }, [decodedCategory, selectedDay]);
+
+  // Filter events by selected day
+  const filteredEvents = selectedDay && decodedCategory === "Red Building Events"
+    ? events.filter(e => e.dateDay === reverseDayMapping[selectedDay])
+    : events;
 
   useGSAP(() => {
     const timeline = gsap.timeline();
@@ -650,7 +715,6 @@ export default function EventDescription() {
   // Show a dedicated Coming Soon page for these categories
   const comingSoonCategories = [
     "Agenda",
-    "Red Building Events",
     "Night Shows",
     "Carnival",
   ];
@@ -660,10 +724,6 @@ export default function EventDescription() {
 
   const handleRegister = (eventTitle) => {
     alert(`Registeblue for ${eventTitle}!`);
-  };
-
-  const handleClose = () => {
-    navigate("/");
   };
 
   return (
@@ -728,7 +788,26 @@ export default function EventDescription() {
 
       {/* Events List - centeblue section with equal side margins */}
       <section className="mx-auto w-full max-w-5xl space-y-6 px-4 pt-32 md:pt-24">
-        {events.map((event, index) => (
+        {/* Day Selection Buttons for Red Building Events */}
+        {decodedCategory === "Red Building Events" && (
+          <div className="flex gap-3 flex-wrap mb-6">
+            {["Day 1", "Day 2", "Day 3"].map((day) => (
+              <button
+                key={day}
+                onClick={() => setSelectedDay(day)}
+                className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                  selectedDay === day
+                    ? "bg-blue-500 text-white"
+                    : "bg-white/10 text-white/70 hover:bg-white/20"
+                }`}
+              >
+                {day}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {filteredEvents.map((event, index) => (
           <EventItem
             key={event.id}
             event={event}

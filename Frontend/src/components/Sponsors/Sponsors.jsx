@@ -79,7 +79,11 @@ export default function Sponsors() {
                             className="flex flex-col items-center text-center group  transition-all duration-300 "
                           >
                             {/* Sponsor Logo/Avatar Placeholder */}
-                            <div className="w-50 h-30 md:w-90 md:h-45 bg-white/90 mb-4 flex items-center justify-center overflow-hidden">
+                            <div className={`w-50 h-30 md:w-90 md:h-45 mb-4 flex items-center justify-center overflow-hidden ${
+                                (sponsor.name === "Printer's Desk" || sponsor.name === "Aram IAS Academy")
+                                  ? 'bg-black'
+                                  : 'bg-white/90'
+                              }`}>
                               {sponsor.logo ? (
                                 <img
                                   src={sponsor.logo}
