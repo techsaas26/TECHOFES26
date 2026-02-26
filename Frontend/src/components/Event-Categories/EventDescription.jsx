@@ -407,6 +407,7 @@ function EventItem({ event, onRegister, index, category }) {
 
 
 
+
   // Titles for which Register/Poster/Rules buttons should be hidden
   const hideButtons = [
     "Movie Night",
