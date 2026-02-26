@@ -14,14 +14,15 @@ function RulesModal({ isOpen, rulesImage, rulesText, onClose }) {
   const isAnimatingRef = useRef(false);
 
   useEffect(() => {
-    if (isOpen && modalRef.current) {
+    if (!isOpen) return;
+    requestAnimationFrame(() => setCarouselIndex(0));
+    if (modalRef.current) {
       gsap.fromTo(
         modalRef.current,
         { opacity: 0, scale: 0.9, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power3.out" },
       );
     }
-    if (isOpen) setCarouselIndex(0);
   }, [isOpen]);
 
   useEffect(() => {
@@ -102,30 +103,9 @@ function RulesModal({ isOpen, rulesImage, rulesText, onClose }) {
     slideTo(newIndex, "left");
   };
 
-  const animateButton = (el) => {
-    if (!el) return;
-    gsap.fromTo(
-      el,
-      { scale: 1 },
-      {
-        scale: 0.86,
-        duration: 0.08,
-        yoyo: true,
-        repeat: 1,
-        ease: "power1.inOut",
-      },
-    );
-  };
 
-  const handlePrevClick = (e) => {
-    animateButton(e.currentTarget);
-    prev();
-  };
 
-  const handleNextClick = (e) => {
-    animateButton(e.currentTarget);
-    next();
-  };
+
 
   return (
     <div
@@ -393,10 +373,7 @@ function EventItem({ event, onRegister, index, category }) {
     }
   }, [index]);
 
-  const handleDetailsClick = () => {
-    // Open the details modal on all devices
-    setIsDetailsOpen(true);
-  };
+
 
   // Titles for which Register/Poster/Rules buttons should be hidden
   const hideButtons = [
@@ -414,7 +391,6 @@ function EventItem({ event, onRegister, index, category }) {
         onMouseEnter={() => setIsHoveblue(true)}
         onMouseLeave={() => {
           setIsHoveblue(false);
-          setShowPosterHover(false); 
         }}
         style={{
           backgroundImage: event.image
@@ -604,8 +580,7 @@ function EventItem({ event, onRegister, index, category }) {
 // Replace the placeholder with your actual Google Form link (one per event) when ready.
 Object.values(eventData).forEach((arr) => {
   arr.forEach((ev) => {
-    if (!ev.hasOwnProperty("registrationLink"))
-      ev.registrationLink = "https://forms.gle/REPLACE_WITH_LINK";
+    if (!ev.registrationLink) ev.registrationLink = "https://forms.gle/REPLACE_WITH_LINK";
   });
 });
 
@@ -660,10 +635,6 @@ export default function EventDescription() {
 
   const handleRegister = (eventTitle) => {
     alert(`Registeblue for ${eventTitle}!`);
-  };
-
-  const handleClose = () => {
-    navigate("/");
   };
 
   return (
